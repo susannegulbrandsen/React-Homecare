@@ -62,38 +62,8 @@ namespace HomeCareApp.Controllers
                 // Add user to role
                 await _userManager.AddToRoleAsync(user, registerDto.Role);
 
-                // Create corresponding Patient or Employee record
-                if (registerDto.Role == "Patient")
-                {
-                    var patient = new Patient
-                    {
-                        FullName = registerDto.Username, // Use username as default, user can update later
-                        Address = "Not specified",
-                        DateOfBirth = DateTime.Now.AddYears(-30), // Default age
-                        phonenumber = "",
-                        HealthRelated_info = "Not specified",
-                        UserId = user.Id,
-                        User = user,
-                        Appointments = new List<Appointment>()
-                    };
-                    await _patientRepository.Create(patient);
-                }
-                else if (registerDto.Role == "Employee")
-                {
-                    var employee = new Employee
-                    {
-                        FullName = registerDto.Username, // Use username as default, user can update later
-                        Address = "Not specified",
-                        Department = "Not specified",
-                        UserId = user.Id,
-                        User = user,
-                        Appointments = new List<Appointment>()
-                    };
-                    await _employeeRepository.Create(employee);
-                }
-
                 _logger.LogInformation("[AuthAPIController] user registered for {@username} with role {@role}", registerDto.Username, registerDto.Role);
-                return Ok(new { Message = "User registered successfully" });
+                return Ok(new { Message = "User registered successfully. Please complete your profile." });
             }
 
             _logger.LogWarning("[AuthAPIController] user registration failed for {@username}", registerDto.Username);
@@ -128,96 +98,140 @@ namespace HomeCareApp.Controllers
         }
 
         [Authorize]
-        [HttpPost("create-profile")]
-        public async Task<IActionResult> CreateProfile()
+        [HttpPost("complete-patient-profile")]
+        public async Task<IActionResult> CompletePatientProfile([FromBody] PatientProfileDto profileDto)
         {
-            // Try multiple ways to get the user ID and username
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var userIdFromNameId = User.FindFirst("nameid")?.Value;
-            var userIdFromSub = User.FindFirst("sub")?.Value;
-            var username = User.FindFirst("sub")?.Value ?? 
-                          User.FindFirst(ClaimTypes.Name)?.Value ?? 
-                          User.FindFirst("username")?.Value ??
-                          User.Identity?.Name;
-            
-            _logger.LogInformation("[AuthAPIController] Create Profile Claims - NameIdentifier: {UserId}, nameid: {NameId}, sub: {Sub}, username: {Username}, Identity.Name: {IdentityName}", 
-                userId, userIdFromNameId, userIdFromSub, username, User.Identity?.Name);
-            
-            AuthUser? user = null;
-            
-            // Try to find user by ID first
-            var actualUserId = userId ?? userIdFromNameId;
-            if (!string.IsNullOrEmpty(actualUserId))
-            {
-                user = await _userManager.FindByIdAsync(actualUserId);
-            }
-            
-            // If not found by ID, try by username
-            if (user == null && !string.IsNullOrEmpty(username))
-            {
-                user = await _userManager.FindByNameAsync(username);
-                if (user != null)
-                {
-                    actualUserId = user.Id; // Update to actual user ID
-                }
-            }
-            
+            var user = await GetCurrentUserAsync();
             if (user == null)
             {
                 return NotFound("User not found");
             }
 
             var roles = await _userManager.GetRolesAsync(user);
-            
-            foreach (var role in roles)
+            if (!roles.Contains("Patient"))
             {
-                if (role == "Patient")
-                {
-                    // Check if patient record already exists
-                    var patients = await _patientRepository.GetAll();
-                    var existingPatient = patients.FirstOrDefault(p => p.UserId == actualUserId);
-                    
-                    if (existingPatient == null)
-                    {
-                        var patient = new Patient
-                        {
-                            FullName = user.UserName ?? "Not specified",
-                            Address = "Not specified",
-                            DateOfBirth = DateTime.Now.AddYears(-30),
-                            phonenumber = "",
-                            HealthRelated_info = "Not specified",
-                            UserId = user.Id,
-                            User = user,
-                            Appointments = new List<Appointment>()
-                        };
-                        await _patientRepository.Create(patient);
-                        Console.WriteLine($"[AuthController] Created patient profile for UserId: {actualUserId}");
-                    }
-                }
-                else if (role == "Employee")
-                {
-                    // Check if employee record already exists
-                    var employees = await _employeeRepository.GetAll();
-                    var existingEmployee = employees.FirstOrDefault(e => e.UserId == actualUserId);
-                    
-                    if (existingEmployee == null)
-                    {
-                        var employee = new Employee
-                        {
-                            FullName = user.UserName ?? "Not specified",
-                            Address = "Not specified",
-                            Department = "Not specified",
-                            UserId = user.Id,
-                            User = user,
-                            Appointments = new List<Appointment>()
-                        };
-                        await _employeeRepository.Create(employee);
-                        Console.WriteLine($"[AuthController] Created employee profile for UserId: {actualUserId}");
-                    }
-                }
+                return BadRequest("User is not a patient");
             }
 
-            return Ok(new { Message = "Profile created successfully" });
+            // Check if patient record already exists
+            var patients = await _patientRepository.GetAll();
+            var existingPatient = patients.FirstOrDefault(p => p.UserId == user.Id);
+            
+            if (existingPatient != null)
+            {
+                return BadRequest("Patient profile already exists");
+            }
+
+            var patient = new Patient
+            {
+                FullName = profileDto.FullName,
+                Address = profileDto.Address,
+                DateOfBirth = profileDto.DateOfBirth,
+                phonenumber = profileDto.PhoneNumber,
+                HealthRelated_info = profileDto.HealthRelatedInfo,
+                UserId = user.Id,
+                User = user,
+                Appointments = new List<Appointment>()
+            };
+
+            await _patientRepository.Create(patient);
+            _logger.LogInformation("[AuthAPIController] Patient profile created for {Username}", user.UserName);
+            
+            return Ok(new { Message = "Patient profile created successfully" });
+        }
+
+        [Authorize]
+        [HttpPost("complete-employee-profile")]
+        public async Task<IActionResult> CompleteEmployeeProfile([FromBody] EmployeeProfileDto profileDto)
+        {
+            var user = await GetCurrentUserAsync();
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            var roles = await _userManager.GetRolesAsync(user);
+            if (!roles.Contains("Employee"))
+            {
+                return BadRequest("User is not an employee");
+            }
+
+            // Check if employee record already exists
+            var employees = await _employeeRepository.GetAll();
+            var existingEmployee = employees.FirstOrDefault(e => e.UserId == user.Id);
+            
+            if (existingEmployee != null)
+            {
+                return BadRequest("Employee profile already exists");
+            }
+
+            var employee = new Employee
+            {
+                FullName = profileDto.FullName,
+                Address = profileDto.Address,
+                Department = profileDto.Department,
+                UserId = user.Id,
+                User = user,
+                Appointments = new List<Appointment>()
+            };
+
+            await _employeeRepository.Create(employee);
+            _logger.LogInformation("[AuthAPIController] Employee profile created for {Username}", user.UserName);
+            
+            return Ok(new { Message = "Employee profile created successfully" });
+        }
+
+        private async Task<AuthUser?> GetCurrentUserAsync()
+        {
+            // Get all NameIdentifier claims (there might be multiple)
+            var allNameIdentifierClaims = User.FindAll(ClaimTypes.NameIdentifier).Select(c => c.Value).ToList();
+            var userIdFromNameId = User.FindFirst("nameid")?.Value;
+            var userIdFromSub = User.FindFirst("sub")?.Value;
+            var userIdFromUserid = User.FindFirst("userid")?.Value;
+            var username = User.FindFirst(ClaimTypes.Name)?.Value ?? 
+                          User.FindFirst("username")?.Value ??
+                          User.Identity?.Name;
+            
+            AuthUser? user = null;
+            
+            // Try to find user by each possible ID (prioritize GUID format)
+            var possibleIds = new List<string?> { userIdFromSub, userIdFromNameId, userIdFromUserid }
+                .Concat(allNameIdentifierClaims)
+                .Where(id => !string.IsNullOrEmpty(id))
+                .Distinct()
+                .ToList();
+                
+            foreach (var id in possibleIds)
+            {
+                if (string.IsNullOrEmpty(id)) continue;
+                
+                // Check if it looks like a GUID (prioritize these)
+                if (Guid.TryParse(id, out _))
+                {
+                    user = await _userManager.FindByIdAsync(id);
+                    if (user != null) break;
+                }
+            }
+            
+            // If still not found, try by username
+            if (user == null && !string.IsNullOrEmpty(username))
+            {
+                user = await _userManager.FindByNameAsync(username);
+            }
+            
+            // Try non-GUID IDs as last resort
+            if (user == null)
+            {
+                foreach (var id in possibleIds)
+                {
+                    if (string.IsNullOrEmpty(id) || Guid.TryParse(id, out _)) continue;
+                    
+                    user = await _userManager.FindByIdAsync(id);
+                    if (user != null) break;
+                }
+            }
+            
+            return user;
         }
 
         [Authorize]

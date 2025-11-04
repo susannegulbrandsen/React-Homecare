@@ -14,7 +14,8 @@ const AuthSection: React.FC = () => {
                         Welcome, {user.role} {user.sub}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
+                        <Dropdown.Item as={Link} to="/profile-setup">Profile Setup</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                     </Dropdown.Menu>

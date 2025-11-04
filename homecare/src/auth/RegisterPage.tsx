@@ -24,8 +24,8 @@ const RegisterPage: React.FC = () => {
         setSuccess(null);
         try {
             await authService.register(formData);
-            setSuccess('Registration successful! You can now log in.');
-            setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
+            setSuccess('Registration successful! Please log in to complete your profile.');
+            setTimeout(() => navigate('/login'), 2000); // Redirect to login first
         } catch (err) {
             if (err instanceof Error) {
                 setError(err.message);

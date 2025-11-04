@@ -1,0 +1,16 @@
+2025-11-04 12:40:51.066 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 12:40:51.134 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 12:40:51.460 +01:00 [INF] User profile is available. Using 'C:\Users\B\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 12:40:51.497 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-04 12:40:51.500 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 12:40:51.500 +01:00 [INF] Hosting environment: Development
+2025-11-04 12:40:51.535 +01:00 [INF] Content root path: C:\Users\B\Documents\ITPE3200\React-Homecare\api
+2025-11-04 12:41:18.786 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - null null
+2025-11-04 12:41:18.810 +01:00 [INF] CORS policy execution failed.
+2025-11-04 12:41:18.810 +01:00 [INF] Request origin http://localhost:5174 does not have permission to access the resource.
+2025-11-04 12:41:18.813 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - 204 null null 28.1347ms
+2025-11-04 12:41:30.091 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - null null
+2025-11-04 12:41:30.095 +01:00 [INF] CORS policy execution failed.
+2025-11-04 12:41:30.095 +01:00 [INF] Request origin http://localhost:5174 does not have permission to access the resource.
+2025-11-04 12:41:30.095 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - 204 null null 4.3517ms
+2025-11-04 12:42:53.565 +01:00 [INF] Application is shutting down...

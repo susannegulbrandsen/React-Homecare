@@ -41,13 +41,19 @@ const ProfilePage: React.FC = () => {
             
             console.log('User object:', user);
             console.log('User role:', user.role);
-            console.log('User nameid:', user.nameid);
+            console.log('User sub:', user.sub);
+            console.log('All user properties:', Object.keys(user));
+            
+            // Try multiple ways to get user ID - check what's actually available
+            const userId = user.sub || user.nameid;
+            
+            console.log('Resolved userId:', userId);
             
             // Determine which endpoint to use based on user role
             if (user.role === 'Patient') {
-                endpoint = `/api/patient/user/${user.nameid}`;
+                endpoint = `/api/patient/user/${userId}`;
             } else if (user.role === 'Employee') {
-                endpoint = `/api/employee/user/${user.nameid}`;
+                endpoint = `/api/employee/user/${userId}`;
             }
             
             console.log('Endpoint:', endpoint);
