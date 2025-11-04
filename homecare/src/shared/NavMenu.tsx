@@ -17,8 +17,8 @@ const NavMenu: React.FC = () => {
           {/* Show appointments for all authenticated users */}
           {user && <Nav.Link href="/appointments">Appointments</Nav.Link>}
           
-          {/* Profile Setup Link for testing */}
-          {user && <Nav.Link href="/profile-setup">Profile Setup</Nav.Link>}
+          {/* Profile link for all authenticated users */}
+          {user && <Nav.Link href="/profile">Profile</Nav.Link>}
           
           {/* Employee-specific navigation - Management dropdown removed */}
           

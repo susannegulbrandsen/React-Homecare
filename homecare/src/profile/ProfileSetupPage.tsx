@@ -76,7 +76,7 @@ const ProfileSetupPage: React.FC = () => {
             }
 
             setSuccess('Patient profile created successfully!');
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/appointments'), 2000);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred');
         } finally {
@@ -107,7 +107,7 @@ const ProfileSetupPage: React.FC = () => {
             }
 
             setSuccess('Employee profile created successfully!');
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/appointments'), 2000);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred');
         } finally {

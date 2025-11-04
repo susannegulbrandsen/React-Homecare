@@ -11,11 +11,10 @@ const AuthSection: React.FC = () => {
             {user ? (
                 <Dropdown align="end">
                     <Dropdown.Toggle as={Nav.Link} id="dropdown-user">
-                        Welcome, {user.role} {user.sub}
+                        Welcome, {user.role} {user.username}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
-                        <Dropdown.Item as={Link} to="/profile-setup">Profile Setup</Dropdown.Item>
                         <Dropdown.Divider />
                         <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                     </Dropdown.Menu>

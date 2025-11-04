@@ -257,7 +257,7 @@ const ProfilePage: React.FC = () => {
                                 <Col md={6}>
                                     <div className="mb-3">
                                         <strong>Username:</strong>
-                                        <p className="mt-1">{user?.sub}</p>
+                                        <p className="mt-1">{user?.username}</p>
                                     </div>
                                 </Col>
                                 <Col md={6}>
