@@ -723,3 +723,4 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving 
 2025-11-04 09:58:27.627 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.2885ms
 2025-11-04 09:58:27.627 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
 2025-11-04 09:58:27.627 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 656 application/json; charset=utf-8 3.1894ms
+2025-11-04 10:06:54.107 +01:00 [INF] Application is shutting down...
