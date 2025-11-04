@@ -49,4 +49,60 @@ export const register = async (userData: RegisterDto): Promise<any> => {
     return response.json();
 };
 
+export const createProfile = async (): Promise<{ message: string }> => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        throw new Error('No authentication token found');
+    }
+
+    const response = await fetch(`${API_URL}/api/Auth/create-profile`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        const responseText = await response.text();
+        try {
+            const errorData = JSON.parse(responseText);
+            const errorMessages = errorData.map((err: { description: string }) => err.description).join(', ');
+            throw new Error(errorMessages || 'Profile creation failed');
+        } catch (jsonError) {
+            throw new Error(responseText || `Profile creation failed with status ${response.status}`);
+        }
+    }
+
+    return response.json();
+};
+
+export const deleteAccount = async (): Promise<{ message: string }> => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        throw new Error('No authentication token found');
+    }
+
+    const response = await fetch(`${API_URL}/api/Auth/delete-account`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        const responseText = await response.text();
+        try {
+            const errorData = JSON.parse(responseText);
+            const errorMessages = errorData.map((err: { description: string }) => err.description).join(', ');
+            throw new Error(errorMessages || 'Account deletion failed');
+        } catch (jsonError) {
+            throw new Error(responseText || `Account deletion failed with status ${response.status}`);
+        }
+    }
+
+    return response.json();
+};
+
 // Logout is handled client-side by clearing the token.

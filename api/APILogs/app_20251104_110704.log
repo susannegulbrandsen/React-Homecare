@@ -1,0 +1,99 @@
+2025-11-04 11:07:04.692 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 11:07:04.757 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 11:07:05.145 +01:00 [INF] User profile is available. Using 'C:\Users\B\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 11:07:05.188 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-04 11:07:05.190 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 11:07:05.190 +01:00 [INF] Hosting environment: Development
+2025-11-04 11:07:05.224 +01:00 [INF] Content root path: C:\Users\B\Documents\ITPE3200\React-Homecare\api
+2025-11-04 11:07:46.990 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - null null
+2025-11-04 11:07:47.015 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:07:47.019 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - 204 null null 29.2915ms
+2025-11-04 11:07:47.023 +01:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - application/json null
+2025-11-04 11:07:47.027 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:07:47.113 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:07:47.121 +01:00 [INF] Route matched with {action = "DeleteAccount", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteAccount() on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-04 11:07:47.174 +01:00 [WRN] [AuthAPIController] delete account failed - user not found: Susanne
+2025-11-04 11:07:47.181 +01:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-11-04 11:07:47.258 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.DeleteAccount (api) in 133.1678ms
+2025-11-04 11:07:47.258 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:07:47.260 +01:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - 404 162 application/problem+json; charset=utf-8 236.6228ms
+2025-11-04 11:08:32.204 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:08:32.204 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:08:32.205 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:32.205 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:32.205 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 1.9965ms
+2025-11-04 11:08:32.205 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 1.323ms
+2025-11-04 11:08:32.207 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:08:32.213 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:32.216 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 8.1212ms
+2025-11-04 11:08:32.216 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:08:32.218 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:08:32.219 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:32.222 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 4.4408ms
+2025-11-04 11:08:32.223 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:08:35.748 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - null null
+2025-11-04 11:08:35.749 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:35.750 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - 204 null null 1.6155ms
+2025-11-04 11:08:35.752 +01:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - application/json null
+2025-11-04 11:08:35.753 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:08:35.757 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:08:35.758 +01:00 [INF] Route matched with {action = "DeleteAccount", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteAccount() on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-04 11:08:35.770 +01:00 [WRN] [AuthAPIController] delete account failed - user not found: Susanne
+2025-11-04 11:08:35.771 +01:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-11-04 11:08:35.772 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.DeleteAccount (api) in 13.9029ms
+2025-11-04 11:08:35.772 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:08:35.772 +01:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - 404 162 application/problem+json; charset=utf-8 19.9531ms
+2025-11-04 11:10:00.798 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:10:00.798 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:10:00.799 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.799 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.799 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 0.9634ms
+2025-11-04 11:10:00.799 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 0.5268ms
+2025-11-04 11:10:00.800 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:10:00.801 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.801 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 0.7605ms
+2025-11-04 11:10:00.801 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:10:00.802 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:10:00.802 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.802 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 0.5249ms
+2025-11-04 11:10:00.802 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:10:00.803 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - null null
+2025-11-04 11:10:00.803 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.803 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - 204 null null 0.2015ms
+2025-11-04 11:10:00.804 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:10:00.804 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.804 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 0 null 0.312ms
+2025-11-04 11:10:00.804 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5090/api/Auth/create-profile, Response status code: 404
+2025-11-04 11:10:00.805 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:10:00.806 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:00.806 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 0 null 0.4283ms
+2025-11-04 11:10:00.806 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5090/api/Auth/create-profile, Response status code: 404
+2025-11-04 11:10:07.786 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:10:07.787 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:10:07.787 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.787 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.787 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 0.7459ms
+2025-11-04 11:10:07.787 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 0.4922ms
+2025-11-04 11:10:07.789 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:10:07.789 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.789 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 0.4402ms
+2025-11-04 11:10:07.789 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:10:07.791 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:10:07.791 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.792 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 0.8626ms
+2025-11-04 11:10:07.792 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:10:07.793 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - null null
+2025-11-04 11:10:07.793 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.793 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - 204 null null 0.4497ms
+2025-11-04 11:10:07.794 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - null null
+2025-11-04 11:10:07.794 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.794 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - 204 null null 0.1981ms
+2025-11-04 11:10:07.795 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:10:07.795 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.795 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 0 null 0.6432ms
+2025-11-04 11:10:07.796 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5090/api/Auth/create-profile, Response status code: 404
+2025-11-04 11:10:07.796 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:10:07.796 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:10:07.796 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 0 null 0.5549ms
+2025-11-04 11:10:07.796 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5090/api/Auth/create-profile, Response status code: 404
+2025-11-04 11:10:20.034 +01:00 [INF] Application is shutting down...

@@ -91,10 +91,16 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
             builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT key not found in configuration.")
-        ))
+        )),
+        // Preserve JWT claims without mapping
+        NameClaimType = "sub",
+        RoleClaimType = "role"
     };
 });
 
+
+// Clear default claims mapping to preserve JWT claims
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var loggerConfiguration = new LoggerConfiguration()
     .MinimumLevel.Information() // levels: Trace< Information < Warning < Erorr < Fatal

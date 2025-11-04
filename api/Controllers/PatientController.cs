@@ -64,11 +64,22 @@ public class PatientController : ControllerBase
     [HttpGet("user/{userId}")]
     public async Task<ActionResult<PatientDto>> GetPatientByUserId(string userId)
     {
+        Console.WriteLine($"[PatientController] Getting patient by UserId: {userId}");
         var patients = await _patientRepository.GetAll();
+        Console.WriteLine($"[PatientController] Total patients in database: {patients.Count()}");
+        
+        foreach (var p in patients)
+        {
+            Console.WriteLine($"[PatientController] Patient: {p.PatientId}, UserId: {p.UserId}");
+        }
+        
         var patient = patients.FirstOrDefault(p => p.UserId == userId);
         
         if (patient == null)
+        {
+            Console.WriteLine($"[PatientController] Patient with UserId {userId} not found");
             return NotFound($"Patient with UserId {userId} not found");
+        }
 
         var patientDto = new PatientDto
         {

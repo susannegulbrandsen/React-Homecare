@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import AuthSection from '../auth/AuthSection';
 import { useAuth } from '../auth/AuthContext';
 
@@ -17,15 +17,7 @@ const NavMenu: React.FC = () => {
           {/* Show appointments for all authenticated users */}
           {user && <Nav.Link href="/appointments">Appointments</Nav.Link>}
           
-          {/* Employee-specific navigation */}
-          {user?.role === 'Employee' && (
-            <NavDropdown title="Management" id="employee-nav-dropdown">
-              <NavDropdown.Item href="/patients">Patients</NavDropdown.Item>
-              <NavDropdown.Item href="/employees">Staff</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/appointments/new">New Appointment</NavDropdown.Item>
-            </NavDropdown>
-          )}
+          {/* Employee-specific navigation - Management dropdown removed */}
           
           {/* Patient-specific navigation */}
           {user?.role === 'Patient' && (

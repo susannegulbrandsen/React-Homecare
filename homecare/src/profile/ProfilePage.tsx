@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Container, Row, Col, Button, Alert, Form } from 'react-bootstrap';
+import { Card, Container, Row, Col, Button, Alert, Form, Modal } from 'react-bootstrap';
 import { useAuth } from '../auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePage: React.FC = () => {
-    const { user } = useAuth();
+    const { user, deleteAccount } = useAuth();
+    const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     const [userInfo, setUserInfo] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     // Form state for editing
     const [formData, setFormData] = useState({
         fullName: '',
         address: '',
         department: '',
-        email: ''
+        email: '',
+        phonenumber: '',
+        healthRelated_info: '',
+        dateOfBirth: ''
     });
 
     useEffect(() => {
@@ -23,11 +30,18 @@ const ProfilePage: React.FC = () => {
     }, [user]);
 
     const fetchUserProfile = async () => {
-        if (!user) return;
+        if (!user) {
+            console.log('No user found');
+            return;
+        }
         
         try {
             setLoading(true);
             let endpoint = '';
+            
+            console.log('User object:', user);
+            console.log('User role:', user.role);
+            console.log('User nameid:', user.nameid);
             
             // Determine which endpoint to use based on user role
             if (user.role === 'Patient') {
@@ -36,13 +50,20 @@ const ProfilePage: React.FC = () => {
                 endpoint = `/api/employee/user/${user.nameid}`;
             }
             
+            console.log('Endpoint:', endpoint);
+            
             const token = localStorage.getItem('token');
+            console.log('Token exists:', !!token);
+            
             const response = await fetch(`http://localhost:5090${endpoint}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 }
             });
+            
+            console.log('Response status:', response.status);
+            console.log('Response ok:', response.ok);
             
             if (response.ok) {
                 const data = await response.json();
@@ -51,10 +72,41 @@ const ProfilePage: React.FC = () => {
                     fullName: data.fullName || '',
                     address: data.address || '',
                     department: data.department || '',
-                    email: user.email || ''
+                    email: user.email || '',
+                    phonenumber: data.phonenumber || '',
+                    healthRelated_info: data.healthRelated_info || '',
+                    dateOfBirth: data.dateOfBirth ? data.dateOfBirth.split('T')[0] : ''
                 });
+            } else if (response.status === 404) {
+                // Profile not found - try to create it
+                console.log('Profile not found, attempting to create profile...');
+                try {
+                    const createResponse = await fetch(`http://localhost:5090/api/Auth/create-profile`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    if (createResponse.ok) {
+                        console.log('Profile created successfully, refetching...');
+                        // Retry fetching the profile
+                        await fetchUserProfile();
+                        return;
+                    } else {
+                        const createErrorText = await createResponse.text();
+                        console.log('Failed to create profile:', createResponse.status, createErrorText);
+                        setError(`Failed to create profile: ${createResponse.status} - ${createErrorText}`);
+                    }
+                } catch (createErr) {
+                    console.error('Error creating profile:', createErr);
+                    setError('Error creating profile');
+                }
             } else {
-                setError('Failed to load profile information');
+                const errorText = await response.text();
+                console.log('Error response:', response.status, errorText);
+                setError(`Failed to load profile information: ${response.status} - ${errorText}`);
             }
         } catch (err) {
             setError('Error loading profile');
@@ -64,7 +116,7 @@ const ProfilePage: React.FC = () => {
         }
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -95,7 +147,10 @@ const ProfilePage: React.FC = () => {
                     ...userInfo,
                     fullName: formData.fullName,
                     address: formData.address,
-                    department: formData.department
+                    department: formData.department,
+                    phonenumber: formData.phonenumber,
+                    healthRelated_info: formData.healthRelated_info,
+                    dateOfBirth: formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString() : userInfo.dateOfBirth
                 })
             });
             
@@ -119,8 +174,55 @@ const ProfilePage: React.FC = () => {
             fullName: userInfo?.fullName || '',
             address: userInfo?.address || '',
             department: userInfo?.department || '',
-            email: user?.email || ''
+            email: user?.email || '',
+            phonenumber: userInfo?.phonenumber || '',
+            healthRelated_info: userInfo?.healthRelated_info || '',
+            dateOfBirth: userInfo?.dateOfBirth ? userInfo.dateOfBirth.split('T')[0] : ''
         });
+    };
+
+    const handleDeleteAccount = async () => {
+        try {
+            setIsDeleting(true);
+            setError(null);
+            
+            // First delete the patient/employee record if it exists
+            if (userInfo) {
+                let endpoint = '';
+                if (user?.role === 'Patient' && userInfo.patientId) {
+                    endpoint = `/api/patient/${userInfo.patientId}`;
+                } else if (user?.role === 'Employee' && userInfo.employeeId) {
+                    endpoint = `/api/employee/${userInfo.employeeId}`;
+                }
+                
+                if (endpoint) {
+                    const token = localStorage.getItem('token');
+                    const response = await fetch(`http://localhost:5090${endpoint}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        console.warn('Failed to delete patient/employee record, proceeding with account deletion');
+                    }
+                }
+            }
+            
+            // Then delete the user account
+            await deleteAccount();
+            
+            // Navigate to home page
+            navigate('/');
+        } catch (err) {
+            console.error('Error deleting account:', err);
+            setError(err instanceof Error ? err.message : 'Failed to delete account');
+        } finally {
+            setIsDeleting(false);
+            setShowDeleteModal(false);
+        }
     };
 
     if (loading) {
@@ -247,6 +349,62 @@ const ProfilePage: React.FC = () => {
                                                 </Col>
                                             )}
                                         </Row>
+
+                                        {user?.role === 'Patient' && (
+                                            <>
+                                                <Row>
+                                                    <Col md={6}>
+                                                        <Form.Group className="mb-3">
+                                                            <Form.Label><strong>Phone Number:</strong></Form.Label>
+                                                            {isEditing ? (
+                                                                <Form.Control
+                                                                    type="text"
+                                                                    name="phonenumber"
+                                                                    value={formData.phonenumber}
+                                                                    onChange={handleInputChange}
+                                                                    placeholder="+47xxxxxxxx"
+                                                                />
+                                                            ) : (
+                                                                <p className="mt-1">{userInfo.phonenumber}</p>
+                                                            )}
+                                                        </Form.Group>
+                                                    </Col>
+                                                    <Col md={6}>
+                                                        <Form.Group className="mb-3">
+                                                            <Form.Label><strong>Date of Birth:</strong></Form.Label>
+                                                            {isEditing ? (
+                                                                <Form.Control
+                                                                    type="date"
+                                                                    name="dateOfBirth"
+                                                                    value={formData.dateOfBirth}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                            ) : (
+                                                                <p className="mt-1">{userInfo.dateOfBirth ? new Date(userInfo.dateOfBirth).toLocaleDateString() : ''}</p>
+                                                            )}
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col md={12}>
+                                                        <Form.Group className="mb-3">
+                                                            <Form.Label><strong>Health Related Information:</strong></Form.Label>
+                                                            {isEditing ? (
+                                                                <Form.Control
+                                                                    as="textarea"
+                                                                    rows={3}
+                                                                    name="healthRelated_info"
+                                                                    value={formData.healthRelated_info}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                            ) : (
+                                                                <p className="mt-1">{userInfo.healthRelated_info}</p>
+                                                            )}
+                                                        </Form.Group>
+                                                    </Col>
+                                                </Row>
+                                            </>
+                                        )}
                                     </Form>
                                 </>
                             )}
@@ -269,14 +427,52 @@ const ProfilePage: React.FC = () => {
                                         </Button>
                                     </div>
                                 ) : (
-                                    <Button 
-                                        variant="primary" 
-                                        onClick={() => setIsEditing(true)}
-                                    >
-                                        Edit Profile
-                                    </Button>
+                                    <div>
+                                        <Button 
+                                            variant="primary" 
+                                            onClick={() => setIsEditing(true)}
+                                            className="me-2"
+                                        >
+                                            Edit Profile
+                                        </Button>
+                                        <Button 
+                                            variant="danger" 
+                                            onClick={() => setShowDeleteModal(true)}
+                                        >
+                                            Delete Account
+                                        </Button>
+                                    </div>
                                 )}
                             </div>
+
+                            {/* Delete Account Confirmation Modal */}
+                            <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Delete Account</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <Alert variant="warning">
+                                        <strong>Warning:</strong> This action cannot be undone. All your data will be permanently deleted.
+                                    </Alert>
+                                    <p>Are you sure you want to delete your account?</p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button 
+                                        variant="secondary" 
+                                        onClick={() => setShowDeleteModal(false)}
+                                        disabled={isDeleting}
+                                    >
+                                        Cancel
+                                    </Button>
+                                    <Button 
+                                        variant="danger" 
+                                        onClick={handleDeleteAccount}
+                                        disabled={isDeleting}
+                                    >
+                                        {isDeleting ? 'Deleting...' : 'Delete Account'}
+                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
                         </Card.Body>
                     </Card>
                 </Col>

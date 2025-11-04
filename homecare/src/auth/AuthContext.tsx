@@ -10,6 +10,7 @@ interface AuthContextType { // Define the shape of the auth context
     token: string | null;
     login: (credentials: LoginDto) => Promise<User>;
     logout: () => void;
+    deleteAccount: () => Promise<void>;
     isLoading: boolean;
 }
 
@@ -24,6 +25,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         if (token) {
             try {
                 const decodedUser: User = jwtDecode(token);
+                console.log('Decoded JWT user:', decodedUser);
                 // Check if the token is expired
                 if (decodedUser.exp * 1000 > Date.now()) {
                     setUser(decodedUser);
@@ -58,8 +60,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setToken(null);
     };
 
+    const deleteAccount = async (): Promise<void> => { // Delete account and clear token and user data
+        await authService.deleteAccount();
+        localStorage.removeItem('token');
+        setUser(null);
+        setToken(null);
+    };
+
     return ( // Provide context to children
-        <AuthContext.Provider value={{ user, token, login, logout, isLoading }}>
+        <AuthContext.Provider value={{ user, token, login, logout, deleteAccount, isLoading }}>
             {!isLoading && children}
         </AuthContext.Provider>
     );

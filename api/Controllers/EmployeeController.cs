@@ -62,9 +62,13 @@ public class EmployeeController : ControllerBase
     [HttpGet("user/{userId}")]
     public async Task<ActionResult<EmployeeDto>> GetEmployeeByUserId(string userId)
     {
+        Console.WriteLine($"[EmployeeController] Getting employee by UserId: {userId}");
         var employee = await _employeeRepository.GetEmployeeByUserId(userId);
         if (employee == null)
+        {
+            Console.WriteLine($"[EmployeeController] Employee with UserId {userId} not found");
             return NotFound($"Employee with UserId {userId} not found");
+        }
 
         var employeeDto = new EmployeeDto
         {

@@ -1,0 +1,28 @@
+2025-11-04 10:52:41.833 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 10:52:41.893 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 10:52:42.237 +01:00 [INF] User profile is available. Using 'C:\Users\B\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 10:52:42.285 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-04 10:52:42.288 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 10:52:42.288 +01:00 [INF] Hosting environment: Development
+2025-11-04 10:52:42.323 +01:00 [INF] Content root path: C:\Users\B\Documents\ITPE3200\React-Homecare\api
+2025-11-04 10:52:48.848 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 10:52:48.848 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 10:52:48.886 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:48.886 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:48.889 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 43.4413ms
+2025-11-04 10:52:48.889 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 43.4442ms
+2025-11-04 10:52:48.891 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 10:52:48.896 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:48.951 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 59.2843ms
+2025-11-04 10:52:48.953 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 10:52:48.953 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 10:52:48.954 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:48.956 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 2.3909ms
+2025-11-04 10:52:48.956 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 10:52:53.321 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 10:52:53.321 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:53.322 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 0.993ms
+2025-11-04 10:52:53.325 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5090/ - application/json 44
+2025-11-04 10:52:53.325 +01:00 [INF] CORS policy execution successful.
+2025-11-04 10:52:53.331 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5090/ - 404 0 null 6.405ms
+2025-11-04 10:52:53.331 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://localhost:5090/, Response status code: 404
