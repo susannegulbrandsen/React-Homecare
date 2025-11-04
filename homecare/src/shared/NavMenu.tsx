@@ -18,7 +18,7 @@ const NavMenu: React.FC = () => {
           {user && <Nav.Link href="/appointments">Appointments</Nav.Link>}
           
           {/* Profile link for all authenticated users */}
-          {user && <Nav.Link href="/profile">Profile</Nav.Link>}
+          {user && <Nav.Link href="/profile">My Profile</Nav.Link>}
           
           {/* Employee-specific navigation - Management dropdown removed */}
           
