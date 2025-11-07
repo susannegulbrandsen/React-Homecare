@@ -4,6 +4,8 @@ import HomePage from './home/HomePage'
 import AppointmentListPage from './appointments/AppointmentListPage'
 import AppointmentCreatePage from './appointments/AppointmentCreatePage'
 import AppointmentUpdatePage from './appointments/AppointmentUpdatePage'
+import ProfilePage from './profile/ProfilePage'
+import ProfileSetupPage from './profile/ProfileSetupPage'
 import NavMenu from './shared/NavMenu'
 import LoginPage from './auth/LoginPage'
 import RegisterPage from './auth/RegisterPage'
@@ -25,6 +27,8 @@ const App: React.FC = () => {
             
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/profile-setup" element={<ProfileSetupPage />} />
               <Route path="/appointmentcreate" element={<AppointmentCreatePage />} />
               <Route path="/appointmentupdate/:appointmentId" element={<AppointmentUpdatePage />} />
             </Route>

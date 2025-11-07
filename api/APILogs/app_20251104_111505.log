@@ -1,0 +1,56 @@
+2025-11-04 11:15:05.780 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 11:15:05.835 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 11:15:06.111 +01:00 [INF] User profile is available. Using 'C:\Users\B\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 11:15:06.143 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-04 11:15:06.145 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 11:15:06.145 +01:00 [INF] Hosting environment: Development
+2025-11-04 11:15:06.147 +01:00 [INF] Content root path: c:\Users\B\Documents\ITPE3200\React-Homecare\api
+2025-11-04 11:15:38.229 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:15:38.229 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/ - null null
+2025-11-04 11:15:38.254 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.254 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.257 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 28.4549ms
+2025-11-04 11:15:38.257 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/ - 204 null null 28.5037ms
+2025-11-04 11:15:38.260 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:15:38.264 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.322 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 61.888ms
+2025-11-04 11:15:38.324 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:15:38.324 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/ - application/json null
+2025-11-04 11:15:38.324 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.325 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - null null
+2025-11-04 11:15:38.325 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/ - 404 0 null 1.4149ms
+2025-11-04 11:15:38.325 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5090/, Response status code: 404
+2025-11-04 11:15:38.326 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.326 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/create-profile - 204 null null 1.2826ms
+2025-11-04 11:15:38.327 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:15:38.327 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - application/json 0
+2025-11-04 11:15:38.328 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.328 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:38.332 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.CreateProfile (api)'
+2025-11-04 11:15:38.332 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.CreateProfile (api)'
+2025-11-04 11:15:38.341 +01:00 [INF] Route matched with {action = "CreateProfile", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateProfile() on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-04 11:15:38.341 +01:00 [INF] Route matched with {action = "CreateProfile", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateProfile() on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-04 11:15:38.346 +01:00 [INF] [AuthAPIController] Create Profile Claims - NameIdentifier: Susanne, nameid: null, username: null
+2025-11-04 11:15:38.346 +01:00 [INF] [AuthAPIController] Create Profile Claims - NameIdentifier: Susanne, nameid: null, username: null
+2025-11-04 11:15:38.385 +01:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-11-04 11:15:38.385 +01:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-11-04 11:15:38.387 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.CreateProfile (api) in 44.325ms
+2025-11-04 11:15:38.387 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.CreateProfile (api) in 44.3284ms
+2025-11-04 11:15:38.387 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.CreateProfile (api)'
+2025-11-04 11:15:38.387 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.CreateProfile (api)'
+2025-11-04 11:15:38.390 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 null text/plain; charset=utf-8 63.0787ms
+2025-11-04 11:15:38.390 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/create-profile - 404 null text/plain; charset=utf-8 62.9613ms
+2025-11-04 11:15:41.638 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - null null
+2025-11-04 11:15:41.642 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:41.642 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/delete-account - 204 null null 4.2741ms
+2025-11-04 11:15:41.644 +01:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - application/json null
+2025-11-04 11:15:41.644 +01:00 [INF] CORS policy execution successful.
+2025-11-04 11:15:41.647 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:15:41.655 +01:00 [INF] Route matched with {action = "DeleteAccount", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteAccount() on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-04 11:15:41.672 +01:00 [INF] [AuthAPIController] All Claims: http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier=Susanne, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress=susanne@employee.com, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier=22acae57-ec00-402c-bffb-6fc586a9849b, jti=ee1a4dd9-3f04-44cc-8ec5-3b2765df074a, iat=1762249426, http://schemas.microsoft.com/ws/2008/06/identity/claims/role=Employee, exp=1762256626, iss=HomeCareApp, aud=HomeCareApp
+2025-11-04 11:15:41.672 +01:00 [INF] [AuthAPIController] Claims - NameIdentifier: Susanne, nameid: null, username: null
+2025-11-04 11:15:41.677 +01:00 [WRN] [AuthAPIController] delete account failed - user not found with ID: Susanne or username: null
+2025-11-04 11:15:41.677 +01:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-11-04 11:15:41.734 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.DeleteAccount (api) in 78.5344ms
+2025-11-04 11:15:41.734 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.DeleteAccount (api)'
+2025-11-04 11:15:41.734 +01:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5090/api/Auth/delete-account - 404 162 application/problem+json; charset=utf-8 90.6462ms

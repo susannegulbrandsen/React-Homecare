@@ -60,6 +60,42 @@ public class PatientController : ControllerBase
         return Ok(patientDto);
     }
 
+    // GET: api/patient/user/{userId}
+    [HttpGet("user/{userId}")]
+    public async Task<ActionResult<PatientDto>> GetPatientByUserId(string userId)
+    {
+        Console.WriteLine($"[PatientController] Getting patient by UserId: {userId}");
+        var patients = await _patientRepository.GetAll();
+        Console.WriteLine($"[PatientController] Total patients in database: {patients.Count()}");
+        
+        foreach (var p in patients)
+        {
+            Console.WriteLine($"[PatientController] Patient: {p.PatientId}, UserId: {p.UserId}");
+        }
+        
+        var patient = patients.FirstOrDefault(p => p.UserId == userId);
+        
+        if (patient == null)
+        {
+            Console.WriteLine($"[PatientController] Patient with UserId {userId} not found");
+            return NotFound($"Patient with UserId {userId} not found");
+        }
+
+        var patientDto = new PatientDto
+        {
+            PatientId = patient.PatientId,
+            FullName = patient.FullName,
+            Address = patient.Address,
+            DateOfBirth = patient.DateOfBirth,
+            phonenumber = patient.phonenumber,
+            HealthRelated_info = patient.HealthRelated_info,
+            UserId = patient.UserId,
+            User = patient.User
+        };
+
+        return Ok(patientDto);
+    }
+
     // POST: api/patient
     [HttpPost]
     public async Task<ActionResult<PatientDto>> CreatePatient(PatientDto patientDto)

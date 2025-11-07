@@ -152,6 +152,9 @@ C:\Users\B\Documents\ITPE3200\React-Homecare\api\obj\Debug\net8.0\refint\api.dll
 C:\Users\B\Documents\ITPE3200\React-Homecare\api\obj\Debug\net8.0\api.pdb
 C:\Users\B\Documents\ITPE3200\React-Homecare\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\B\Documents\ITPE3200\React-Homecare\api\obj\Debug\net8.0\ref\api.dll
+<<<<<<< HEAD
+C:\Users\B\Documents\ITPE3200\React-Homecare\api\obj\Debug\net8.0\api.sourcelink.json
+=======
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\bin\Debug\net8.0\appsettings.json
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\bin\Debug\net8.0\api.staticwebassets.runtime.json
@@ -307,3 +310,4 @@ C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\obj\Debug\net8.0\re
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\obj\Debug\net8.0\api.pdb
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\obj\Debug\net8.0\api.genruntimeconfig.cache
 C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api\obj\Debug\net8.0\ref\api.dll
+>>>>>>> 447e042812eef5d4e06b63b934e8e148a48f0dcf

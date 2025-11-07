@@ -58,7 +58,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:3000", "http://localhost:5173") // React dev servers
+        builder.WithOrigins("http://localhost:3000", "http://localhost:5173", "http://localhost:5174") // React dev servers
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();
@@ -68,6 +68,7 @@ builder.Services.AddCors(options =>
 // Add your repositories here
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(options =>
@@ -90,10 +91,16 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
             builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT key not found in configuration.")
-        ))
+        )),
+        // Preserve JWT claims without mapping
+        NameClaimType = "sub",
+        RoleClaimType = "role"
     };
 });
 
+
+// Clear default claims mapping to preserve JWT claims
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var loggerConfiguration = new LoggerConfiguration()
     .MinimumLevel.Information() // levels: Trace< Information < Warning < Erorr < Fatal

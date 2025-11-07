@@ -15,14 +15,53 @@ const LoginPage: React.FC = () => {
         setError(null);
         try {
             const user = await login({ username, password });
-            // Navigate based on user role
+            
+            // Check if user has completed their profile
+            const token = localStorage.getItem('token');
+            let endpoint = '';
+            
             if (user.role === 'Patient') {
-                navigate('/appointments'); // Patients see appointments
+                endpoint = `/api/patient/user/${user.sub}`;
             } else if (user.role === 'Employee') {
-                navigate('/appointments'); // Employees manage appointments
-            } else {
-                navigate('/'); // Default fallback
+                endpoint = `/api/employee/user/${user.sub}`;
             }
+            
+            if (endpoint) {
+                try {
+                    const profileResponse = await fetch(`http://localhost:5090${endpoint}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    
+                    if (profileResponse.status === 404) {
+                        // Profile not complete, redirect to profile setup
+                        navigate('/profile-setup');
+                        return;
+                    } else if (profileResponse.ok) {
+                        const profileData = await profileResponse.json();
+                        // Check if profile has minimal required data
+                        const isProfileComplete = profileData.fullName && 
+                                                profileData.fullName !== user.username &&
+                                                profileData.address;
+                        
+                        if (!isProfileComplete) {
+                            navigate('/profile-setup');
+                            return;
+                        }
+                    }
+                } catch (profileErr) {
+                    console.error('Error checking profile:', profileErr);
+                    // If we can't check profile, redirect to setup to be safe
+                    navigate('/profile-setup');
+                    return;
+                }
+            }
+            
+            // Navigate to appointments if profile is complete
+            navigate('/appointments');
+            
         } catch (err) {
             setError('Invalid username or password.');
             console.error(err);
