@@ -1,0 +1,248 @@
+/* CALENDAR LAYOUT  */
+:root {
+  --bg-page: #f0f4f8;
+  --bg-card: #ffffff;
+  --bg-card-muted: #eef2f6;;
+  --primary: #3b82f6;
+  --primary-soft: #e0f2fe;
+  --accent: #2563eb;
+  --accent-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+  --text-main:#0f172a;
+  --text-muted: #64748b;
+  --border-soft: #e2e8f0;
+  --radius-lg: 16px;
+}
+
+/* The outermost container that wraps the entire calendar.
+   Keeps layout consistent and centered on wide screens. */
+.calendar-container {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem auto;
+  padding: 0 0.5rem;
+  background-color: var(--bg-page);
+}
+
+/* The top section of the calendar that holds the month title and navigation buttons.
+   Using same width and margin as container for alignment. */
+.calendar-header {
+  max-width: 1200px;
+  margin: 0 auto 1rem auto;
+  margin: 0 auto 1rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* The current month label (e.g. "November 2025").
+   Larger text to give hierarchy and visual balance above the calendar grid. */
+.calendar-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Buttons for "Previous", "Today", "Next".
+   Font size matches readability level of the month title, 
+   with balanced padding for a touch-friendly click area. */
+.calendar-header {
+  background: linear-gradient(90deg, #e0f2fe, #fff);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+.calendar-btn {
+  background: white;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.calendar-btn:hover {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+}
+
+
+/* === DAY HEADERS === */
+/* The weekday labels above the grid (Mon, Tue, Wed...).
+   Slightly bold for clarity but not oversized to avoid visual clutter. */
+.day-header {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* === GRID === */
+/* The parent grid that holds all weeks and days.
+   The same width ensures perfect vertical alignment with the header. */
+.calendar-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Each horizontal week row in the calendar.
+   Setting a min height ensures even cell height across months. */
+.calendar-week {
+   gap: 8px; }
+
+
+/* Each individual day "card" box (like a mini panel).
+   Having a min-height ensures it doesn't collapse when there are few appointments. */
+.calendar-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.calendar-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+
+
+/* Header area of each day card, where the date and badge appear.
+   Slightly smaller height to differentiate from the appointment area below. */
+.calendar-card-header {
+  min-height: 32px;
+  padding: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  background-color: transparent;
+}
+
+/* The number that displays the actual day (1–31).
+   Font size chosen for easy scanning while keeping layout compact. */
+.calendar-card-date {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+/* The circular blue badge showing the count of appointments for that day.
+   Slightly smaller font than the date to keep focus on the date itself. */
+.calendar-badge {
+  font-size: 0.75rem;
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+/* The area that holds the appointments inside each card.
+   Overflow hidden prevents text or boxes from spilling outside the day cell. */
+.calendar-body {
+  overflow: hidden;
+}
+
+/* APPOINTMENT ITEMS */
+/* Small colored boxes representing each appointment.
+   Rounded corners, soft cyan-blue tone, and smooth hover for modern, calm UX.
+   Cursor pointer indicates interactivity (opens details modal). */
+.appointment-item {
+  margin-top: 4px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  background: var(--accent-gradient);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 3px 6px rgba(37, 99, 235, 0.25);
+  transition: all 0.15s ease-in-out;
+}
+.appointment-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(37, 99, 235, 0.35);
+}
+
+
+/* Small timestamp under each appointment subject.
+   Uses smaller font to show it’s secondary information. */
+.appointment-time {
+  font-size: 0.85rem;
+  opacity: 0.95;
+}
+/* “+3 more” link at bottom of a day cell.
+   Indicates there are hidden appointments not displayed in preview. */
+.appointment-more {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--primary);
+}
+.appointment-more:hover {
+  text-decoration: underline;
+}
+
+/* === LEGEND / FOOTER === */
+/* The info bar under the calendar (e.g. “Today” + total appointments).
+   Mirrors top layout width for visual symmetry and breathing space below calendar. */
+.calendar-legend {
+  max-width: 1200px;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+}
+/* Text styling inside the legend.
+   Slightly smaller than body text to keep focus on the calendar itself. */
+.calendar-legend-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* === MODAL === */
+/* Header title in the appointment details modal.
+   Large and bold to clearly define the start of the detail view. */
+.modal-title-custom {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Main modal content area.
+   Balanced font size for reading blocks of text comfortably. */
+.modal-body-custom {
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+/* Appointment subject line in the modal.
+   Given stronger color (#2F6CAB) to match brand tone and draw attention first. */
+.modal-subject {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Supporting info inside the modal (date, patient, provider).
+   Keeps uniform size and spacing for readability. */
+.modal-info {
+  font-size: 1.05rem;
+  color: #374151;
+}
+
+/* Footer buttons in the modal (“Edit”, “Delete”, “Close”).
+   All share same font size for consistent action hierarchy. */
+.modal-btn {
+  font-size: 1.05rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+}
+
+.calendar-today {
+  border: none;
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.calendar-outside-month {
+  opacity: 0.6;
+  background: #f9fafb;
+}
