@@ -1,0 +1,12 @@
+2025-11-04 13:37:51.513 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 13:37:51.581 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-04 13:37:52.045 +01:00 [INF] User profile is available. Using 'C:\Users\vilde\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-04 13:37:52.201 +01:00 [INF] Now listening on: https://localhost:7174
+2025-11-04 13:37:52.203 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-04 13:37:52.208 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-04 13:37:52.211 +01:00 [INF] Hosting environment: Development
+2025-11-04 13:37:52.213 +01:00 [INF] Content root path: C:\Users\vilde\OneDrive\Documents\Homecare React\React-Homecare\api
+2025-11-04 13:37:52.396 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/swagger/index.html - null null
+2025-11-04 13:37:52.488 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/swagger/index.html - 200 null text/html;charset=utf-8 91.6877ms
+2025-11-04 13:37:52.834 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/swagger/v1/swagger.json - null null
+2025-11-04 13:37:52.917 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 82.587ms
