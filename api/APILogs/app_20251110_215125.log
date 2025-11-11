@@ -1,0 +1,8 @@
+2025-11-10 21:51:25.719 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 21:51:25.763 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 21:51:26.052 +01:00 [INF] User profile is available. Using 'C:\Users\nahid\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-10 21:51:26.089 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-10 21:51:26.091 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 21:51:26.091 +01:00 [INF] Hosting environment: Development
+2025-11-10 21:51:26.092 +01:00 [INF] Content root path: C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api
+2025-11-10 21:57:36.728 +01:00 [INF] Application is shutting down...

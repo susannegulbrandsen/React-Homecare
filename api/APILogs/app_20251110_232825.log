@@ -1,0 +1,44 @@
+2025-11-10 23:28:26.259 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 23:28:26.310 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 23:28:26.660 +01:00 [INF] User profile is available. Using 'C:\Users\nahid\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-10 23:28:26.698 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-10 23:28:26.700 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:28:26.700 +01:00 [INF] Hosting environment: Development
+2025-11-10 23:28:26.709 +01:00 [INF] Content root path: C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api
+2025-11-10 23:28:29.365 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/medication - null null
+2025-11-10 23:28:29.365 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/medication - null null
+2025-11-10 23:28:29.398 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:28:29.398 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:28:29.401 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/medication - 204 null null 37.4486ms
+2025-11-10 23:28:29.401 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/medication - 204 null null 37.4485ms
+2025-11-10 23:28:29.404 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/medication - application/json null
+2025-11-10 23:28:29.409 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:28:29.465 +01:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Employee)
+2025-11-10 23:28:29.466 +01:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-11-10 23:28:29.467 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/medication - 403 0 null 63.5217ms
+2025-11-10 23:28:29.469 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/medication - application/json null
+2025-11-10 23:28:29.469 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:28:29.473 +01:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Employee)
+2025-11-10 23:28:29.473 +01:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-11-10 23:28:29.473 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/medication - 403 0 null 4.6388ms
+2025-11-10 23:29:18.543 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/medication - null null
+2025-11-10 23:29:18.543 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/medication - null null
+2025-11-10 23:29:18.543 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:29:18.543 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:29:18.543 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/medication - 204 null null 1.2365ms
+2025-11-10 23:29:18.543 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/medication - 204 null null 1.2253ms
+2025-11-10 23:29:18.546 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/medication - application/json null
+2025-11-10 23:29:18.546 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/medication - application/json null
+2025-11-10 23:29:18.546 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:29:18.546 +01:00 [INF] CORS policy execution successful.
+2025-11-10 23:29:18.549 +01:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Employee)
+2025-11-10 23:29:18.549 +01:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Employee)
+2025-11-10 23:29:18.549 +01:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-11-10 23:29:18.549 +01:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-11-10 23:29:18.550 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/medication - 403 0 null 4.0409ms
+2025-11-10 23:29:18.550 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/medication - 403 0 null 4.0409ms
+2025-11-10 23:33:08.681 +01:00 [INF] Application is shutting down...

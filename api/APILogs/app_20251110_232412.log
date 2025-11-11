@@ -1,0 +1,14 @@
+2025-11-10 23:24:13.200 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 23:24:13.246 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-10 23:24:13.580 +01:00 [INF] User profile is available. Using 'C:\Users\nahid\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-10 23:24:13.617 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-10 23:24:13.619 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-10 23:24:13.619 +01:00 [INF] Hosting environment: Development
+2025-11-10 23:24:13.628 +01:00 [INF] Content root path: C:\Users\nahid\OneDrive\Dokumenter\GitHub\React-Homecare\api
+2025-11-10 23:24:13.789 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/swagger/index.html - null null
+2025-11-10 23:24:13.863 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/swagger/index.html - 200 null text/html;charset=utf-8 75.4921ms
+2025-11-10 23:24:13.872 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-10 23:24:13.875 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/_framework/aspnetcore-browser-refresh.js - 200 13732 application/javascript; charset=utf-8 2.612ms
+2025-11-10 23:24:13.929 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/swagger/v1/swagger.json - null null
+2025-11-10 23:24:14.019 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 90.739ms
+2025-11-10 23:24:21.574 +01:00 [INF] Application is shutting down...
