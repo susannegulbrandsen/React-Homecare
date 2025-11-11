@@ -179,3 +179,4 @@ RolesAuthorizationRequirement:User.IsInRole must be true for one of the followin
 RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Employee)
 2025-11-11 09:21:00.926 +01:00 [INF] AuthenticationScheme: Bearer was forbidden.
 2025-11-11 09:21:00.927 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/medication - 403 0 null 0.9739ms
+2025-11-11 09:27:11.805 +01:00 [INF] Application is shutting down...
