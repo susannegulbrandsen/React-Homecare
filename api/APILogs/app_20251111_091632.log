@@ -1,0 +1,518 @@
+2025-11-11 09:16:33.545 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-11 09:16:33.619 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-11 09:16:34.410 +01:00 [INF] User profile is available. Using 'C:\Users\vilde\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-11 09:16:34.511 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-11 09:16:34.520 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-11 09:16:34.521 +01:00 [INF] Hosting environment: Development
+2025-11-11 09:16:34.525 +01:00 [INF] Content root path: C:\Users\vilde\OneDrive\Documents\Homecare React\React-Homecare\api
+2025-11-11 09:17:02.912 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - null null
+2025-11-11 09:17:02.996 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:03.007 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - 204 null null 98.1656ms
+2025-11-11 09:17:03.013 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/register - application/json 102
+2025-11-11 09:17:03.024 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:03.083 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.Register (api)'
+2025-11-11 09:17:03.127 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(HomeCareApp.DTOs.RegisterDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:17:04.277 +01:00 [INF] [AuthAPIController] user registered for Vildeidag with role Patient
+2025-11-11 09:17:04.291 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:17:04.365 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.Register (api) in 1229.5153ms
+2025-11-11 09:17:04.365 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.Register (api)'
+2025-11-11 09:17:04.372 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/register - 200 73 application/json; charset=utf-8 1359.071ms
+2025-11-11 09:17:20.555 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - null null
+2025-11-11 09:17:20.557 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:20.557 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - 204 null null 2.3271ms
+2025-11-11 09:17:20.559 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/login - application/json 53
+2025-11-11 09:17:20.560 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:20.562 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.Login (api)'
+2025-11-11 09:17:20.567 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HomeCareApp.DTOs.LoginDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:17:20.830 +01:00 [INF] [AuthAPIController] user authorised for Vildeidag
+2025-11-11 09:17:20.924 +01:00 [INF] [AuthAPIController] JWT token created for Vildeidag with roles Patient
+2025-11-11 09:17:20.926 +01:00 [INF] [AuthAPIController] JWT token claims: sub=b3db1281-65bc-4492-a909-b5fe0c0e0772, email=vildeenerem@gmail.com, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier=b3db1281-65bc-4492-a909-b5fe0c0e0772, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name=Vildeidag, username=Vildeidag, userid=b3db1281-65bc-4492-a909-b5fe0c0e0772, nameid=b3db1281-65bc-4492-a909-b5fe0c0e0772, jti=cdce7d11-1a67-4d1b-9f60-227c4bb68804, iat=1762849040, http://schemas.microsoft.com/ws/2008/06/identity/claims/role=Patient, role=Patient
+2025-11-11 09:17:20.978 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:17:20.980 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.Login (api) in 412.9827ms
+2025-11-11 09:17:20.981 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.Login (api)'
+2025-11-11 09:17:20.981 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/login - 200 881 application/json; charset=utf-8 421.6427ms
+2025-11-11 09:17:20.984 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:17:20.985 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:20.985 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.8397ms
+2025-11-11 09:17:20.988 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:17:21.003 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:21.128 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:17:21.135 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:17:21.164 +01:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-11-11 09:17:21.166 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 29.9708ms
+2025-11-11 09:17:21.166 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:17:21.166 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 404 null text/plain; charset=utf-8 178.2765ms
+2025-11-11 09:17:57.962 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/complete-patient-profile - null null
+2025-11-11 09:17:57.963 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:57.964 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/complete-patient-profile - 204 null null 1.5035ms
+2025-11-11 09:17:57.967 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/complete-patient-profile - application/json 156
+2025-11-11 09:17:57.967 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:17:57.972 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.CompletePatientProfile (api)'
+2025-11-11 09:17:57.980 +01:00 [INF] Route matched with {action = "CompletePatientProfile", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CompletePatientProfile(HomeCareApp.DTOs.PatientProfileDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:17:58.144 +01:00 [INF] [AuthAPIController] Patient profile created for Vildeidag
+2025-11-11 09:17:58.144 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:17:58.145 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.CompletePatientProfile (api) in 164.1626ms
+2025-11-11 09:17:58.145 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.CompletePatientProfile (api)'
+2025-11-11 09:17:58.145 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/complete-patient-profile - 200 50 application/json; charset=utf-8 177.6945ms
+2025-11-11 09:18:00.189 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:00.189 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.190 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.7619ms
+2025-11-11 09:18:00.191 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:00.191 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.191 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.8564ms
+2025-11-11 09:18:00.193 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:00.195 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.199 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:00.200 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:00.206 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:00.221 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 20.6751ms
+2025-11-11 09:18:00.221 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:00.221 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 27.7156ms
+2025-11-11 09:18:00.222 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:00.222 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.223 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:00.223 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:00.224 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - null null
+2025-11-11 09:18:00.224 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.225 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - 204 null null 0.5543ms
+2025-11-11 09:18:00.226 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:00.226 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:00.226 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.226 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.3315ms
+2025-11-11 09:18:00.226 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:00.227 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:00.227 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 5.0665ms
+2025-11-11 09:18:00.238 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:00.354 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:00.365 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 126.4852ms
+2025-11-11 09:18:00.365 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:00.365 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 2 application/json; charset=utf-8 139.0802ms
+2025-11-11 09:18:00.366 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:00.367 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:00.367 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:00.368 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:00.373 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:00.374 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 5.5592ms
+2025-11-11 09:18:00.374 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:00.374 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 2 application/json; charset=utf-8 7.8517ms
+2025-11-11 09:18:04.047 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:04.048 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:04.049 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:04.050 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:04.054 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:04.055 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 4.7946ms
+2025-11-11 09:18:04.055 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:04.055 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 7.4763ms
+2025-11-11 09:18:04.059 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:04.059 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:04.060 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:04.060 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:04.067 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:04.068 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 7.1688ms
+2025-11-11 09:18:04.068 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:04.068 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 2 application/json; charset=utf-8 9.0996ms
+2025-11-11 09:18:15.175 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:15.175 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:15.175 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.5912ms
+2025-11-11 09:18:15.177 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:15.178 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:15.179 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:15.179 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:15.182 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:15.182 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.699ms
+2025-11-11 09:18:15.182 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:15.182 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.8068ms
+2025-11-11 09:18:15.185 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - null null
+2025-11-11 09:18:15.185 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:15.185 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - 204 null null 0.4401ms
+2025-11-11 09:18:15.187 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:15.188 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:15.189 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:15.189 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:15.193 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:15.194 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 4.4039ms
+2025-11-11 09:18:15.194 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:15.194 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 2 application/json; charset=utf-8 6.9089ms
+2025-11-11 09:18:21.957 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:21.957 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:21.958 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.4208ms
+2025-11-11 09:18:21.960 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:21.960 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:21.961 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:21.961 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:21.963 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:21.963 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.408ms
+2025-11-11 09:18:21.963 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:21.964 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 3.8861ms
+2025-11-11 09:18:21.984 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - null null
+2025-11-11 09:18:21.984 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:21.984 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - 204 null null 0.5248ms
+2025-11-11 09:18:21.986 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:21.987 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:21.987 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:21.987 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:21.990 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:21.991 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 3.32ms
+2025-11-11 09:18:21.991 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:21.991 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 2 application/json; charset=utf-8 4.4797ms
+2025-11-11 09:18:24.400 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Employee - null null
+2025-11-11 09:18:24.400 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.400 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Employee - 204 null null 0.5003ms
+2025-11-11 09:18:24.400 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Employee - null null
+2025-11-11 09:18:24.401 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.401 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Employee - 204 null null 1.0565ms
+2025-11-11 09:18:24.407 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Employee - application/json null
+2025-11-11 09:18:24.407 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.408 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployees (api)'
+2025-11-11 09:18:24.414 +01:00 [INF] Route matched with {action = "GetEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[HomeCareApp.DTOs.EmployeeDto]]] GetEmployees() on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:18:24.494 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Employee, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.EmployeeDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:24.516 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployees (api) in 101.0315ms
+2025-11-11 09:18:24.516 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployees (api)'
+2025-11-11 09:18:24.516 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Employee - 200 1795 application/json; charset=utf-8 109.256ms
+2025-11-11 09:18:24.517 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Employee - application/json null
+2025-11-11 09:18:24.517 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.518 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployees (api)'
+2025-11-11 09:18:24.518 +01:00 [INF] Route matched with {action = "GetEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[HomeCareApp.DTOs.EmployeeDto]]] GetEmployees() on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:18:24.520 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:24.520 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.521 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:24.521 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:24.521 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Employee, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.EmployeeDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:24.523 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployees (api) in 4.6645ms
+2025-11-11 09:18:24.523 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployees (api)'
+2025-11-11 09:18:24.523 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Employee - 200 1795 application/json; charset=utf-8 6.5156ms
+2025-11-11 09:18:24.524 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:24.524 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.0011ms
+2025-11-11 09:18:24.524 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:24.525 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.6514ms
+2025-11-11 09:18:24.528 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:24.528 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:24.529 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:24.529 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:24.531 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:24.532 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.1786ms
+2025-11-11 09:18:24.532 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:24.532 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.6179ms
+2025-11-11 09:18:56.094 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment - null null
+2025-11-11 09:18:56.095 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.096 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment - 204 null null 1.3857ms
+2025-11-11 09:18:56.098 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Appointment - application/json 114
+2025-11-11 09:18:56.098 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.098 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.Create (api)'
+2025-11-11 09:18:56.105 +01:00 [INF] Route matched with {action = "Create", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(HomeCareApp.DTOs.AppointmentDto) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:56.172 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'HomeCareApp.Models.Appointment'.
+2025-11-11 09:18:56.216 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.Create (api) in 110.4603ms
+2025-11-11 09:18:56.216 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.Create (api)'
+2025-11-11 09:18:56.216 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Appointment - 201 160 application/json; charset=utf-8 118.2664ms
+2025-11-11 09:18:56.252 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:56.252 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.253 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:18:56.253 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 1.0216ms
+2025-11-11 09:18:56.253 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.253 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.6761ms
+2025-11-11 09:18:56.256 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:56.257 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.257 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:56.257 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:56.261 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:56.261 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.9353ms
+2025-11-11 09:18:56.261 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:56.261 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.9902ms
+2025-11-11 09:18:56.263 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:18:56.263 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.264 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:56.264 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:18:56.266 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - null null
+2025-11-11 09:18:56.266 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.266 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - 204 null null 0.4063ms
+2025-11-11 09:18:56.267 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:18:56.268 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.6246ms
+2025-11-11 09:18:56.268 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:18:56.268 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 5.0572ms
+2025-11-11 09:18:56.268 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:56.269 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.269 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:56.269 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:56.272 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:56.275 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 5.3493ms
+2025-11-11 09:18:56.275 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:56.275 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 195 application/json; charset=utf-8 6.5991ms
+2025-11-11 09:18:56.278 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:18:56.278 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:18:56.279 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:56.279 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:18:56.282 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:18:56.282 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 2.7705ms
+2025-11-11 09:18:56.282 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:18:56.283 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 195 application/json; charset=utf-8 5.2917ms
+2025-11-11 09:19:06.599 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:19:06.599 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:06.599 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.3246ms
+2025-11-11 09:19:06.601 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:06.601 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:06.602 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:06.602 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:06.605 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:06.605 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.9606ms
+2025-11-11 09:19:06.605 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:06.605 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.2042ms
+2025-11-11 09:19:06.629 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - null null
+2025-11-11 09:19:06.630 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:06.630 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Appointment/patient/4 - 204 null null 0.3425ms
+2025-11-11 09:19:06.633 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:19:06.634 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:06.634 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:06.635 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:19:06.639 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:19:06.640 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 5.3893ms
+2025-11-11 09:19:06.641 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:06.641 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 195 application/json; charset=utf-8 7.5133ms
+2025-11-11 09:19:08.987 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:08.987 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:08.988 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:08.988 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:08.990 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:08.991 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.8612ms
+2025-11-11 09:19:08.991 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:08.991 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 3.9329ms
+2025-11-11 09:19:08.992 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:08.992 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:08.992 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:08.992 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:08.995 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:08.995 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.6398ms
+2025-11-11 09:19:08.995 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:08.995 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 3.4902ms
+2025-11-11 09:19:09.010 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:19:09.010 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:09.011 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:09.011 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:19:09.014 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:19:09.014 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 3.3577ms
+2025-11-11 09:19:09.014 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:09.015 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 195 application/json; charset=utf-8 4.57ms
+2025-11-11 09:19:09.016 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - application/json null
+2025-11-11 09:19:09.016 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:09.017 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:09.018 +01:00 [INF] Route matched with {action = "GetAppointmentsByPatientId", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentsByPatientId(Int32) on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:19:09.021 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+WhereSelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:19:09.022 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api) in 4.3823ms
+2025-11-11 09:19:09.022 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointmentsByPatientId (api)'
+2025-11-11 09:19:09.022 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment/patient/4 - 200 195 application/json; charset=utf-8 6.3082ms
+2025-11-11 09:19:09.993 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:19:09.993 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - null null
+2025-11-11 09:19:09.993 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:09.993 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:09.993 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.386ms
+2025-11-11 09:19:09.993 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 204 null null 0.2777ms
+2025-11-11 09:19:09.998 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:09.999 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:10.000 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:10.000 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:10.003 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:10.004 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.7919ms
+2025-11-11 09:19:10.004 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:10.005 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 6.6647ms
+2025-11-11 09:19:10.005 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:10.005 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:10.006 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:10.006 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:10.009 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:10.009 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.1891ms
+2025-11-11 09:19:10.010 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:10.010 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 4.3792ms
+2025-11-11 09:19:13.433 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:13.433 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:13.434 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:13.434 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:13.436 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:13.437 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.3207ms
+2025-11-11 09:19:13.437 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:13.438 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 5.0332ms
+2025-11-11 09:19:13.438 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - application/json null
+2025-11-11 09:19:13.438 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:19:13.439 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:13.439 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-11 09:19:13.441 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-11 09:19:13.442 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 2.4783ms
+2025-11-11 09:19:13.442 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-11 09:19:13.442 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/b3db1281-65bc-4492-a909-b5fe0c0e0772 - 200 240 application/json; charset=utf-8 3.8371ms
+2025-11-11 09:23:13.719 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - null null
+2025-11-11 09:23:13.719 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:13.719 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/register - 204 null null 0.2838ms
+2025-11-11 09:23:13.721 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/register - application/json 97
+2025-11-11 09:23:13.721 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:13.722 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.Register (api)'
+2025-11-11 09:23:13.722 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(HomeCareApp.DTOs.RegisterDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:23:13.935 +01:00 [INF] [AuthAPIController] user registered for vildeE with role Employee
+2025-11-11 09:23:13.935 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:23:13.935 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.Register (api) in 213.3775ms
+2025-11-11 09:23:13.935 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.Register (api)'
+2025-11-11 09:23:13.936 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/register - 200 73 application/json; charset=utf-8 214.5576ms
+2025-11-11 09:23:35.304 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - null null
+2025-11-11 09:23:35.304 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:35.305 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/login - 204 null null 0.3191ms
+2025-11-11 09:23:35.306 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/login - application/json 50
+2025-11-11 09:23:35.306 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:35.306 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.Login (api)'
+2025-11-11 09:23:35.306 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(HomeCareApp.DTOs.LoginDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:23:35.522 +01:00 [INF] [AuthAPIController] user authorised for vildeE
+2025-11-11 09:23:35.524 +01:00 [INF] [AuthAPIController] JWT token created for vildeE with roles Employee
+2025-11-11 09:23:35.525 +01:00 [INF] [AuthAPIController] JWT token claims: sub=31c38b53-5353-4fb8-befc-ff50086d6a6a, email=vilde@employee.com, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier=31c38b53-5353-4fb8-befc-ff50086d6a6a, http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name=vildeE, username=vildeE, userid=31c38b53-5353-4fb8-befc-ff50086d6a6a, nameid=31c38b53-5353-4fb8-befc-ff50086d6a6a, jti=9f71923c-99da-424a-bfdc-656a8fcb7538, iat=1762849415, http://schemas.microsoft.com/ws/2008/06/identity/claims/role=Employee, role=Employee
+2025-11-11 09:23:35.525 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:23:35.526 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.Login (api) in 219.4367ms
+2025-11-11 09:23:35.526 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.Login (api)'
+2025-11-11 09:23:35.526 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/login - 200 872 application/json; charset=utf-8 220.0155ms
+2025-11-11 09:23:35.532 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:23:35.533 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:35.533 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.6357ms
+2025-11-11 09:23:35.535 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:23:35.537 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:23:35.540 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:23:35.547 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:23:35.604 +01:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2025-11-11 09:23:35.604 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 57.6469ms
+2025-11-11 09:23:35.605 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:23:35.605 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 404 null text/plain; charset=utf-8 69.8573ms
+2025-11-11 09:24:42.334 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/complete-employee-profile - null null
+2025-11-11 09:24:42.334 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:24:42.335 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Auth/complete-employee-profile - 204 null null 0.4455ms
+2025-11-11 09:24:42.337 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5090/api/Auth/complete-employee-profile - application/json 77
+2025-11-11 09:24:42.337 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:24:42.338 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AuthController.CompleteEmployeeProfile (api)'
+2025-11-11 09:24:42.344 +01:00 [INF] Route matched with {action = "CompleteEmployeeProfile", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CompleteEmployeeProfile(HomeCareApp.DTOs.EmployeeProfileDto) on controller HomeCareApp.Controllers.AuthController (api).
+2025-11-11 09:24:42.385 +01:00 [INF] [AuthAPIController] Employee profile created for vildeE
+2025-11-11 09:24:42.386 +01:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-11-11 09:24:42.386 +01:00 [INF] Executed action HomeCareApp.Controllers.AuthController.CompleteEmployeeProfile (api) in 41.8663ms
+2025-11-11 09:24:42.386 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AuthController.CompleteEmployeeProfile (api)'
+2025-11-11 09:24:42.386 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5090/api/Auth/complete-employee-profile - 200 51 application/json; charset=utf-8 48.9594ms
+2025-11-11 09:24:44.436 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:24:44.437 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:24:44.437 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:24:44.444 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:24:44.449 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:24:44.451 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 7.3097ms
+2025-11-11 09:24:44.452 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:24:44.452 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 15.1621ms
+2025-11-11 09:24:44.453 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:24:44.454 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:24:44.454 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:24:44.454 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:24:44.456 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:24:44.457 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.953ms
+2025-11-11 09:24:44.457 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:24:44.458 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 4.2368ms
+2025-11-11 09:25:58.408 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:25:58.409 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:25:58.409 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:25:58.409 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:25:58.411 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:25:58.411 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.1227ms
+2025-11-11 09:25:58.411 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:25:58.411 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 2.9994ms
+2025-11-11 09:26:00.904 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:26:00.904 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:00.905 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:00.905 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:26:00.906 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:26:00.907 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.0843ms
+2025-11-11 09:26:00.907 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:00.907 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 2.8893ms
+2025-11-11 09:26:51.373 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:26:51.374 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:51.374 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:51.374 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:26:51.376 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:26:51.377 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.444ms
+2025-11-11 09:26:51.377 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:51.377 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 3.5587ms
+2025-11-11 09:26:51.380 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:26:51.380 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:51.381 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:51.382 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:26:51.387 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:26:51.387 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 5.1878ms
+2025-11-11 09:26:51.387 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:26:51.387 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 7.6731ms
+2025-11-11 09:26:54.395 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:26:54.395 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:54.395 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:26:54.396 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.3947ms
+2025-11-11 09:26:54.400 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:54.401 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 5.8389ms
+2025-11-11 09:26:54.408 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:26:54.408 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:54.411 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:26:54.411 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:26:54.415 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:26:54.416 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 4.5595ms
+2025-11-11 09:26:54.416 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:26:54.416 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 7.6724ms
+2025-11-11 09:26:54.417 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:26:54.417 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:26:54.417 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:26:54.418 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:26:54.420 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:26:54.420 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 2.7195ms
+2025-11-11 09:26:54.421 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:26:54.421 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 3.994ms
+2025-11-11 09:27:05.337 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:27:05.337 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:05.337 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:27:05.337 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.4678ms
+2025-11-11 09:27:05.337 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:05.337 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.176ms
+2025-11-11 09:27:05.340 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:27:05.340 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:05.340 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:05.341 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:27:05.344 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:27:05.344 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 3.5985ms
+2025-11-11 09:27:05.345 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:05.345 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 4.745ms
+2025-11-11 09:27:05.345 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:27:05.345 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:05.346 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:05.346 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:27:05.348 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:27:05.349 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 2.6645ms
+2025-11-11 09:27:05.349 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:05.349 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 3.5906ms
+2025-11-11 09:27:06.905 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:27:06.905 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:06.905 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:27:06.906 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:27:06.908 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:27:06.908 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.5832ms
+2025-11-11 09:27:06.908 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:27:06.908 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 3.3366ms
+2025-11-11 09:27:06.910 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Appointment - null null
+2025-11-11 09:27:06.910 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:06.910 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:27:06.910 +01:00 [INF] Route matched with {action = "GetAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointments() on controller HomeCareApp.Controllers.AppointmentController (api).
+2025-11-11 09:27:06.912 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HomeCareApp.Models.Appointment, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HomeCareApp.DTOs.AppointmentDto, api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-11-11 09:27:06.912 +01:00 [INF] Executed action HomeCareApp.Controllers.AppointmentController.GetAppointments (api) in 2.0674ms
+2025-11-11 09:27:06.912 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.AppointmentController.GetAppointments (api)'
+2025-11-11 09:27:06.913 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Appointment - 200 1180 application/json; charset=utf-8 2.6009ms
+2025-11-11 09:27:20.096 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:27:20.096 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:20.097 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - null null
+2025-11-11 09:27:20.097 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.5176ms
+2025-11-11 09:27:20.097 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:20.097 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 204 null null 0.192ms
+2025-11-11 09:27:20.099 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:27:20.100 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:20.101 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:20.101 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:27:20.105 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:27:20.105 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 3.9805ms
+2025-11-11 09:27:20.105 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:20.105 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 5.7253ms
+2025-11-11 09:27:20.106 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - application/json null
+2025-11-11 09:27:20.106 +01:00 [INF] CORS policy execution successful.
+2025-11-11 09:27:20.107 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:20.107 +01:00 [INF] Route matched with {action = "GetEmployeeByUserId", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.EmployeeDto]] GetEmployeeByUserId(System.String) on controller HomeCareApp.Controllers.EmployeeController (api).
+2025-11-11 09:27:20.110 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.EmployeeDto'.
+2025-11-11 09:27:20.110 +01:00 [INF] Executed action HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api) in 3.3581ms
+2025-11-11 09:27:20.110 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.EmployeeController.GetEmployeeByUserId (api)'
+2025-11-11 09:27:20.111 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/employee/user/31c38b53-5353-4fb8-befc-ff50086d6a6a - 200 680 application/json; charset=utf-8 4.7968ms
