@@ -17,10 +17,12 @@ export const MedicationTable: React.FC<MedicationTableProps> = ({
   onDelete,
 }) => {
   return (
-    <Table striped bordered hover responsive className="align-middle">
-      <thead className="table-light">
-        <tr>
-          <th>Patient</th>
+    <div className="d-flex flex-column align-items-center">
+      <div style={{ width: '100%', overflowX: 'auto' }}>
+        <Table striped bordered hover className="text-center">
+          <thead style={{ backgroundColor: '#177e8b', color: 'white' }}>
+            <tr>
+              <th>Patient</th>
           <th>Name</th>
           <th>Indication</th>
           <th>Dosage</th>
@@ -69,5 +71,7 @@ export const MedicationTable: React.FC<MedicationTableProps> = ({
         )}
       </tbody>
     </Table>
+      </div>
+    </div>
   );
 };

@@ -151,7 +151,7 @@ const AppointmentListPage: React.FC = () => {
           </Form.Label>
           <Form.Control
             type="text"
-            placeholder="Search by title, description, patient name, or healthcare provider..."
+            placeholder="Search by subject, description, patient name, or healthcare provider..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             style={{ fontSize: '1rem' }}

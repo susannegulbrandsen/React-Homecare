@@ -15,6 +15,7 @@ import MedicationListPage from "./medications/MedicationListPage";
 import MedicationCreatePage from './medications/MedicationCreate'
 import MedicationDeletePage from './medications/MedicationDelete'
 import MedicationUpdatePage from './medications/MedicationUpdate'
+import SearchResultsPage from './search/SearchResultsPage'
 
 import './App.css'
 
@@ -26,12 +27,13 @@ const App: React.FC = () => {
         <Container className="mt-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/appointments" element={<AppointmentListPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
+              <Route path="/search" element={<SearchResultsPage />} />
+              <Route path="/appointments" element={<AppointmentListPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/profile-setup" element={<ProfileSetupPage />} />
               <Route path="/appointmentcreate" element={<AppointmentCreatePage />} />

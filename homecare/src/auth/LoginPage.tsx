@@ -59,8 +59,8 @@ const LoginPage: React.FC = () => {
                 }
             }
             
-            // Navigate to appointments if profile is complete
-            navigate('/appointments');
+            // Navigate to home page if profile is complete
+            navigate('/');
             
         } catch (err) {
             setError('Invalid username or password.');
@@ -70,29 +70,47 @@ const LoginPage: React.FC = () => {
 
     return (
         <Container className="mt-5">
-            <h2>Login</h2>
+            <h2 style={{ fontSize: '2rem', marginBottom: '2rem', color: '#177e8b' }}>Login</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>Username</Form.Label>
                     <Form.Control
                         type="text"
                         placeholder="Enter username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
                         required/>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>Password</Form.Label>
                     <Form.Control
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
                         required/>
                 </Form.Group>
-                <Button variant="primary" type="submit">Login</Button>
+                <Button 
+                    variant="primary" 
+                    type="submit"
+                    style={{
+                        fontSize: '1.2rem',
+                        padding: '0.75rem 2rem',
+                        marginTop: '1rem'
+                    }}
+                >
+                    Login
+                </Button>
             </Form>
         </Container>
     );

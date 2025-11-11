@@ -246,7 +246,7 @@ const ProfilePage: React.FC = () => {
             <Row className="justify-content-center">
                 <Col md={8}>
                     <Card>
-                        <Card.Header className="bg-primary text-white">
+                        <Card.Header style={{ backgroundColor: '#177e8b', color: 'white' }}>
                             <h3 className="mb-0">My Profile</h3>
                         </Card.Header>
                         <Card.Body>
@@ -435,7 +435,11 @@ const ProfilePage: React.FC = () => {
                                 ) : (
                                     <div>
                                         <Button 
-                                            variant="primary" 
+                                            style={{ 
+                                                backgroundColor: '#177e8b', 
+                                                borderColor: '#177e8b',
+                                                color: 'white'
+                                            }}
                                             onClick={() => setIsEditing(true)}
                                             className="me-2"
                                         >

@@ -38,34 +38,83 @@ const RegisterPage: React.FC = () => {
 
     return (
         <Container className="mt-5">
-            <h2>Register</h2>
+            <h2 style={{ fontSize: '2rem', marginBottom: '2rem', color: '#177e8b' }}>Register</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">{success}</Alert>}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" name="username" value={formData.username} onChange={handleChange} required />
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>Username</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        name="username" 
+                        value={formData.username} 
+                        onChange={handleChange} 
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
+                        required 
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>Email</Form.Label>
+                    <Form.Control 
+                        type="email" 
+                        name="email" 
+                        value={formData.email} 
+                        onChange={handleChange} 
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
+                        required 
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>Password</Form.Label>
+                    <Form.Control 
+                        type="password" 
+                        name="password" 
+                        value={formData.password} 
+                        onChange={handleChange} 
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
+                        required 
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3">
-                    <Form.Label>I am a:</Form.Label>
-                    <Form.Select name="role" value={formData.role} onChange={handleChange} required>
+                    <Form.Label style={{ fontSize: '1.1rem', fontWeight: '500' }}>I am a:</Form.Label>
+                    <Form.Select 
+                        name="role" 
+                        value={formData.role} 
+                        onChange={handleChange} 
+                        style={{ 
+                            fontSize: '1.1rem', 
+                            padding: '0.75rem' 
+                        }}
+                        required
+                    >
                         <option value="Patient">Patient</option>
                         <option value="Employee">Employee</option>
                     </Form.Select>
                 </Form.Group>
 
-                <Button variant="primary" type="submit">Register</Button>
+                <Button 
+                    variant="primary" 
+                    type="submit"
+                    style={{
+                        fontSize: '1.2rem',
+                        padding: '0.75rem 2rem',
+                        marginTop: '1rem'
+                    }}
+                >
+                    Register
+                </Button>
             </Form>
         </Container>
     );
