@@ -16,6 +16,7 @@ import MedicationCreatePage from './medications/MedicationCreate'
 import MedicationDeletePage from './medications/MedicationDelete'
 import MedicationUpdatePage from './medications/MedicationUpdate'
 import SearchResultsPage from './search/SearchResultsPage'
+import NotificationListPage from './notifications/NotificationListPage'
 
 import './App.css'
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
               <Route path="/medications/new" element={<MedicationCreatePage />} />
               <Route path="/medications/:name/edit" element={<MedicationUpdatePage />} />
               <Route path="/medications/:name/delete" element={<MedicationDeletePage />} />
+              <Route path="/notifications" element={<NotificationListPage />} />
 
             </Route>
 

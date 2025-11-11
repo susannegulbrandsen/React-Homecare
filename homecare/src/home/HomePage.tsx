@@ -18,8 +18,7 @@ const HomePage: React.FC = () => {
   };
 
   const handleInboxClick = () => {
-    // Inbox funksjonalitet kommer senere
-    alert('Inbox functionality coming soon!');
+    navigate('/notifications');
   };
 
   return (

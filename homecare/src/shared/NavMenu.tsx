@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Nav, Navbar, Button, Form, InputGroup, Badge } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
+import { NotificationService } from '../notifications/NotificationService';
 
 const NavMenu: React.FC = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [unreadCount, setUnreadCount] = useState<number>(0);
+
+  // Load unread notification count
+  useEffect(() => {
+    if (user) {
+      loadUnreadCount();
+      // Refresh count every 30 seconds
+      const interval = setInterval(loadUnreadCount, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [user]);
+
+  const loadUnreadCount = async () => {
+    try {
+      const count = await NotificationService.getUnreadCount();
+      setUnreadCount(count);
+    } catch (err) {
+      console.error('Error loading unread count:', err);
+    }
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,8 +39,7 @@ const NavMenu: React.FC = () => {
   };
 
   const handleNotificationClick = () => {
-    // TODO: Navigate to inbox when implemented
-    alert('Inbox functionality coming soon!');
+    navigate('/notifications');
   };
 
   const handleLogout = () => {
@@ -67,14 +87,16 @@ const NavMenu: React.FC = () => {
                 padding: '0.75rem 1rem'
               }}
             >
-              🔔
-              <Badge 
-                bg="danger" 
-                className="position-absolute top-0 start-100 translate-middle"
-                style={{ fontSize: '0.8rem' }}
-              >
-                3
-              </Badge>
+              <i className="bi bi-bell" style={{ fontSize: '1.2rem' }}></i>
+              {unreadCount > 0 && (
+                <Badge 
+                  bg="danger" 
+                  className="position-absolute top-0 start-100 translate-middle"
+                  style={{ fontSize: '0.8rem' }}
+                >
+                  {unreadCount}
+                </Badge>
+              )}
             </Button>
           </>
         ) : null}
@@ -213,14 +235,16 @@ const NavMenu: React.FC = () => {
                   padding: '0.75rem 1rem'
                 }}
               >
-                🔔
-                <Badge 
-                  bg="danger" 
-                  className="position-absolute top-0 start-100 translate-middle"
-                  style={{ fontSize: '0.8rem' }}
-                >
-                  3
-                </Badge>
+                <i className="bi bi-bell" style={{ fontSize: '1.2rem' }}></i>
+                {unreadCount > 0 && (
+                  <Badge 
+                    bg="danger" 
+                    className="position-absolute top-0 start-100 translate-middle"
+                    style={{ fontSize: '0.8rem' }}
+                  >
+                    {unreadCount}
+                  </Badge>
+                )}
               </Button>
 
               {/* Welcome message - clickable */}
