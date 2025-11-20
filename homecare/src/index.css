@@ -66,3 +66,42 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Global delete button style (matches grid delete in AppointmentCalendar.css) */
+.btn-delete,
+.btn.btn-delete {
+  background-color: #ffffff;
+  border-color: #fee2e2;
+  color: #b91c1c;
+}
+.btn-delete:hover,
+.btn.btn-delete:hover,
+.btn-delete:focus,
+.btn.btn-delete:focus {
+  background-color: #fee2e2;
+  border-color: #fecaca;
+  color: #7f1d1d;
+}
+
+/* Teal primary button variant used across the app */
+.btn-teal,
+
+/* Auth form submit button sizing used by Login/Register pages */
+.auth-submit {
+  font-size: 1.05rem; /* slightly smaller */
+  padding: 0.5rem 1.4rem; /* slightly less wide */
+  margin-top: 0.9rem;
+}
+.btn.btn-teal {
+  background-color: #177e8b;
+  border-color: #177e8b;
+  color: #ffffff;
+}
+.btn-teal:hover,
+.btn.btn-teal:hover,
+.btn-teal:focus,
+.btn.btn-teal:focus {
+  background-color: #0f5f68;
+  border-color: #0f5f68;
+  color: #ffffff;
+}

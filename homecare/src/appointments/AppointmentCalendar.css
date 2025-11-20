@@ -31,11 +31,14 @@
 /* === PAGE HERO (My Appointments) === */
 .container-fluid > .text-center.mb-3 {
   max-width: 1100px;
-  margin: 1.2rem auto 0.4rem auto;
+  margin: 1.2rem auto 0.6rem auto;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
 }
 
-/* Heading */
 .container-fluid > .text-center.mb-3 h1 {
   font-size: 1.85rem !important;
   font-weight: 700;
@@ -43,50 +46,30 @@
   margin: 0;
 }
 
-/* Tagline hvis den ligger SOM EGET ELEMENT etter h1 */
-.container-fluid > .text-center.mb-3 h1 + span,
-.container-fluid > .text-center.mb-3 h1 + small {
-  display: block;
-  font-size: 0.95rem !important;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-top: 0.2rem;
-}
-
-/* Tagline hvis den ligger INNE i h1 (small/span) */
-.container-fluid > .text-center.mb-3 h1 small,
-.container-fluid > .text-center.mb-3 h1 span {
-  display: block;
-  font-size: 0.95rem !important;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-top: 0.2rem;
-}
-
-/* Hvis tagline er skrevet som egen p */
 .container-fluid > .text-center.mb-3 p {
   font-size: 0.95rem !important;
   color: var(--text-muted);
-  margin: 0.2rem 0 0 0;
+  margin: 0;
 }
 
 /* === TOP TOOLBAR (Refresh + view) === */
 .container-fluid > .mb-3 {
   max-width: 1100px;
-  margin: 0.3rem auto 0.8rem auto;
+  margin: 0.6rem auto 1.1rem auto;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
   flex-wrap: wrap;
 }
 
+/* Refresh-knapp */
 .container-fluid > .mb-3 > .btn {
   background: #fff !important;
   color: var(--primary) !important;
   border: 1px solid var(--border-soft) !important;
-  padding: 7px 18px !important;      /* samme som view-knappene */
-  font-size: 0.95rem !important;     /* samme som view-knappene */
-  border-radius: 999px !important;
+  padding: 9px 20px !important;
+  font-size: 0.96rem !important;
+  border-radius: var(--radius-md) !important;   /* MER FIRKANTET */
   box-shadow: var(--shadow-soft);
 }
 
@@ -95,25 +78,36 @@
   color: #fff !important;
 }
 
-/* View toggle */
+/* View toggle container */
+.container-fluid > .mb-3 .btn-group {
+  display: inline-flex;
+}
+
+/* View toggle buttons */
 .container-fluid > .mb-3 .btn-group .btn {
-  padding: 7px 18px !important;       /* ↑ større klikkflate */
-  font-size: 0.95rem !important;      /* ↑ litt større tekst */
-  border-radius: 999px !important;
+  padding: 9px 20px !important;
+  font-size: 0.96rem !important;
+  border-radius: var(--radius-md) !important;   /* MER FIRKANTET */
   box-shadow: none;
 }
+
+/* Mellomrom mellom List / Card / Calendar */
+.container-fluid > .mb-3 .btn-group .btn + .btn {
+  margin-left: 0.5rem !important;
+}
+
 .container-fluid > .mb-3 .btn-group .btn:not(.btn-primary) {
   background: #fff !important;
   color: var(--primary) !important;
   border-color: var(--border-soft) !important;
 }
+
 .container-fluid > .mb-3 .btn-group .btn.btn-primary {
   background: var(--primary) !important;
   border-color: var(--primary) !important;
   color: #fff !important;
 }
 
-/* Hover-states for view toggle buttons */
 .container-fluid > .mb-3 .btn-group .btn:hover:not(.btn-primary) {
   background: var(--primary-soft) !important;
   color: var(--primary) !important;
@@ -121,13 +115,23 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* Hover på aktiv (valgt) visning */
 .container-fluid > .mb-3 .btn-group .btn.btn-primary:hover {
   background: var(--primary) !important;
   border-color: var(--primary) !important;
   color: #fff !important;
   box-shadow: var(--shadow-hover);
   transform: translateY(-1px);
+}
+
+/* === SEARCH AREA === */
+.appointment-search-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.appointment-search-input {
+  font-size: 1rem;
 }
 
 /* === CALENDAR WRAPPER === */
@@ -162,9 +166,9 @@
   border: 1px solid var(--border-soft) !important;
   color: var(--primary) !important;
   font-weight: 500;
-  border-radius: 999px;
-  padding: 7px 18px;          /* større enn før */
-  font-size: 0.95rem;         /* matcher view-knappene */
+  border-radius: var(--radius-lg);
+  padding: 7px 18px;
+  font-size: 0.95rem;
   line-height: 1;
   transition: var(--transition-fast);
 }
@@ -193,9 +197,9 @@
   border-bottom: 1px solid var(--border-soft);
 }
 .calendar-grid:first-of-type .day-header {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-muted);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -372,6 +376,15 @@
   color: var(--text-muted);
 }
 
+/* Make the small 'Today' badge in the legend use the app teal accent */
+.calendar-legend .badge,
+.calendar-legend .calendar-badge {
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 2px 8px !important;
+}
+
 /* === MODAL & CARD OVERRIDES === */
 .modal-title-custom {
   font-size: 1.25rem;
@@ -394,7 +407,23 @@
 .modal-btn {
   font-size: 0.84rem;
   padding: 0.38rem 0.95rem;
-  border-radius: 999px;
+  border-radius: var(--radius-lg);
+}
+
+.add-appointment-btn {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-lg);
+  background-color: #177e8b !important;
+  border-color: #177e8b !important;
+  color: #ffffff !important;
+}
+
+.add-appointment-btn:hover,
+.add-appointment-btn:focus {
+  background-color: transparent !important;
+  color: #177e8b !important;
+  border-color: #177e8b !important;
 }
 
 /* Bootstrap cards inside calendar */
@@ -471,3 +500,104 @@
     font-size: 0.6rem;
   }
 }
+
+/* === APPOINTMENT GRID – ACTION BUTTONS === */
+.appointment-grid-btn {
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* Update = teal primary */
+.btn.appointment-grid-btn-update,
+.btn-primary.appointment-grid-btn-update {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.btn.appointment-grid-btn-update:hover,
+.btn-primary.appointment-grid-btn-update:hover,
+.btn.appointment-grid-btn-update:focus,
+.btn-primary.appointment-grid-btn-update:focus {
+  background-color: #0f5f68 !important;   /* litt mørkere teal */
+  border-color: #0f5f68 !important;
+  color: #ffffff !important;
+}
+
+/* Delete = mer diskré rød, men tydelig */
+.btn.appointment-grid-btn-delete {
+  background-color: #ffffff !important;
+  border-color: #fee2e2 !important;
+  color: #b91c1c !important;
+}
+
+.btn.appointment-grid-btn-delete:hover,
+.btn.appointment-grid-btn-delete:focus {
+  background-color: #fee2e2 !important;
+  border-color: #fecaca !important;
+  color: #7f1d1d !important;
+}
+
+
+/* (Reverted grid-specific stacking/override rules) */
+
+/* List view: stack Update/Delete vertically and center them */
+.appointment-actions-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.appointment-actions-vertical .appointment-action {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+.appointment-actions-vertical .appointment-action-delete {
+  margin-left: 0; /* ensure no extra left margin */
+}
+
+/* Ensure native <button> elements inside the vertical container stack and center */
+.appointment-actions-vertical .btn {
+  display: inline-block;
+  margin-left: 0; /* remove any left margin from utility classes */
+}
+
+/* Match grid color styling for list view stacked buttons */
+.appointment-actions-vertical .appointment-action-update,
+.appointment-actions-vertical .appointment-action-update:link,
+.appointment-actions-vertical .appointment-action-update:visited {
+  background-color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+.appointment-actions-vertical .appointment-action-update:hover,
+.appointment-actions-vertical .appointment-action-update:focus {
+  background-color: #0f5f68 !important;
+  border-color: #0f5f68 !important;
+  color: #ffffff !important;
+}
+
+.appointment-actions-vertical .appointment-action-delete,
+.appointment-actions-vertical .appointment-action-delete:link,
+.appointment-actions-vertical .appointment-action-delete:visited {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  color: #b91c1c !important;
+  font-weight: 600 !important;
+}
+.appointment-actions-vertical .appointment-action-delete:hover,
+.appointment-actions-vertical .appointment-action-delete:focus {
+  background-color: #fee2e2 !important;
+  border-color: #fecaca !important;
+  color: #7f1d1d !important;
+}
+
+
+
+

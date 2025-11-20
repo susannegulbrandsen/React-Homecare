@@ -1,0 +1,251 @@
+/* Wrapper that stretches full width across viewport */
+.lifelink-nav-wrapper {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 1rem 0;
+  /* subtle shadow to lift the navbar slightly from the content */
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* Inner content constrained to max-width */
+.lifelink-nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navbar base */
+.lifelink-navbar {
+  background-color: transparent;
+  min-height: 70px;
+}
+
+/* Brand / logo – oppdatert (ingen gradient, moderne teal) */
+.lifelink-navbar-brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;          /* litt mer luft mellom ikon og tekst */
+
+  font-size: 1.9rem;      /* logo-størrelse */
+  padding: 0.5rem 0;
+  font-weight: 800;       /* mer “logo”-vekt */
+  letter-spacing: 0.08em; /* litt mer spacing for premium-look */
+  text-decoration: none;
+
+  /* bruker samme font som resten av appen (ingen egen font-family her) */
+  color: #177e8b;
+
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease,
+    color 0.18s ease;
+}
+
+
+/* Sikre konsistent farge, ikke svart ved klikk/besøkt */
+.lifelink-navbar-brand:link,
+.lifelink-navbar-brand:visited {
+  color: #177e8b;
+  text-decoration: none;
+}
+
+/* Hover/focus/active: subtil, litt mørkere teal + shadow – ikke svart */
+.lifelink-navbar-brand:hover,
+.lifelink-navbar-brand:focus,
+.lifelink-navbar-brand:active {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.12));
+  color: #0f6f7c;  /* diskret mørkere variant av teal */
+  text-decoration: none;
+}
+
+/* Right-side containers (mobile & desktop) share height */
+.lifelink-mobile-right,
+.lifelink-desktop-right {
+  height: 70px;
+}
+
+/* Notification button (both mobile & desktop) */
+.lifelink-bell-btn {
+  border: none;
+  font-size: 1.4rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Bell icon size */
+.lifelink-bell-icon {
+  font-size: 1.2rem;
+}
+
+/* Unread count badge */
+.lifelink-bell-badge {
+  font-size: 0.8rem;
+}
+
+/* Main "Home" link */
+.lifelink-nav-link-main {
+  font-size: 1.2rem;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+}
+
+/* Other primary nav links (My Profile, Appointments, Medications) */
+.lifelink-nav-link {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+}
+
+/* Shared styling for desktop nav links (hover / active underline) */
+.lifelink-nav-link-main,
+.lifelink-nav-link {
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.lifelink-nav-link-main:hover,
+.lifelink-nav-link-main:focus,
+.lifelink-nav-link:hover,
+.lifelink-nav-link:focus {
+  color: #177e8b;
+  border-bottom-color: #177e8b;
+}
+
+/* Active link (works if Nav.Link gets the .active class) */
+.lifelink-nav-link-main.active,
+.lifelink-nav-link.active {
+  color: #177e8b;
+  font-weight: 600;
+  border-bottom-color: #177e8b;
+}
+
+/* Mobile nav links (in collapsed menu) */
+.lifelink-mobile-nav-link {
+  font-size: 1.1rem;
+  padding: 0.75rem 0;
+}
+
+/* Mobile primary links: profile / login / register */
+.lifelink-mobile-nav-link-primary {
+  color: #177e8b;
+}
+
+.lifelink-mobile-nav-link-primary:hover,
+.lifelink-mobile-nav-link-primary:focus {
+  color: #177e8b;
+}
+
+/* Mobile logout link */
+.lifelink-mobile-nav-link-logout {
+  color: #dc3545;
+}
+
+.lifelink-mobile-nav-link-logout:hover,
+.lifelink-mobile-nav-link-logout:focus {
+  color: #dc3545;
+}
+
+/* Search group width on desktop – slightly smaller than before */
+.lifelink-search-group {
+  width: 240px;
+}
+
+/* Search input styling */
+.lifelink-search-input {
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border-radius: 999px 0 0 999px;
+  border-color: #d1d5db;
+}
+
+/* Search button styling */
+.lifelink-search-button {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  color: #333;
+  border-radius: 0 999px 999px 0;
+  border-color: #d1d5db;
+  border-left: none;
+}
+
+/* Desktop welcome link (wraps the span) */
+.lifelink-welcome-link {
+  color: #177e8b;
+}
+
+.lifelink-welcome-link:hover,
+.lifelink-welcome-link:focus {
+  color: #177e8b;
+}
+
+/* Pointer cursor for welcome text */
+.lifelink-welcome-text {
+  cursor: pointer;
+}
+
+/* Desktop logout button */
+.lifelink-logout-btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Auth buttons (Login / Register) when not logged in */
+.btn.lifelink-auth-btn {
+  border-color: #177e8b;
+  color: #177e8b;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Hover/focus effect equivalent to the onMouseOver/onMouseOut logic in TSX */
+.btn.lifelink-auth-btn:hover,
+.btn.lifelink-auth-btn:focus {
+  background-color: #177e8b;
+  color: #ffffff;
+  border-color: #177e8b;
+}
+
+/* === NYTT: hus + hjerte-ikon ved siden av LifeLink === */
+
+.lifelink-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* SVG inni ikonet – fyller nesten hele containeren */
+.lifelink-logo-icon svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Hus = fylt ikon */
+.lifelink-logo-icon svg .lifelink-logo-house {
+  fill: currentColor;
+}
+
+/* Hjerte = tynn, tydelig outline rundt huset */
+.lifelink-logo-icon svg .lifelink-logo-heart {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Tekstdel for LifeLink */
+.lifelink-logo-text {
+  position: relative;
+  z-index: 1;
+}
