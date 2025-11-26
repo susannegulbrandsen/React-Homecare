@@ -1,0 +1,64 @@
+/* Crimson error text from MedicationCreatePage */
+.error-text {
+  color: crimson;
+}
+
+/* Title in MedicationListPage (font-size: 2.5rem) */
+.page-title {
+  font-size: 2.5rem;
+}
+
+/* Subtitle in MedicationListPage (font-size: 1.1rem) */
+.page-subtitle {
+  font-size: 1.1rem;
+}
+
+/* Medium-size buttons (fontSize 1rem + padding 8/16) */
+.btn-medium {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+/* Large buttons (fontSize 1.1rem + padding 10/20) */
+.btn-large {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+/* Bold label in Search */
+.label-strong {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Search input font-size 1rem */
+.input-medium {
+  font-size: 1rem;
+}
+
+/* Generic red error replacement (style: color: red) */
+.error-red {
+  color: red;
+}
+
+/* Table scroll wrapper */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table header background */
+.table-header {
+  background-color: #177e8b !important;
+  color: white !important;
+}
+
+/* Max width container for update page (600px) */
+.update-container {
+  max-width: 600px;
+}
+
+/* MarginTop: -5px from MedicationUpdatePage */
+.error-top {
+  margin-top: -5px;
+}

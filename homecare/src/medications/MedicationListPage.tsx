@@ -6,10 +6,15 @@ import { MedicationTable } from './MedicationTable';
 import MedicationGrid from './MedicationGrid';
 import type { Medication } from '../types/medication';
 import { useNavigate } from "react-router-dom";
+import "../Medication.css";
+
 
 type ViewMode = 'table' | 'grid';
 
+
 const MedicationListPage: React.FC = () => {
+
+  // State for medications, loading, error, view mode, and search query
   const [medications, setMedications] = useState<Medication[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +23,8 @@ const MedicationListPage: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const fetchMedications = async () => {
+  const fetchMedications = async () => { // fetch medications from API
+    // Reset state
     setLoading(true);
     setError(null);
 
@@ -75,6 +81,7 @@ const MedicationListPage: React.FC = () => {
     localStorage.setItem('medicationViewMode', viewMode);
   }, [viewMode]);
 
+  // Filter medications based on search query (lowercase = case insensitive)
   const filteredMedications = medications.filter(medication =>
     medication.medicationName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     medication.indication?.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -82,6 +89,7 @@ const MedicationListPage: React.FC = () => {
     medication.dosage?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+    // Handle medication deletion
   const handleMedicationDeleted = async (medicationName: string) => {
     const confirmDelete = window.confirm(`Are you sure you want to delete the medication ${medicationName}?`);
     if (confirmDelete) {
@@ -95,19 +103,22 @@ const MedicationListPage: React.FC = () => {
       }
     }
   };
-
+  // navigate to edit page
   const handleEdit = (name: string) => navigate(`/medications/${name}/edit`);
 
-  return (
+  return ( 
     <div className="container-fluid">
-      <div className="text-center mb-3">
-        <h1 className="fw-bold text-primary" style={{ fontSize: '2.5rem' }}>My Medications</h1>
+      <div className="text-center mb-3"> {/* Centered title and subtitle */}
+        <h1 className="mb 2 page-subtitle">My Medications</h1>
+
+        {/*short description under the title */}
         <p className="mb-2" style={{ fontSize: '1.1rem' }}>View and manage your medications</p>
       </div>
       <div className="mb-3">
+        {/* Refresh Button, reloads medication list from backend */}
         <Button 
           onClick={fetchMedications} 
-          className="btn btn-primary me-3" 
+          className="btn btn-primary me-3 btn-medium" 
           disabled={loading}
           style={{ fontSize: '1rem', padding: '8px 16px' }}
         >
@@ -115,7 +126,8 @@ const MedicationListPage: React.FC = () => {
         </Button>
         
         {/* View Mode Buttons */}
-        <div className="btn-group" role="group" aria-label="View mode selection">
+        <div className="btn-medium" role="group" aria-label="View mode selection">
+          {/* table view button */}
           <Button 
             variant={viewMode === 'table' ? 'primary' : 'outline-primary'}
             onClick={() => setViewMode('table')}
@@ -124,6 +136,8 @@ const MedicationListPage: React.FC = () => {
           >
              List View
           </Button>
+          
+          {/* grid view button */}
           <Button 
             variant={viewMode === 'grid' ? 'primary' : 'outline-primary'}
             onClick={() => setViewMode('grid')}
@@ -137,10 +151,11 @@ const MedicationListPage: React.FC = () => {
       
       {/* Search field */}
       <Form.Group className="mb-3">
-        <Form.Label style={{ fontSize: '1rem', fontWeight: 'bold' }}>
+        <Form.Label className="label-strong" style={{ fontSize: '1rem', fontWeight: 'bold' }}>
           Search Medications:
         </Form.Label>
         <Form.Control
+          className="input-medium"
           type="text"
           placeholder="Search by medication name, indication, patient name, or dosage..."
           value={searchQuery}
@@ -149,9 +164,10 @@ const MedicationListPage: React.FC = () => {
         />
       </Form.Group>
       
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {/* Show error message if any */}
+      {error && <p className="error-red">{error}</p>}
       
-      {/* Render appropriate view based on viewMode */}
+      {/* show table or grid depending on viewMode */}
       {viewMode === 'table' && (
         <MedicationTable 
           rows={filteredMedications} 
@@ -170,11 +186,12 @@ const MedicationListPage: React.FC = () => {
         />
       )}
       
+      {/*only employees can add new medications */}
       {user && user.role === "Employee" && (
         <div className="mt-3 text-center">
           <Button 
+            className="btn btn-teal btn-large"
             onClick={() => navigate("/medications/new")}
-            className="btn btn-teal"
             style={{ fontSize: '1.1rem', padding: '10px 20px' }}
           >
              Add New Medication
