@@ -32,10 +32,10 @@ namespace HomeCareApp.Models
 
         //navigation properties
         [ValidateNever]
-        public required AuthUser? User { get; set; }
+        public AuthUser? User { get; set; }
 
         [ValidateNever]
-        public required ICollection<Appointment> Appointments { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
 
     }
 }
