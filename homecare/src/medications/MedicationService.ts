@@ -36,7 +36,7 @@ export async function getAllMedications(): Promise<Medication[]> {
   return handleResponse(response);
 }
 
-// Get medications by patient ID
+// Get medications by patientID
 export async function getMedicationsByPatientId(patientId: number): Promise<Medication[]> {
   const response = await fetch(`${API_URL}/api/medication/patient/${patientId}`, {
     headers: getAuthHeaders(),

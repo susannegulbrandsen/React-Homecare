@@ -15,7 +15,7 @@ export type MedicationFormValues = {
   endDate: string;
 };
 
-// Medication form component for creating or editing medication records
+//Medication form component for creating or editing medication records
 export default function MedicationForm({
   scope = 'employee',
   initial,

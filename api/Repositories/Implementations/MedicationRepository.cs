@@ -14,7 +14,7 @@ namespace HomeCareApp.Repositories.Implementations
             _db = db;
         }
 
-        // Get all medications 
+        //Get all medications 
         public async Task<List<Medication>> GetAllAsync()
         {
             var query = _db.Medications.Include(m => m.Patient).AsQueryable(); // include related patient data

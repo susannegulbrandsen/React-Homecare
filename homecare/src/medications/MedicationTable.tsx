@@ -20,7 +20,7 @@ export const MedicationTable: React.FC<MedicationTableProps> = ({
 
 }) => {
   return (
-    // Container using Bootstrap to center the table
+    //Container using Bootstrap to center the table
 
     <div className="d-flex flex-column align-items-center">
       <div className="table-scroll"> {/* Scrollable conton smaller screens */}

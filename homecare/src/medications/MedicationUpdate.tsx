@@ -20,7 +20,7 @@ const MedicationUpdatePage: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Restrict access to Employee
+  //Restrict access to Employee
   useEffect(() => {
     if (user?.role !== "Employee") {
       navigate("/unauthorized");

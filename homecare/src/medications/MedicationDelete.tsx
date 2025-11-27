@@ -17,7 +17,7 @@ export default function MedicationDeletePage() {
   const [err, setErr] = useState<string | null>(null); // error message state
   const [deleting, setDeleting] = useState(false); // deleting state
 
-  // Restrict access to employees only
+  //  Restrict access to employees only
   if (!user || user.role !== "Employee") {
     return <p className="text-danger text-center mt-5">Not authorized.</p>;
   }

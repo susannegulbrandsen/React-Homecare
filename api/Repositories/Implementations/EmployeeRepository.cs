@@ -14,7 +14,7 @@ namespace HomeCareApp.Repositories.Implementations
             _context = context;
         }
 
-        public async Task<IEnumerable<Employee>> GetAll() // gets all employees
+        public async Task<IEnumerable<Employee>> GetAll() //gets all employees
         {
             return await _context.Employees // get ALL employees from database
                 .Include(e => e.User) // include related user data

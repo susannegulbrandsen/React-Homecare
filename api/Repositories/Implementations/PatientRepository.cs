@@ -16,7 +16,7 @@ public class PatientRepository : IPatientRepository
         _db = db;
     }
 
-    public async Task<IEnumerable<Patient>> GetAll() // gets all patients
+    public async Task<IEnumerable<Patient>> GetAll() //gets all patients
     {
         return await _db.Patients.AsNoTracking().ToListAsync(); // return list of patients without tracking by EF Core, better for read-only operations (quicker and less memory)
     }

@@ -1,6 +1,6 @@
 using HomeCareApp.Models;
 
-/* This interface defines the core operations for managing Medication entities.
+/*This interface defines the core operations for managing Medication entities.
 It includes methods for retrieving all medications, getting medications for a specific patient,
 finding a medication by name, adding a new medication, and deleting an existing one.
 All methods are asynchronous because they interact with the database. */

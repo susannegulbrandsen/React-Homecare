@@ -1,7 +1,7 @@
 using HomeCareApp.Models;
 
 namespace HomeCareApp.Repositories.Interfaces
-/* This interface defines all operations for managing Notification entities.
+/*This interface defines all operations for managing Notification entities.
    It includes methods for retrieving  notifications, creating/fetching/delete/mark notifications
    Distincts between user and employee based by userId */
 {

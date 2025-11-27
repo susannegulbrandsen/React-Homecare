@@ -3,23 +3,23 @@
   color: crimson;
 }
 
-/* Title in MedicationListPage (font-size: 2.5rem) */
+/* Title in MedicationListPage  */
 .page-title {
   font-size: 2.5rem;
 }
 
-/* Subtitle in MedicationListPage (font-size: 1.1rem) */
+/* Subtitle in MedicationListPage  */
 .page-subtitle {
   font-size: 1.1rem;
 }
 
-/* Medium-size buttons (fontSize 1rem + padding 8/16) */
+/* Medium-size buttons  */
 .btn-medium {
   font-size: 1rem;
   padding: 8px 16px;
 }
 
-/* Large buttons (fontSize 1.1rem + padding 10/20) */
+/* Large buttons */
 .btn-large {
   font-size: 1.1rem;
   padding: 10px 20px;
@@ -31,7 +31,7 @@
   font-weight: bold;
 }
 
-/* Search input font-size 1rem */
+/* Search input  */
 .input-medium {
   font-size: 1rem;
 }
@@ -45,7 +45,7 @@
   font-size: 1.1rem;
 }
 
-/* Generic red error replacement (style: color: red) */
+/* Generic red error replacement  */
 .error-red {
   color: red;
 }
@@ -62,12 +62,12 @@
   color: white !important;
 }
 
-/* Max width container for update page (600px) */
+/* Max width container for update page  */
 .update-container {
   max-width: 600px;
 }
 
-/* MarginTop: -5px from MedicationUpdatePage */
+/* MarginTop from MedicationUpdatePage */
 .error-top {
   margin-top: -5px;
 }

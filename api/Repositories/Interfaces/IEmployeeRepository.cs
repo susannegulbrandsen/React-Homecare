@@ -1,6 +1,6 @@
 using HomeCareApp.Models;
 
-/* This interface defines all basic CRUD operations for managing Employee.
+/*This interface defines all basic CRUD operations for managing Employee.
 It includes methods for retrieving all employees, getting a specific employee by either EmployeeId 
 or UserId, creating a new employee, updating an existing one, and deleting an employee.
 All methods are asynchronus.*/

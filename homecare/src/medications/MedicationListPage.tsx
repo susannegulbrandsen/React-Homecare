@@ -103,7 +103,7 @@ const MedicationListPage: React.FC = () => {
       }
     }
   };
-  // navigate to edit page
+  // navigate to edit page.
   const handleEdit = (name: string) => navigate(`/medications/${name}/edit`);
 
   return ( 

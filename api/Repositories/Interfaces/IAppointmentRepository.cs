@@ -2,7 +2,7 @@ using HomeCareApp.Models;
 
 namespace HomeCareApp.Repositories.Interfaces;
 
-    /* This interface defines all basic CRUD operations AppointmentRepository should have. 
+    /*This interface defines all basic CRUD operations AppointmentRepository should have. 
     It includes functions for getting, creating, updating, and deleting appointments. 
     All methods are asynchronous.*/
     public interface IAppointmentRepository

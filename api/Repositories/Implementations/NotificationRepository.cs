@@ -14,7 +14,7 @@ namespace HomeCareApp.Repositories.Implementations
             _db = db;
         }
 
-        public async Task<IEnumerable<Notification>> GetAllAsync() // get all notifications
+        public async Task<IEnumerable<Notification>> GetAllAsync() //get all notifications
         {
             return await _db.Notifications // go to notifications table
                 .Include(n => n.User) // include related user data

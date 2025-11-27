@@ -10,7 +10,7 @@ import "../Medication.css";
 
 
 export default function MedicationCreatePage() {
-  //authorization check
+  // authorization check
   const { user } = useAuth(); //gives us the current logged in user
   const navigate = useNavigate(); 
 

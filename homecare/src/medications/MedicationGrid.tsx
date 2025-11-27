@@ -19,7 +19,7 @@ const MedicationGrid: React.FC<MedicationGridProps> = ({ medications, onDelete, 
   return ( //wrapper for grid layout
     <div>
 
-      {/* bootstrap adjust number of cards based onsc reensize*/}
+      {/* bootstrap adjust number of cards based on screensize*/}
       <Row xs={1} sm={2} md={3} lg={4} className="g-4">
 
         {/*render one card for each medication*/}
@@ -30,7 +30,7 @@ const MedicationGrid: React.FC<MedicationGridProps> = ({ medications, onDelete, 
 
                 <Card.Title>{medication.medicationName}</Card.Title>
 
-                {/* medication information */}
+                {/*medication information */}
                 <Card.Text>
                   <strong>Patient:</strong> {medication.patientName || `Patient ID: ${medication.patientId}`}
                 </Card.Text>
