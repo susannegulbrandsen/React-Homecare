@@ -83,21 +83,39 @@ namespace HomeCareApp.Repositories.Implementations
 
         // update existing appointment
         public async Task<bool> Update(Appointment appointment)
+{
+    try
+    {
+        _logger.LogInformation("[AppointmentRepository] Update() - Updating appointment: {AppointmentId}", appointment.AppointmentId);
+
+        var existing = await _db.Appointments
+            .Include(a => a.Patient)
+            .Include(a => a.Employee)
+            .FirstOrDefaultAsync(a => a.AppointmentId == appointment.AppointmentId);
+
+        if (existing == null)
         {
-            try
-            {
-                _logger.LogInformation("[AppointmentRepository] Update() - Updating appointment: {AppointmentId}", appointment.AppointmentId);
-                _db.Appointments.Update(appointment);
-                await _db.SaveChangesAsync();
-                _logger.LogInformation("[AppointmentRepository] Update() - Successfully updated appointment: {AppointmentId}", appointment.AppointmentId);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "[AppointmentRepository] Update() failed: {Message}", ex.Message);
-                return false;
-            }
+            _logger.LogWarning("[AppointmentRepository] Update() - Appointment not found: {AppointmentId}", appointment.AppointmentId);
+            return false;
         }
+
+        // Update ONLY simple fields
+        existing.Subject = appointment.Subject;
+        existing.Description = appointment.Description;
+        existing.Date = appointment.Date;
+        existing.PatientId = appointment.PatientId;
+        existing.EmployeeId = appointment.EmployeeId;
+
+        await _db.SaveChangesAsync();
+        return true;
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, "[AppointmentRepository] Update() failed: {Message}", ex.Message);
+        return false;
+    }
+}
+
         // delete appointment by id, returnes true if successful and false if not
         public async Task<bool> Delete(int id)
         {

@@ -68,41 +68,40 @@ public class PatientController : ControllerBase
         return Ok(patientDto);
     }
 
-    //Update patient details in My Profile//
+        //Update patient details in My Profile//
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdatePatient(int id, PatientDto patientDto)
+    public async Task<IActionResult> Update(int id, [FromBody] PatientDto dto)
     {
-        _logger.LogInformation("[PatientController] Updating patient with ID: {PatientId}", id);
-        
-        //id must match the url and dto, making sure the correct patient is updated
-        if (patientDto.PatientId != id)
-        {
-            _logger.LogWarning("[PatientController] ID mismatch: URL ID {UrlId} vs DTO ID {DtoId}", id, patientDto.PatientId);
-            return BadRequest("ID mismatch");
-        }
-
-        var existingPatient = await _patientRepository.GetPatientById(id);
-        if (existingPatient == null)
-        {
-            _logger.LogWarning("[PatientController] Patient with ID {PatientId} not found for update", id);
-            return NotFound();
-        }
-
         if (!ModelState.IsValid)
         {
-            _logger.LogWarning("[PatientController] Invalid model state for patient update {PatientId}", id);
             return BadRequest(ModelState);
         }
 
-        // Map updated fields from DTO to entity
-        var updatedPatient = patientDto.ToEntity();
-        updatedPatient.PatientId = id;
-        updatedPatient.Appointments = existingPatient.Appointments;
+        if (dto.PatientId == null || dto.PatientId != id)
+        {
+            return BadRequest("Patient ID mismatch.");
+        }
 
-        await _patientRepository.Update(updatedPatient);
-        _logger.LogInformation("[PatientController] Successfully updated patient {PatientId}", id);
-        return NoContent();
+        //Get existing patient from database
+        var existing = await _patientRepository.GetPatientById(id);
+        if (existing == null)
+        {
+            return NotFound("Patient not found.");
+        }
+
+        //Update only simple/scalar fields
+        existing.FullName = dto.FullName;
+        existing.Address = dto.Address;
+        existing.DateOfBirth = dto.DateOfBirth;
+        existing.phonenumber = dto.phonenumber;
+        existing.HealthRelated_info = dto.HealthRelated_info;
+
+        // Save using repository
+        await _patientRepository.Update(existing);
+
+        //Return updated profile
+        var resultDto = PatientDto.FromEntity(existing);
+        return Ok(resultDto);
     }
-
 
 }
