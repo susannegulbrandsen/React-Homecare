@@ -74,7 +74,7 @@ const LoginPage: React.FC = () => {
     return (
         <Container className="auth-container">
             <h2 className="auth-title">Login</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>} {/*Conditional rendering (logical AND)*/}
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
                     <Form.Label className="auth-label">Username</Form.Label>
