@@ -1,0 +1,130 @@
+2025-11-27 13:36:19.407 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-27 13:36:19.452 +01:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-27 13:36:19.507 +01:00 [INF] User profile is available. Using 'C:\Users\B\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-27 13:36:19.538 +01:00 [INF] Now listening on: http://localhost:5090
+2025-11-27 13:36:19.540 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-27 13:36:19.540 +01:00 [INF] Hosting environment: Development
+2025-11-27 13:36:19.542 +01:00 [INF] Content root path: C:\Users\B\Documents\ITPE3200\React-Homecare\api
+2025-11-27 13:36:21.341 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Notification/unread-count - null null
+2025-11-27 13:36:21.341 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/Notification/unread-count - null null
+2025-11-27 13:36:21.363 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:21.363 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:21.366 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Notification/unread-count - 204 null null 26.659ms
+2025-11-27 13:36:21.366 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/Notification/unread-count - 204 null null 26.9092ms
+2025-11-27 13:36:21.368 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Notification/unread-count - application/json null
+2025-11-27 13:36:21.374 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:21.430 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.NotificationController.GetUnreadCount (api)'
+2025-11-27 13:36:21.440 +01:00 [INF] Route matched with {action = "GetUnreadCount", controller = "Notification"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Int32]] GetUnreadCount() on controller HomeCareApp.Controllers.NotificationController (api).
+2025-11-27 13:36:21.442 +01:00 [INF] [NotificationController] Getting unread count for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:21.443 +01:00 [INF] [NotificationRepository] GetUnreadCountAsync(c1f2f090-f2e3-47ca-9113-d905d27c42f4) - Getting unread count for user
+2025-11-27 13:36:21.622 +01:00 [INF] [NotificationRepository] GetUnreadCountAsync(c1f2f090-f2e3-47ca-9113-d905d27c42f4) - User has 0 unread notifications
+2025-11-27 13:36:21.622 +01:00 [INF] [NotificationController] Found 0 unread notifications for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:21.625 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2025-11-27 13:36:21.659 +01:00 [INF] Executed action HomeCareApp.Controllers.NotificationController.GetUnreadCount (api) in 216.1029ms
+2025-11-27 13:36:21.659 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.NotificationController.GetUnreadCount (api)'
+2025-11-27 13:36:21.661 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Notification/unread-count - 200 1 application/json; charset=utf-8 293.0766ms
+2025-11-27 13:36:21.662 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/Notification/unread-count - application/json null
+2025-11-27 13:36:21.662 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:21.664 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.NotificationController.GetUnreadCount (api)'
+2025-11-27 13:36:21.664 +01:00 [INF] Route matched with {action = "GetUnreadCount", controller = "Notification"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Int32]] GetUnreadCount() on controller HomeCareApp.Controllers.NotificationController (api).
+2025-11-27 13:36:21.665 +01:00 [INF] [NotificationController] Getting unread count for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:21.665 +01:00 [INF] [NotificationRepository] GetUnreadCountAsync(c1f2f090-f2e3-47ca-9113-d905d27c42f4) - Getting unread count for user
+2025-11-27 13:36:21.670 +01:00 [INF] [NotificationRepository] GetUnreadCountAsync(c1f2f090-f2e3-47ca-9113-d905d27c42f4) - User has 0 unread notifications
+2025-11-27 13:36:21.670 +01:00 [INF] [NotificationController] Found 0 unread notifications for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:21.670 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Int32'.
+2025-11-27 13:36:21.671 +01:00 [INF] Executed action HomeCareApp.Controllers.NotificationController.GetUnreadCount (api) in 6.711ms
+2025-11-27 13:36:21.671 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.NotificationController.GetUnreadCount (api)'
+2025-11-27 13:36:21.672 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/Notification/unread-count - 200 1 application/json; charset=utf-8 9.9126ms
+2025-11-27 13:36:23.906 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - null null
+2025-11-27 13:36:23.906 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - null null
+2025-11-27 13:36:23.906 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:23.906 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:23.906 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - 204 null null 0.7098ms
+2025-11-27 13:36:23.906 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - 204 null null 0.7097ms
+2025-11-27 13:36:23.908 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - application/json null
+2025-11-27 13:36:23.908 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:23.910 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-27 13:36:23.917 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-27 13:36:23.925 +01:00 [INF] [PatientController] Getting patient by UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:23.925 +01:00 [INF] [PatientRepository] GetAll() - Retrieving all patients
+2025-11-27 13:36:23.954 +01:00 [INF] [PatientRepository] GetAll() - Successfully retrieved 1 patients
+2025-11-27 13:36:23.954 +01:00 [INF] [PatientController] Total patients in database: 1
+2025-11-27 13:36:23.954 +01:00 [INF] [PatientController] Successfully retrieved patient 1 for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:23.954 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-27 13:36:23.975 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 58.575ms
+2025-11-27 13:36:23.975 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-27 13:36:23.976 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - 200 223 application/json; charset=utf-8 67.6696ms
+2025-11-27 13:36:23.977 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - application/json null
+2025-11-27 13:36:23.977 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:23.977 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-27 13:36:23.977 +01:00 [INF] Route matched with {action = "GetPatientByUserId", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[HomeCareApp.DTOs.PatientDto]] GetPatientByUserId(System.String) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-27 13:36:23.978 +01:00 [INF] [PatientController] Getting patient by UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:23.978 +01:00 [INF] [PatientRepository] GetAll() - Retrieving all patients
+2025-11-27 13:36:23.980 +01:00 [INF] [PatientRepository] GetAll() - Successfully retrieved 1 patients
+2025-11-27 13:36:23.981 +01:00 [INF] [PatientController] Total patients in database: 1
+2025-11-27 13:36:23.981 +01:00 [INF] [PatientController] Successfully retrieved patient 1 for UserId: c1f2f090-f2e3-47ca-9113-d905d27c42f4
+2025-11-27 13:36:23.981 +01:00 [INF] Executing OkObjectResult, writing value of type 'HomeCareApp.DTOs.PatientDto'.
+2025-11-27 13:36:23.981 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.GetPatientByUserId (api) in 3.6289ms
+2025-11-27 13:36:23.981 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.GetPatientByUserId (api)'
+2025-11-27 13:36:23.982 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5090/api/patient/user/c1f2f090-f2e3-47ca-9113-d905d27c42f4 - 200 223 application/json; charset=utf-8 4.5941ms
+2025-11-27 13:36:28.871 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5090/api/patient/1 - null null
+2025-11-27 13:36:28.871 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:28.872 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5090/api/patient/1 - 204 null null 0.5156ms
+2025-11-27 13:36:28.873 +01:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5090/api/patient/1 - application/json 271
+2025-11-27 13:36:28.873 +01:00 [INF] CORS policy execution successful.
+2025-11-27 13:36:28.873 +01:00 [INF] Executing endpoint 'HomeCareApp.Controllers.PatientController.UpdatePatient (api)'
+2025-11-27 13:36:28.879 +01:00 [INF] Route matched with {action = "UpdatePatient", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdatePatient(Int32, HomeCareApp.DTOs.PatientDto) on controller HomeCareApp.Controllers.PatientController (api).
+2025-11-27 13:36:28.914 +01:00 [INF] [PatientController] Updating patient with ID: 1
+2025-11-27 13:36:28.915 +01:00 [INF] [PatientRepository] GetPatientById(1) - Retrieving patient
+2025-11-27 13:36:28.962 +01:00 [INF] [PatientRepository] GetPatientById(1) - Patient found: Susanne Patientname
+2025-11-27 13:36:28.963 +01:00 [INF] [PatientRepository] Update() - Updating patient: Susanne Patientname (ID: 1)
+2025-11-27 13:36:28.991 +01:00 [ERR] [PatientRepository] Update() failed for patient: Susanne Patientname (ID: 1) - The instance of entity type 'Patient' cannot be tracked because another instance with the same key value for {'PatientId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+System.InvalidOperationException: The instance of entity type 'Patient' cannot be tracked because another instance with the same key value for {'PatientId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at HomeCareApp.Repositories.Implementations.PatientRepository.Update(Patient patient) in C:\Users\B\Documents\ITPE3200\React-Homecare\api\Repositories\Implementations\PatientRepository.cs:line 82
+2025-11-27 13:36:28.992 +01:00 [INF] Executed action HomeCareApp.Controllers.PatientController.UpdatePatient (api) in 112.9233ms
+2025-11-27 13:36:28.993 +01:00 [INF] Executed endpoint 'HomeCareApp.Controllers.PatientController.UpdatePatient (api)'
+2025-11-27 13:36:28.995 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The instance of entity type 'Patient' cannot be tracked because another instance with the same key value for {'PatientId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at HomeCareApp.Repositories.Implementations.PatientRepository.Update(Patient patient) in C:\Users\B\Documents\ITPE3200\React-Homecare\api\Repositories\Implementations\PatientRepository.cs:line 82
+   at HomeCareApp.Controllers.PatientController.UpdatePatient(Int32 id, PatientDto patientDto) in C:\Users\B\Documents\ITPE3200\React-Homecare\api\Controllers\PatientController.cs:line 102
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-11-27 13:36:28.998 +01:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5090/api/patient/1 - 500 null text/plain; charset=utf-8 125.1281ms
