@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
-import "../Medication.css";
+import "./Medication.css";
 
 
 type Scope = 'patient' | 'employee';

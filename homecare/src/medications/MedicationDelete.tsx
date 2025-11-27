@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import type { Medication } from "../types/medication";
 import { getMedication, deleteMedication } from "./MedicationService";
-import "../Medication.css";
+import "./Medication.css";
 
 
 export default function MedicationDeletePage() {

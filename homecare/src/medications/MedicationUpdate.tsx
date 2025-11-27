@@ -6,7 +6,7 @@ import { useAuth } from "../auth/AuthContext";
 import * as MedicationService from "./MedicationService";
 import type { Medication } from "../types/medication";
 import type { Patient } from "../types/patient";
-import "../Medication.css";
+import "./Medication.css";
 
 
 const MedicationUpdatePage: React.FC = () => {

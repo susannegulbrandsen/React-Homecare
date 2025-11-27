@@ -6,7 +6,7 @@ import { useAuth } from "../auth/AuthContext";
 import type { NewMedicationDto } from "../types/medication";
 import type { Patient } from "../types/patient";
 import { createMedication, fetchPatients } from "./MedicationService";
-import "../Medication.css";
+import "./Medication.css";
 
 
 export default function MedicationCreatePage() {

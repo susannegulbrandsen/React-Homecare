@@ -6,7 +6,7 @@ import { MedicationTable } from './MedicationTable';
 import MedicationGrid from './MedicationGrid';
 import type { Medication } from '../types/medication';
 import { useNavigate } from "react-router-dom";
-import "../Medication.css";
+import "./Medication.css";
 
 
 type ViewMode = 'table' | 'grid';

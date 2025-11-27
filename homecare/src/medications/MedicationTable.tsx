@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Table } from "react-bootstrap";
 import type { Medication } from "../types/medication";
-import "../Medication.css";
+import "./Medication.css";
 
 
 // Props for MedicationTable component

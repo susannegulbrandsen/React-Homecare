@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Row, Button } from 'react-bootstrap';
 import type { Medication } from '../types/medication';
-import "../Medication.css";
+import "./Medication.css";
 
 
 // Props for MedicationGrid component
