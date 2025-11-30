@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using HomeCareApp.Models;
 
 namespace HomeCareApp.DTOs
@@ -18,11 +19,12 @@ namespace HomeCareApp.DTOs
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [RegularExpression(@"^\+47\d{8}$", ErrorMessage = "Phone number must start with +47 and have 8 numbers.")]
+        [RegularExpression(@"^[0-9]{8}$", ErrorMessage = "Phone number must be 8 digits.")]
         [DataType(DataType.PhoneNumber)]
         public string phonenumber { get; set; } = string.Empty;
 
         [Required]
+        [JsonPropertyName("healthRelated_info")]
         public string HealthRelated_info { get; set; } = string.Empty;
 
         public string UserId { get; set; } = string.Empty;
@@ -42,18 +44,18 @@ namespace HomeCareApp.DTOs
             User = patient.User
         };
 
-        // Convert DTO to Patient entity
+            // Convert DTO to Patient entity
         public Patient ToEntity(string? userIdOverride = null) => new()
-        {
-            PatientId = PatientId ?? 0,
-            FullName = FullName,
-            Address = Address,
-            DateOfBirth = DateOfBirth,
-            phonenumber = phonenumber,
-            HealthRelated_info = HealthRelated_info,
-            UserId = userIdOverride ?? UserId,
-            User = User,
-            Appointments = new List<Appointment>()
-        };
+    {
+        PatientId = PatientId ?? 0,
+        FullName = FullName,
+        Address = Address,
+        DateOfBirth = DateOfBirth,
+        phonenumber = phonenumber,
+        HealthRelated_info = HealthRelated_info,
+        UserId = userIdOverride ?? UserId
+        // DO NOT include User or Appointments
+    };
+
     }
 }

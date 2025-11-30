@@ -22,7 +22,7 @@ namespace HomeCareApp.Models
         public DateTime DateOfBirth { get; set; }
 
         //Validation for phone number
-        [RegularExpression(@"^\+47\d{8}$", ErrorMessage = "Phonenumber must start with +47 and have 8 numbers.")]
+        [RegularExpression(@"^[0-9]{8}$", ErrorMessage = "Phone number must be 8 digits.")]
         [DataType(DataType.PhoneNumber)]
         public string phonenumber { get; set; } = string.Empty;
         
@@ -32,10 +32,10 @@ namespace HomeCareApp.Models
 
         //navigation properties
         [ValidateNever]
-        public required AuthUser? User { get; set; }
+        public AuthUser? User { get; set; }
 
         [ValidateNever]
-        public required ICollection<Appointment> Appointments { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
 
     }
 }

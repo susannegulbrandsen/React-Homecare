@@ -123,7 +123,7 @@ const ProfilePage: React.FC = () => {
                     department: data.department || '',
                     email: user.email || '',
                     phonenumber: data.phonenumber || '',
-                    healthRelated_info: data.healthRelated_info || '',
+                    healthRelated_info: data.healthRelated_info || '', // Match backend casing
                     dateOfBirth: data.dateOfBirth ? data.dateOfBirth.split('T')[0] : ''
                 });
             } else if (response.status === 404) {
@@ -245,7 +245,7 @@ const ProfilePage: React.FC = () => {
             department: userInfo?.department || '',
             email: user?.email || '',
             phonenumber: userInfo?.phonenumber || '',
-            healthRelated_info: userInfo?.healthRelated_info || '',
+            healthRelated_info: userInfo?.healthRelated_info ||'',
             dateOfBirth: userInfo?.dateOfBirth ? userInfo.dateOfBirth.split('T')[0] : ''
         });
     };
