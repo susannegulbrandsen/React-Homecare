@@ -70,4 +70,131 @@ export default defineConfig([
     },
   },
 ])
-```
+
+# HomeCare App
+Our application is a full-stack healthcare management system built as a project in Webprogrammering at OsloMet.
+The application allows administrators, employees and patients to manage appointments, medications, and personal information using a role-based access model that controls what each user can see and do. We have built this with React + TypeScript on the frontend and .Net8 Web API on the backend. 
+
+TECH STACK
+
+Frontend:
+React + TypeScript
+Vite
+React Bootstrap
+React Router
+JWT authentication
+Axios
+
+Backend: 
+.NET 8 Web Api
+Entity Framework Core 8
+SQLite database
+ASP.NET Identity
+Repository and Service architecture
+Automapper
+
+PROJECT STRUCTURE
+
+Frontend (/homecare)
+src/
+- appintments/
+- assets/
+- auth/
+- emergency/
+- home/
+- medications/
+- notifications/
+- profile/
+- search/
+- shared/
+- types/
+- App.tsx
+- main..tsx
+- index.css
+
+Backend (api/)
+api/
+- APILogs        # Api request logs
+- bin/           # Build output
+- Controlles/    # API endpoints
+- Data/          # Database context
+- DTOs/          # Data transfer objects
+- Migations      # EF Core migrations for SQLite database
+- Models/        # Domain models/entities
+- obj/           # Build artifacts
+- Properties/    # Assembly info
+- Repositories/  # Repository interfaces and implementations
+- api.http       # test requests for local debugging
+- appsettings.json # Main configuration (DB, logging and identity)
+- appsettings.Development.json
+- auth.db        # Identity user database
+- homecare.db    # Main application database
+- Program.cs     # Application 
+
+INSTALLATION
+1. Clone the repository
+   git clone <https://github.com/susannegulbrandsen/React-Homecare.git>
+
+2. Install backend dependencies
+   cd api
+   dotnet restore
+
+3. Apply EF migrations
+   dotnet ef database update
+
+4. Install frontend dependencies
+   cd ../homecare
+   npm install
+
+RUNNING THE APPLICATION
+Start the backend:
+cd api
+dotnet watch run
+
+backend runs at: https://localhost:7174
+                 http://localhost:5090"
+
+Start the frontend:
+cd homecare
+npm run dev
+
+frontend runs at:  http://localhost:5173/
+
+FEATURES
+
+Patients:
+- Create, update, delete patient
+- View medical and personal info
+- Linked medications and appointments
+
+Medications:
+- Full CRUD
+- Validation on required fields
+- Linked to spesific patients
+
+Appointments
+- Full CRUD
+- Different views for patient vs employee
+
+Authentication and roles:
+- JWT-based login
+- Three roles: Patient, employee and admin
+- Role-based UI and API access
+
+Notifications
+- CRUD
+- Functionality for employee and patient (admin)??
+
+Known issues to fix:
+
+
+Contributors:
+Susanne Røren Gulbrandsen
+Katarina Briså Daoud
+Vilde Nerem
+Nahid Bani Hashem
+
+
+
+
+
