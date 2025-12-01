@@ -5,9 +5,11 @@ import { useAuth } from '../auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ProfilePage: React.FC = () => { 
     //component state management, handles variables that change over time
-    const { user, deleteAccount } = useAuth();
+    const { user, deleteAccount, logout } = useAuth();
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     const [userInfo, setUserInfo] = useState<any>(null);
@@ -107,7 +109,7 @@ const ProfilePage: React.FC = () => {
             
             const token = localStorage.getItem('token');
             
-            const response = await fetch(`http://localhost:5090${endpoint}`, {
+            const response = await fetch(`${API_URL}${endpoint}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -129,6 +131,12 @@ const ProfilePage: React.FC = () => {
             } else if (response.status === 404) {
                 // Profile not found: redirect to profile setup so the user can complete their profile
                 navigate('/profile-setup');
+                return;
+            } else if (response.status === 401) {
+                // Handle expired or invalid token: logout and redirect to login
+                setError('Your session has expired. Please log in again.');
+                logout(); // Clear user session
+                navigate('/login'); // Redirect to login page
                 return;
             } else {
                 const errorText = await response.text();
@@ -204,7 +212,7 @@ const ProfilePage: React.FC = () => {
             };
 
             console.log('Profile update payload', payload);
-            const response = await fetch(`http://localhost:5090${endpoint}`, {
+            const response = await fetch(`${API_URL}${endpoint}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -256,7 +264,7 @@ const ProfilePage: React.FC = () => {
                 
                 if (endpoint) {
                     const token = localStorage.getItem('token');
-                    await fetch(`http://localhost:5090${endpoint}`, {
+                    await fetch(`${API_URL}${endpoint}`, {
                         method: 'DELETE',
                         headers: {
                             'Authorization': `Bearer ${token}`,

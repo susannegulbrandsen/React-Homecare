@@ -521,3 +521,45 @@ button.btn.appointment-grid-btn-delete:focus {
   border-color: var(--color-error-medium);
   color: var(--color-error-darker);
 }
+
+/* Match grid/list color styling for "Confirm" button - green version of delete button */
+.appointment-actions-vertical button.appointment-action-confirm {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--color-success-dark);
+  font-weight: 400; /* unified normal weight */
+}
+.appointment-actions-vertical button.appointment-action-confirm:hover,
+.appointment-actions-vertical button.appointment-action-confirm:focus {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success-medium);
+  color: var(--color-success-darker);
+}
+
+/* Confirm button for grid view */
+.btn-confirm {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--color-success-dark);
+  font-weight: 400;
+}
+.btn-confirm:hover,
+.btn-confirm:focus {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success-medium);
+  color: var(--color-success-darker);
+}
+
+/* Confirm button for modal (calendar view) */
+.btn-confirm-modal {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: var(--color-success-dark);
+  font-weight: 400;
+}
+.btn-confirm-modal:hover,
+.btn-confirm-modal:focus {
+  background-color: var(--color-success-light);
+  border-color: var(--color-success-medium);
+  color: var(--color-success-darker);
+}

@@ -20,6 +20,10 @@
   --color-error-darker: #7f1d1d;
   
   --color-success: #28a745;
+  --color-success-light: #dcfce7;
+  --color-success-medium: #bbf7d0;
+  --color-success-dark: #15803d;
+  --color-success-darker: #14532d;
   --color-warning: #ffc107;
   --color-info: #17a2b8;
   

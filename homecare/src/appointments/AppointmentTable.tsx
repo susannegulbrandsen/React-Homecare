@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Badge } from 'react-bootstrap';
 import type { Appointment } from '../types/appointment';
 import { useNavigate } from 'react-router-dom';
 import './AppointmentCalendar.css';
@@ -7,10 +7,12 @@ import './AppointmentCalendar.css';
 interface AppointmentTableProps {
   appointments: Appointment[];
   onAppointmentDeleted?: (appointmentId: number) => void;
+  onAppointmentConfirmed?: (appointmentId: number) => void;
   userRole?: string;
+  currentEmployeeId?: number | null;
 }
 
-const AppointmentTable: React.FC<AppointmentTableProps> = ({ appointments, onAppointmentDeleted, userRole }) => {
+const AppointmentTable: React.FC<AppointmentTableProps> = ({ appointments, onAppointmentDeleted, onAppointmentConfirmed, userRole, currentEmployeeId }) => {
   const navigate = useNavigate();
   const [showDescriptions, setShowDescriptions] = useState<boolean>(true);
   const toggleDescriptions = () => setShowDescriptions(prevShowDescriptions => !prevShowDescriptions);
@@ -30,6 +32,7 @@ const AppointmentTable: React.FC<AppointmentTableProps> = ({ appointments, onApp
           <thead className="table-header-teal">
             <tr>
               <th>Subject</th>
+              <th>Status</th>
               <th>Date</th>
               {userRole !== 'Patient' && <th>Patient</th>} 
               <th>Healthcare Provider</th>
@@ -41,29 +44,47 @@ const AppointmentTable: React.FC<AppointmentTableProps> = ({ appointments, onApp
             {appointments.map(appointment => (
               <tr key={appointment.appointmentId}>
                 <td>{appointment.subject}</td>
+                <td>
+                  {appointment.isConfirmed ? (
+                    <Badge bg="success">Confirmed</Badge>
+                  ) : (
+                    <Badge bg="warning" text="dark">Pending</Badge>
+                  )}
+                </td>
                 <td>{new Date(appointment.date).toLocaleString()}</td>
                 {userRole !== 'Patient' && <td>{appointment.patientName || `Patient ID: ${appointment.patientId}`}</td>}
                 <td>{appointment.employeeName || `Employee ID: ${appointment.employeeId}`}</td>
                 {showDescriptions && <td>{appointment.description}</td>}
                 <td className="text-center appointment-actions">
-                  {onAppointmentDeleted && (
-                    <div className="appointment-actions-vertical">
+                  <div className="appointment-actions-vertical">
+                    {userRole === 'Employee' && !appointment.isConfirmed && onAppointmentConfirmed && currentEmployeeId === appointment.employeeId && (
                       <button
                         type="button"
-                        onClick={() => navigate(`/appointmentupdate/${appointment.appointmentId}`)}
-                        className="appointment-action appointment-action-update"
+                        onClick={() => onAppointmentConfirmed(appointment.appointmentId!)}
+                        className="appointment-action appointment-action-confirm"
                       >
-                        Update
+                        Confirm
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => onAppointmentDeleted(appointment.appointmentId!)}
-                        className="appointment-action appointment-action-delete btn btn-delete"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  )}
+                    )}
+                    {onAppointmentDeleted && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => navigate(`/appointmentupdate/${appointment.appointmentId}`)}
+                          className="appointment-action appointment-action-update"
+                        >
+                          Update
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => onAppointmentDeleted(appointment.appointmentId!)}
+                          className="appointment-action appointment-action-delete btn btn-delete"
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </div>
                 </td>
               </tr>
             ))}

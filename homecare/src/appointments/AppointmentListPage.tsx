@@ -6,7 +6,7 @@ import AppointmentCalendar from './AppointmentCalendar';
 import './AppointmentCalendar.css';
 import type { Appointment } from '../types/appointment';
 import * as AppointmentService from './AppointmentService';
-import { fetchPatientByUserId } from './AppointmentService';
+import { fetchPatientByUserId, fetchEmployeeByUserId } from './AppointmentService';
 import { useAuth } from '../auth/AuthContext';
 
 type ViewMode = 'table' | 'grid' | 'calendar';
@@ -18,6 +18,7 @@ const AppointmentListPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('table');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [currentEmployeeId, setCurrentEmployeeId] = useState<number | null>(null);
 
   const fetchAppointments = useCallback(async () => {
     setLoading(true);
@@ -67,6 +68,17 @@ const AppointmentListPage: React.FC = () => {
 
     if (user) {
       fetchAppointments();
+      // Get current employee's ID if user is an employee
+      if (user.role === 'Employee') {
+        const userId = user.sub || user.nameid;
+        fetchEmployeeByUserId(userId).then((employeeData) => {
+          if (employeeData?.employeeId) {
+            setCurrentEmployeeId(employeeData.employeeId);
+          }
+        }).catch((error) => {
+          console.error('Error fetching employee data:', error);
+        });
+      }
     }
   }, [user, fetchAppointments]);
 
@@ -100,6 +112,17 @@ const AppointmentListPage: React.FC = () => {
         console.error('Error deleting appointment:', error);
         setError('Failed to delete appointment.');
       }
+    }
+  };
+
+  const handleAppointmentConfirmed = async (appointmentId: number) => {
+    try {
+      await AppointmentService.confirmAppointment(appointmentId);
+      // Refresh appointments to show updated confirmation status
+      await fetchAppointments();
+    } catch (error) {
+      console.error('Error confirming appointment:', error);
+      setError('Failed to confirm appointment.');
     }
   };
 
@@ -166,7 +189,9 @@ const AppointmentListPage: React.FC = () => {
         <AppointmentTable
           appointments={filteredAppointments}
           onAppointmentDeleted={user ? handleAppointmentDeleted : undefined}
+          onAppointmentConfirmed={user?.role === 'Employee' ? handleAppointmentConfirmed : undefined}
           userRole={user?.role}
+          currentEmployeeId={currentEmployeeId}
         />
       )}
 
@@ -174,7 +199,9 @@ const AppointmentListPage: React.FC = () => {
         <AppointmentGrid
           appointments={filteredAppointments}
           onAppointmentDeleted={user ? handleAppointmentDeleted : undefined}
+          onAppointmentConfirmed={user?.role === 'Employee' ? handleAppointmentConfirmed : undefined}
           userRole={user?.role}
+          currentEmployeeId={currentEmployeeId}
         />
       )}
 
@@ -182,7 +209,9 @@ const AppointmentListPage: React.FC = () => {
         <AppointmentCalendar
           appointments={appointments}
           onAppointmentDeleted={user ? handleAppointmentDeleted : undefined}
+          onAppointmentConfirmed={user?.role === 'Employee' ? handleAppointmentConfirmed : undefined}
           userRole={user?.role}
+          currentEmployeeId={currentEmployeeId}
         />
       )}
 
