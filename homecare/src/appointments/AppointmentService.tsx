@@ -18,6 +18,12 @@ const handleResponse = async (response: Response) => {
     }
     return response.json(); // other returns response body as JSON
   } else {
+    // Handle expired or invalid authentication token
+    if (response.status === 401) {
+      localStorage.removeItem('token'); // Clear invalid token
+      window.location.href = '/login'; // Redirect to login page
+      throw new Error('Your session has expired. Please log in again.');
+    }
     const errorText = await response.text();
     throw new Error(errorText || 'Network response was not ok');
   }

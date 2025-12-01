@@ -37,9 +37,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                     setToken(null);
                 }
             } catch (error) {
+                // Invalid token format - clear everything
                 console.error("Invalid token", error);
                 localStorage.removeItem('token');
+                setUser(null);
+                setToken(null);
             }
+        } else {
+            // No token - ensure user is cleared
+            setUser(null);
         }
         setIsLoading(false);
     }, [token]);

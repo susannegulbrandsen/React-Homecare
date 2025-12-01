@@ -74,7 +74,7 @@ builder.Services.AddCors(options =>
     {
         builder
             // Whitelist frontend origins
-            .WithOrigins("http://localhost:3000", "http://localhost:5173", "https://localhost:5174")
+            .WithOrigins("http://localhost:3000", "http://localhost:4000", "http://localhost:5173", "http://localhost:5174")
             // Explicitly allow only the methods your API exposes
             .WithMethods("GET", "POST", "PUT", "DELETE")
             // Explicitly allow only necessary headers

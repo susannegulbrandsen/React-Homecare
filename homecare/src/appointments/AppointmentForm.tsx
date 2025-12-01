@@ -24,9 +24,19 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
   // Local form fields, prefilled from initialData when updating
   const [subject, setSubject] = useState<string>(initialData?.subject || '');
   const [description, setDescription] = useState<string>(initialData?.description || '');
-  const [date, setDate] = useState<string>(
-    initialData?.date ? new Date(initialData.date).toISOString().slice(0, 16) : ''
-  );
+  const [date, setDate] = useState<string>(() => {
+    if (!initialData?.date) return '';
+    // Format date for datetime-local input while preserving local time
+    // We manually extract date components to avoid timezone conversion issues
+    // (using toISOString() would convert to UTC and change the time)
+    const d = new Date(initialData.date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hours = String(d.getHours()).padStart(2, '0');
+    const minutes = String(d.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  });
   const [formError, setFormError] = useState<string | null>(null);
   // Compute local min date/time string for <input type="datetime-local">
   const now = new Date();
@@ -118,14 +128,28 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
       }
     }
     
+    // Create date that preserves the selected local time when sent to server
+    // We use Date.UTC() to create a UTC date from the local time components
+    // This prevents JavaScript from adding timezone offset (which would change 15:00 to 14:00)
+    const localDate = new Date(date);
+    const utcDate = new Date(Date.UTC(
+      localDate.getFullYear(),
+      localDate.getMonth(),
+      localDate.getDate(),
+      localDate.getHours(),
+      localDate.getMinutes()
+    ));
+    
     const appointment: Appointment = { 
       appointmentId, 
       subject, 
       description, 
-      date: new Date(date),
+      date: utcDate,
       patientId: finalPatientId,
       employeeId,
-      isConfirmed: false // New appointments start as pending requests
+      // For updates, preserve the existing confirmation status from initialData
+      // For new appointments, start as pending (false)
+      isConfirmed: isUpdate && initialData ? initialData.isConfirmed : false
     };
     
     // Let the parent component decide whether this becomes a POST or PUT

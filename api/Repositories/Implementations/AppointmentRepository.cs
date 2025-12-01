@@ -99,14 +99,17 @@ namespace HomeCareApp.Repositories.Implementations
             return false;
         }
 
-        // Update ONLY simple fields
+        // Update all appointment fields
         existing.Subject = appointment.Subject;
         existing.Description = appointment.Description;
         existing.Date = appointment.Date;
         existing.PatientId = appointment.PatientId;
         existing.EmployeeId = appointment.EmployeeId;
+        // Important: Save the IsConfirmed status to database (was previously missing)
+        existing.IsConfirmed = appointment.IsConfirmed;
 
         await _db.SaveChangesAsync();
+        _logger.LogInformation("[AppointmentRepository] Update() - Successfully updated appointment {AppointmentId}, IsConfirmed: {IsConfirmed}", appointment.AppointmentId, appointment.IsConfirmed);
         return true;
     }
     catch (Exception ex)

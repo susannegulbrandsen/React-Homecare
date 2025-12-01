@@ -124,18 +124,41 @@ public class AppointmentController : ControllerBase
         {
             return NotFound("Appointment not found");
         }
+        
+        // Check if the person updating is the patient who owns this appointment
+        // We get the current user's ID from the JWT token claims
+        var currentUserId = User.FindFirst("sub")?.Value ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        bool isPatientUpdate = !string.IsNullOrEmpty(currentUserId) && existingAppointment.Patient?.UserId == currentUserId;
+        
         //Use ToEntity method for consistent mapping
         var updatedAppointment = appointmentDto.ToEntity();
         updatedAppointment.AppointmentId = id;
         updatedAppointment.Patient = existingAppointment.Patient;
         updatedAppointment.Employee = existingAppointment.Employee;
+        
+        // Important: When a patient changes their appointment (e.g., new time), 
+        // the employee needs to confirm the changes again
+        if (isPatientUpdate)
+        {
+            // Reset to pending status so employee must approve the changes
+            updatedAppointment.IsConfirmed = false;
+            _logger.LogInformation("[AppointmentController] Patient updated appointment {AppointmentId}, resetting to pending status", id);
+        }
+        else
+        {
+            // If employee or admin is updating, keep the current confirmation status
+            updatedAppointment.IsConfirmed = existingAppointment.IsConfirmed;
+        }
      
         bool updateSuccessful = await _appointmentRepository.Update(updatedAppointment);
         if (updateSuccessful)
         {
-            // Create notifications for appointment update
-            await CreateAppointmentUpdateNotifications(updatedAppointment);
-            return Ok(updatedAppointment);
+            // Send notification to employee about the change
+            await CreateAppointmentUpdateNotifications(updatedAppointment, isPatientUpdate);
+            
+            // Return the updated appointment with the correct confirmation status
+            var responseDto = AppointmentDto.FromEntity(updatedAppointment);
+            return Ok(responseDto);
         }
 
         _logger.LogWarning("[AppointmentController] Appointment update failed {@appointment}", existingAppointment);
@@ -203,7 +226,7 @@ public class AppointmentController : ControllerBase
     }
 
     //Creating update notifications//
-    private async Task CreateAppointmentUpdateNotifications(Appointment appointment)
+    private async Task CreateAppointmentUpdateNotifications(Appointment appointment, bool isPatientUpdate = false)
     {
         try
         {
@@ -213,34 +236,53 @@ public class AppointmentController : ControllerBase
                 return;
             }
 
-
-            var patientNotification = new Notification
+            // If patient updated, notify employee about new request requiring confirmation
+            if (isPatientUpdate)
             {
-                UserId = appointment.Patient.UserId,
-                Title = "Appointment Updated",
-                Message = $"Your appointment '{appointment.Subject}' has been updated. New date: {appointment.Date:MMM dd, yyyy} with {appointment.Employee?.FullName ?? "healthcare provider"}.",
-                Type = "appointment",
-                RelatedId = appointment.AppointmentId,
-                IsRead = false,
-                CreatedAt = DateTime.Now
-            };
+                var employeeNotification = new Notification
+                {
+                    UserId = appointment.Employee!.UserId,
+                    Title = "Appointment Change Request",
+                    Message = $"{appointment.Patient?.FullName ?? "Patient"} has updated their appointment '{appointment.Subject}'. New date: {appointment.Date:MMM dd, yyyy}. Please review and confirm the changes.",
+                    Type = "appointment",
+                    RelatedId = appointment.AppointmentId,
+                    IsRead = false,
+                    CreatedAt = DateTime.Now
+                };
 
-    
-            var employeeNotification = new Notification
+                await _notificationRepository.CreateAsync(employeeNotification);
+                _logger.LogInformation("[AppointmentController] Created change request notification for employee for appointment {AppointmentId}", appointment.AppointmentId);
+            }
+            else
             {
-                UserId = appointment.Employee!.UserId,
-                Title = "Appointment Updated",
-                Message = $"Appointment '{appointment.Subject}' with {appointment.Patient?.FullName ?? "patient"} has been updated. New date: {appointment.Date:MMM dd, yyyy}.",
-                Type = "appointment",
-                RelatedId = appointment.AppointmentId,
-                IsRead = false,
-                CreatedAt = DateTime.Now
-            };
+                // Employee or other update - notify both parties
+                var patientNotification = new Notification
+                {
+                    UserId = appointment.Patient.UserId,
+                    Title = "Appointment Updated",
+                    Message = $"Your appointment '{appointment.Subject}' has been updated. New date: {appointment.Date:MMM dd, yyyy} with {appointment.Employee?.FullName ?? "healthcare provider"}.",
+                    Type = "appointment",
+                    RelatedId = appointment.AppointmentId,
+                    IsRead = false,
+                    CreatedAt = DateTime.Now
+                };
 
-            await _notificationRepository.CreateAsync(patientNotification);
-            await _notificationRepository.CreateAsync(employeeNotification);
+                var employeeNotification = new Notification
+                {
+                    UserId = appointment.Employee!.UserId,
+                    Title = "Appointment Updated",
+                    Message = $"Appointment '{appointment.Subject}' with {appointment.Patient?.FullName ?? "patient"} has been updated. New date: {appointment.Date:MMM dd, yyyy}.",
+                    Type = "appointment",
+                    RelatedId = appointment.AppointmentId,
+                    IsRead = false,
+                    CreatedAt = DateTime.Now
+                };
 
-            _logger.LogInformation("[AppointmentController] Created update notifications for appointment {AppointmentId}", appointment.AppointmentId);
+                await _notificationRepository.CreateAsync(patientNotification);
+                await _notificationRepository.CreateAsync(employeeNotification);
+
+                _logger.LogInformation("[AppointmentController] Created update notifications for appointment {AppointmentId}", appointment.AppointmentId);
+            }
         }
         catch (Exception ex)
         {
