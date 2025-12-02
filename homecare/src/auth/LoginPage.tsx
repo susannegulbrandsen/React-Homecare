@@ -99,7 +99,7 @@ const LoginPage: React.FC = () => {
                 </Form.Group>
                 <Button
                     type="submit"
-                    className="auth-submit"
+                    className="btn btn-teal auth-submit"
                 >
                     Login
                 </Button>

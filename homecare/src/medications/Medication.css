@@ -1,7 +1,4 @@
-/* Crimson error text from MedicationCreatePage */
-.error-text {
-  color: crimson;
-}
+c/* Note: .error-text is now defined in design-system.css to avoid duplication */
 
 /* Title in MedicationListPage  */
 .page-title {
@@ -43,11 +40,6 @@
 
 .text-large {
   font-size: 1.1rem;
-}
-
-/* Generic red error replacement  */
-.error-red {
-  color: red;
 }
 
 /* Table scroll wrapper */
