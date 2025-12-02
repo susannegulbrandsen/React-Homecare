@@ -99,14 +99,17 @@ namespace HomeCareApp.Repositories.Implementations
             return false;
         }
 
-        // Update ONLY simple fields
+        // Update all appointment fields
         existing.Subject = appointment.Subject;
         existing.Description = appointment.Description;
         existing.Date = appointment.Date;
         existing.PatientId = appointment.PatientId;
         existing.EmployeeId = appointment.EmployeeId;
+        // Important: Save the IsConfirmed status to database (was previously missing)
+        existing.IsConfirmed = appointment.IsConfirmed;
 
         await _db.SaveChangesAsync();
+        _logger.LogInformation("[AppointmentRepository] Update() - Successfully updated appointment {AppointmentId}, IsConfirmed: {IsConfirmed}", appointment.AppointmentId, appointment.IsConfirmed);
         return true;
     }
     catch (Exception ex)
@@ -138,6 +141,28 @@ namespace HomeCareApp.Repositories.Implementations
             catch (Exception ex)
             {
                 _logger.LogError(ex, "[AppointmentRepository] Delete({Id}) failed: {Message}", id, ex.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> SetConfirmed(int id, bool confirmed)
+        {
+            try
+            {
+                _logger.LogInformation("[AppointmentRepository] SetConfirmed({Id}) - Setting confirmation to {Confirmed}", id, confirmed);
+                var appointment = await _db.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == id);
+                if (appointment == null)
+                {
+                    _logger.LogWarning("[AppointmentRepository] SetConfirmed({Id}) - Appointment not found", id);
+                    return false;
+                }
+                appointment.IsConfirmed = confirmed;
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "[AppointmentRepository] SetConfirmed({Id}) failed: {Message}", id, ex.Message);
                 return false;
             }
         }

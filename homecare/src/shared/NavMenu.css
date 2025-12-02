@@ -23,43 +23,45 @@
   min-height: 70px;
 }
 
-/* Brand / logo – oppdatert (ingen gradient, moderne teal) */
+/* Brand / logo – updated (no gradient and updated color) */
 .lifelink-navbar-brand {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.85rem;          /* litt mer luft mellom ikon og tekst */
+  gap: 0.85rem;          /* a bit more space between icon and text */
 
-  font-size: 1.9rem;      /* logo-størrelse */
+  font-size: 1.9rem;      /* logo size */
   padding: 0.5rem 0;
-  font-weight: 800;       /* mer “logo”-vekt */
-  letter-spacing: 0.08em; /* litt mer spacing for premium-look */
+  font-weight: 800;       /* more "logo" weight */
+  letter-spacing: 0.08em; /* a bit more spacing for premium look */
   text-decoration: none;
 
-  /* bruker samme font som resten av appen (ingen egen font-family her) */
-  color: #177e8b;
+  /* uses the same font as the rest of the app (no separate font-family here) */
+  color: var(--teal-primary);
 
-  transition:
+  /* Smooth transition for transform, filter and color changes */
+  transition: 
     transform 0.18s ease,
     filter 0.18s ease,
     color 0.18s ease;
 }
 
 
-/* Sikre konsistent farge, ikke svart ved klikk/besøkt */
+
+/*give consistent color, not black on click/visited */
 .lifelink-navbar-brand:link,
 .lifelink-navbar-brand:visited {
-  color: #177e8b;
+  color: var(--teal-primary);
   text-decoration: none;
 }
 
-/* Hover/focus/active: subtil, litt mørkere teal + shadow – ikke svart */
+/* Hover/focus/active: subtle, slightly darker teal + shadow – not black */
 .lifelink-navbar-brand:hover,
 .lifelink-navbar-brand:focus,
 .lifelink-navbar-brand:active {
   transform: translateY(-1px);
   filter: drop-shadow(0 4px 8px rgba(15, 23, 42, 0.12));
-  color: #0f6f7c;  /* diskret mørkere variant av teal */
+  color: #0f6f7c;  /* subtle darker variant of teal */
   text-decoration: none;
 }
 
@@ -74,6 +76,8 @@
   border: none;
   font-size: 1.4rem;
   padding: 0.75rem 1rem;
+  margin-left: 8px; /* closer to search */
+  margin-right: 0; /* keep compact before welcome */
 }
 
 /* Bell icon size */
@@ -96,7 +100,9 @@
 /* Other primary nav links (My Profile, Appointments, Medications) */
 .lifelink-nav-link {
   font-size: 1.1rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem; /* revert original padding */
+  position: relative; /* nudge downward without affecting Home */
+  top: 2px; /* visual alignment with Home link */
 }
 
 /* Shared styling for desktop nav links (hover / active underline) */
@@ -110,16 +116,16 @@
 .lifelink-nav-link-main:focus,
 .lifelink-nav-link:hover,
 .lifelink-nav-link:focus {
-  color: #177e8b;
-  border-bottom-color: #177e8b;
+  color: var(--teal-primary);
+  border-bottom-color: var(--teal-primary);
 }
 
 /* Active link (works if Nav.Link gets the .active class) */
 .lifelink-nav-link-main.active,
 .lifelink-nav-link.active {
-  color: #177e8b;
+  color: var(--teal-primary);
   font-weight: 600;
-  border-bottom-color: #177e8b;
+  border-bottom-color: var(--teal-primary);
 }
 
 /* Mobile nav links (in collapsed menu) */
@@ -130,12 +136,12 @@
 
 /* Mobile primary links: profile / login / register */
 .lifelink-mobile-nav-link-primary {
-  color: #177e8b;
+  color: var(--teal-primary);
 }
 
 .lifelink-mobile-nav-link-primary:hover,
 .lifelink-mobile-nav-link-primary:focus {
-  color: #177e8b;
+  color: var(--teal-primary);
 }
 
 /* Mobile logout link */
@@ -151,6 +157,8 @@
 /* Search group width on desktop – slightly smaller than before */
 .lifelink-search-group {
   width: 240px;
+  margin-left: 18px; /* keep original search position */
+  margin-right: 4px; /* small space before bell */
 }
 
 /* Search input styling */
@@ -173,12 +181,14 @@
 
 /* Desktop welcome link (wraps the span) */
 .lifelink-welcome-link {
-  color: #177e8b;
+  color: var(--teal-primary);
+  margin-left: 4px; /* slight gap from bell */
+  margin-right: 28px; /* more space before logout for long names */
 }
 
 .lifelink-welcome-link:hover,
 .lifelink-welcome-link:focus {
-  color: #177e8b;
+  color: var(--teal-primary);
 }
 
 /* Pointer cursor for welcome text */
@@ -189,29 +199,35 @@
 /* Desktop logout button */
 .lifelink-logout-btn {
   font-size: 1rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.35rem 1.1rem; /* reduced vertical height */
 }
+/* Narrow internal spacing to move search, bell, welcome closer to logout */
+.lifelink-desktop-right { gap: 0.75rem !important; }
 
 /* Auth buttons (Login / Register) when not logged in */
 .btn.lifelink-auth-btn {
-  border-color: #177e8b;
-  color: #177e8b;
+  border-color: var(--teal-primary);
+  color: var(--teal-primary);
   background-color: transparent;
   transition: all 0.3s ease;
   font-size: 1.1rem;
   padding: 0.75rem 1.5rem;
+  width: 8.6rem; /* Ensure Login and Register are exactly same width */
+  text-align: center;
 }
 
 /* Hover/focus effect equivalent to the onMouseOver/onMouseOut logic in TSX */
 .btn.lifelink-auth-btn:hover,
 .btn.lifelink-auth-btn:focus {
-  background-color: #177e8b;
+  background-color: var(--teal-primary);
   color: #ffffff;
-  border-color: #177e8b;
+  border-color: var(--teal-primary);
 }
 
-/* === NYTT: hus + hjerte-ikon ved siden av LifeLink === */
+/* === NEW: house + heart icon next to LifeLink === */
 
+/* Circular icon wrapper for the LifeLink logo.
+   Centers its content and removes all default button styling. */
 .lifelink-logo-icon {
   display: inline-flex;
   align-items: center;
@@ -224,18 +240,18 @@
   box-shadow: none;
 }
 
-/* SVG inni ikonet – fyller nesten hele containeren */
+/* SVG inside the icon – fills almost the entire container */
 .lifelink-logo-icon svg {
   width: 3rem;
   height: 3rem;
 }
 
-/* Hus = fylt ikon */
+/* House = filled icon */
 .lifelink-logo-icon svg .lifelink-logo-house {
   fill: currentColor;
 }
 
-/* Hjerte = tynn, tydelig outline rundt huset */
+/* Heart = thin, clear outline around the house */
 .lifelink-logo-icon svg .lifelink-logo-heart {
   fill: none;
   stroke: currentColor;
@@ -244,7 +260,7 @@
   stroke-linejoin: round;
 }
 
-/* Tekstdel for LifeLink */
+/* Text part for LifeLink */
 .lifelink-logo-text {
   position: relative;
   z-index: 1;

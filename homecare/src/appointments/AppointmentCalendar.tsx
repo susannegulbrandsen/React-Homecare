@@ -8,13 +8,17 @@ import './AppointmentCalendar.css';
 interface AppointmentCalendarProps {
   appointments: Appointment[]; // Array of all appointments to be displayed
   onAppointmentDeleted?: (appointmentId: number) => void; // Optional callback when an appointment is deleted
+  onAppointmentConfirmed?: (appointmentId: number) => void; // Optional callback when employee confirms appointment
   userRole?: string; // Optional string that defines user type ("Patient", "Employee", etc.)
+  currentEmployeeId?: number | null; // Current logged-in employee's ID
 }
 
 const AppointmentCalendar: React.FC<AppointmentCalendarProps> = ({ 
   appointments, 
   onAppointmentDeleted, 
-  userRole 
+  onAppointmentConfirmed,
+  userRole,
+  currentEmployeeId 
 }) => {
   // Keeps track of which month/year is currently shown in the calendar
   const [currentDate, setCurrentDate] = useState(new Date()); // Holds whichever month is currently visible in the calendar view.
@@ -231,9 +235,9 @@ const AppointmentCalendar: React.FC<AppointmentCalendarProps> = ({
       <div className="calendar-legend">
         <div className="d-flex justify-content-between align-items-center flex-wrap">
           <div>
-            <Badge bg="primary" className="me-2">Today</Badge>
+            <Badge className="me-2 bg-teal">Today</Badge>
             <span className="calendar-legend-text">
-              <strong>Tip:</strong> Click appointments for details
+              <strong>Tip:</strong> Click appointments for details:{' '}
             </span>
           </div>
           <div>
@@ -265,6 +269,17 @@ const AppointmentCalendar: React.FC<AppointmentCalendarProps> = ({
                 <strong>Subject:</strong>
                  <p className="modal-subject mt-1">
                   {selectedAppointment.subject}
+                </p>
+              </div>
+              
+              <div className="mb-3">
+                <strong>Status:</strong>
+                <p className="mt-1">
+                  {selectedAppointment.isConfirmed ? (
+                    <Badge bg="success">Confirmed</Badge>
+                  ) : (
+                    <Badge bg="warning" text="dark">Pending</Badge>
+                  )}
                 </p>
               </div>
               
@@ -312,6 +327,18 @@ const AppointmentCalendar: React.FC<AppointmentCalendarProps> = ({
           {/* If a delete handler is provided, show edit/delete actions for the selected appointment */}
           {onAppointmentDeleted && selectedAppointment && (
             <>
+              {userRole === 'Employee' && !selectedAppointment.isConfirmed && onAppointmentConfirmed && currentEmployeeId === selectedAppointment.employeeId && (
+                <Button 
+                  size="lg"
+                  onClick={() => {
+                    onAppointmentConfirmed(selectedAppointment.appointmentId!);
+                    setShowModal(false);
+                  }}
+                  className="modal-btn btn-confirm-modal"
+                >
+                  Confirm Appointment
+                </Button>
+              )}
               <Button 
                 variant="primary" 
                 size="lg"

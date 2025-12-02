@@ -1,60 +1,65 @@
 /*search results page style*/
 
+/* Title for search results page */
 .search-results-title {
-  color: #177e8b;
-  margin-bottom: 2rem;
+  color: var(--teal-primary); /* Primary teal color for titles */
+  margin-bottom: 2rem; /* Space below the title */
 }
 
+/* Loading state styling */
 .search-loading-container {
-  text-align: center;
+  text-align: center; /* Center align loading spinner and text */
   padding: 3rem 0;
 }
 
 .search-loading-spinner {
-  color: #177e8b;
+  color: var(--teal-primary); /* Teal color for loading spinner */
 }
 
-.search-loading-text {
-  margin-top: 1rem;
+.search-loading-text { /* Loading text styling */
+  margin-top: 1rem; /* Space above the text */
 }
 
-.search-results-count {
-  margin-bottom: 1.5rem;
+.search-results-count { /* Count of results found */
+  margin-bottom: 1.5rem; /* Space below the count */
   color: #6c757d;
 }
 
-.search-result-card {
-  cursor: pointer;
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.search-result-card { /* Individual search result card */
+  cursor: pointer; /* Pointer cursor on hover */
+  height: 100%; /* Full height for consistent card sizes */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover effect for search result cards */
 .search-result-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Card header styling */
 .search-result-card-header {
-  background-color: #177e8b;
-  color: white;
-  font-size: 0.9rem;
-  text-transform: uppercase;
+  background-color: var(--teal-primary); /* Teal background for headers */
+  color: white; /* White text for contrast */
+  font-size: 0.9rem; /* Slightly smaller font for headers */
+  text-transform: uppercase; /* Uppercase text */
 }
 
+/* Card body styling */
 .search-result-card-title {
   font-size: 1.1rem;
-  color: #177e8b;
+  color: var(--teal-primary);
 }
-
+/* Card text styling */
 .search-result-card-text {
   font-size: 0.95rem;
 }
-
+/* Date styling */
 .search-result-date {
   color: #6c757d;
 }
-
+/* Container for search results */
 .search-results-container {
   margin-top: 1.5rem;
 }

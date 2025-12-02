@@ -7,8 +7,6 @@ import type { Patient } from '../types/patient';
 import { fetchEmployees, fetchPatients, fetchPatientByUserId } from './AppointmentService';
 import { useAuth } from '../auth/AuthContext';
 
-// import API_URL from '../apiConfig';
-
 // Reusable form component for both creating and updating appointments
 interface AppointmentFormProps {
   onAppointmentChanged: (newAppointment: Appointment) => void; // Callback to parent when form is submitted
@@ -26,9 +24,24 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
   // Local form fields, prefilled from initialData when updating
   const [subject, setSubject] = useState<string>(initialData?.subject || '');
   const [description, setDescription] = useState<string>(initialData?.description || '');
-  const [date, setDate] = useState<string>(
-    initialData?.date ? new Date(initialData.date).toISOString().slice(0, 16) : ''
-  );
+  const [date, setDate] = useState<string>(() => {
+    if (!initialData?.date) return '';
+    // Format date for datetime-local input while preserving local time
+    // We manually extract date components to avoid timezone conversion issues
+    // (using toISOString() would convert to UTC and change the time)
+    const d = new Date(initialData.date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const hours = String(d.getHours()).padStart(2, '0');
+    const minutes = String(d.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  });
+  const [formError, setFormError] = useState<string | null>(null);
+  // Compute local min date/time string for <input type="datetime-local">
+  const now = new Date();
+  const pad = (n: number) => (n < 10 ? `0${n}` : `${n}`);
+  const minDateTime = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
   const [patientId, setPatientId] = useState<number>(initialData?.patientId || 0);
   const [employeeId, setEmployeeId] = useState<number>(initialData?.employeeId || 0);
 
@@ -41,7 +54,6 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
 
   // Simple loading flag while we fetch employees/patients
   const [loading, setLoading] = useState<boolean>(true);
-  // const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
   const { user } = useAuth(); // Get current authenticated user and role
@@ -67,7 +79,6 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
           setPatients(patientsData);
         }
       } catch (error) {
-        // In a real app we might show a user-facing error here
         console.error('Error fetching data:', error);
       } finally {
         setLoading(false);
@@ -88,14 +99,59 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
   // Handle submit for both create and update
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setFormError(null);
+    
+    // Prevent submission if date is missing or in the past (compared to now)
+    if (!date || new Date(date) < new Date()) {
+      setFormError('Appointment date must be in the future');
+      return;
+    }
+    
+    // Validate employee selection
+    if (!employeeId || employeeId === 0) {
+      setFormError('Please select a healthcare provider');
+      return;
+    }
+    
+    // Validate patient selection (for employees) or use currentPatient (for patients)
+    let finalPatientId = patientId;
+    if (user?.role === 'Patient') {
+      if (!currentPatient?.patientId) {
+        setFormError('Unable to identify patient. Please complete your profile first.');
+        return;
+      }
+      finalPatientId = currentPatient.patientId;
+    } else {
+      if (!patientId || patientId === 0) {
+        setFormError('Please select a patient');
+        return;
+      }
+    }
+    
+    // Create date that preserves the selected local time when sent to server
+    // We use Date.UTC() to create a UTC date from the local time components
+    // This prevents JavaScript from adding timezone offset (which would change 15:00 to 14:00)
+    const localDate = new Date(date);
+    const utcDate = new Date(Date.UTC(
+      localDate.getFullYear(),
+      localDate.getMonth(),
+      localDate.getDate(),
+      localDate.getHours(),
+      localDate.getMinutes()
+    ));
+    
     const appointment: Appointment = { 
       appointmentId, 
       subject, 
       description, 
-      date: new Date(date),     // Convert string from <input type="datetime-local" /> to Date
-      patientId,
-      employeeId
+      date: utcDate,
+      patientId: finalPatientId,
+      employeeId,
+      // For updates, preserve the existing confirmation status from initialData
+      // For new appointments, start as pending (false)
+      isConfirmed: isUpdate && initialData ? initialData.isConfirmed : false
     };
+    
     // Let the parent component decide whether this becomes a POST or PUT
     onAppointmentChanged(appointment); // Call the passed function with the appointment data
   };
@@ -124,12 +180,14 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
       {/* Date/time input for the appointment */}
       <Form.Group controlId="formAppointmentDate">
         <Form.Label>Date</Form.Label>
-        <Form.Control
-          type="datetime-local"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          required
-        />
+          <Form.Control
+            type="datetime-local"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+            min={minDateTime}
+          />
+          {formError && <div className="form-error">{formError}</div>}
       </Form.Group>
 
       {/* Optional free-text description of the appointment */}
@@ -144,19 +202,10 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
         />
       </Form.Group>
 
-      {/* Patient selection behaves differently for patients vs employees */}
-      <Form.Group controlId="formAppointmentPatientId">
-        <Form.Label>Patient</Form.Label>
-        {user?.role === 'Patient' && currentPatient ? (
-          // If the logged-in user is a patient, we show their name as read-only
-          <Form.Control
-            type="text"
-            value={currentPatient.fullName}
-            disabled
-            style={{ backgroundColor: '#f8f9fa' }}
-          />
-        ) : (
-          // For employees/admins we show a dropdown with all patients
+      {/* Patient selection - only shown for employees/admins */}
+      {user?.role !== 'Patient' && (
+        <Form.Group controlId="formAppointmentPatientId">
+          <Form.Label>Patient</Form.Label>
           <Form.Control
             as="select"
             value={patientId}
@@ -171,12 +220,12 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
               </option>
             ))}
           </Form.Control>
-        )}
-      </Form.Group>
+        </Form.Group>
+      )}
 
       {/* Employee (healthcare provider) dropdown */}
       <Form.Group controlId="formAppointmentEmployeeId">
-        <Form.Label>Employee</Form.Label>
+        <Form.Label>{user?.role === 'Patient' ? 'Healthcare Provider' : 'Employee'}</Form.Label>
         <Form.Control
           as="select"
           value={employeeId}
@@ -184,7 +233,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
           required
           disabled={loading}
         >
-          <option value={0}>Select an employee...</option>
+          <option value={0}>{user?.role === 'Patient' ? 'Select a healthcare provider...' : 'Select an employee...'}</option>
           {employees.map((employee) => (
             <option key={employee.employeeId} value={employee.employeeId}>
               {employee.fullName}
@@ -193,15 +242,15 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
         </Form.Control>
       </Form.Group>
 
-      {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
-
-      {/* Submit and cancel buttons – text changes depending on create vs update */}
-      <Button className="btn btn-teal auth-submit" type="submit">
-        {isUpdate ? 'Update Appointment' : 'Create Appointment'}
-      </Button>
-      <Button className="btn btn-secondary ms-2 auth-submit" onClick={onCancel}>
-        Cancel
-      </Button>
+      {/* Submit and cancel buttons – wrapped with extra top spacing */}
+      <div className="mt-4 d-flex">
+        <Button className="btn btn-teal" type="submit">
+          {isUpdate ? 'Update Appointment' : 'Create Appointment'}
+        </Button>
+        <Button className="btn btn-delete ms-2" onClick={onCancel}>
+          Cancel
+        </Button>
+      </div>
     </Form>
   );
 };

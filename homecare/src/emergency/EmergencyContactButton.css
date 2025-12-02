@@ -1,53 +1,56 @@
-
+ /* Emergency Contact Button Styles */
 .lifelink-emergency-btn {
-  position: fixed;
-  right: 0.75rem;
-  bottom: 1.5rem;
+  position: fixed; /* Fixed position */
+  right: 0.75rem; /* distance from right edge */
+  bottom: 1.5rem; /* distance from bottom edge */
   z-index: 1050; 
-  display: inline-flex;
+  display: inline-flex; /* center contents */
   align-items: center;
   justify-content: center;
 
-  width: 64px;
-  height: 64px;
-  padding: 0;
-  border-radius: 50%;
-  border: none;
+  width: 64px; /* make circular */
+  height: 64px; /* make circular */
+  padding: 0; /* no inner padding */
+  border-radius: 50%; /* circular shape */
+  border: none; /* no border */
 
-  background-color: #177e8b;
-  color: #ffffff;
+  background-color: var(--teal-primary); /* Teal background */
+  color: #ffffff; /* White icon color */
 
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem; /* unify with teal button standard */
+  font-weight: 400; /* unify teal button weight */
 
+  /* Shadow and transition for hover effect */
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
+    transform 0.15s ease, /* smooth transform */
+    box-shadow 0.15s ease, /* smooth shadow */
+    background-color 0.15s ease; /* smooth background color */
 }
 
+/* Hover/focus effect */
 .lifelink-emergency-btn:hover,
 .lifelink-emergency-btn:focus {
-  background-color: #0f6f7c;
-  color: #ffffff;
+  background-color: #0f6f7c; /* Darker teal on hover */
+  color: #ffffff; /* keep icon white */
   transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.22);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.22); /* stronger shadow on hover */
 }
 
-.lifelink-emergency-icon {
-  font-size: 1.35rem;
-  line-height: 1;
+.lifelink-emergency-icon { /* Icon inside the button */
+  font-size: 1.35rem; /* slightly larger for visibility */
+  line-height: 1; /* no extra line height */
   color: #ffffff;
 }
 
+/* SVG icon styling */
 .lifelink-emergency-icon svg {
   width: 1.1em;
   height: 1.1em;
   display: block;
-  fill: currentColor;
-  transform: rotate(283deg);
-  transform-origin: center;
+  fill: currentColor; /* inherit color from parent */
+  transform: rotate(283deg); /* rotate to make house upright */
+  transform-origin: center; /* rotate around center */
  }
 
 /* Hide the label visually because the button is circular; aria-label remains for screen readers */
@@ -57,13 +60,15 @@
 
 /* Call-button LifeLink-teal */
 .lifelink-emergency-call-btn {
-  background-color: #177e8b;
-  border-color: #177e8b;
-  color: #ffffff;
+  background-color: var(--teal-primary); /* Teal background */
+  border-color: var(--teal-primary); /* Teal border */
+  color: #ffffff; 
+  font-weight: 400; /* unify */
 }
 
+/* Hover/focus effect for call button */
 .lifelink-emergency-call-btn:hover,
 .lifelink-emergency-call-btn:focus {
-  background-color: #0f6f7c;
-  border-color: #0f6f7c;
+  background-color: #0f6f7c; /* Darker teal on hover */
+  border-color: #0f6f7c; /* Darker teal border on hover */
 }

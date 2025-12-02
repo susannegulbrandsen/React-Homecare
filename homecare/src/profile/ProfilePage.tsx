@@ -5,9 +5,11 @@ import { useAuth } from '../auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './ProfilePage.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ProfilePage: React.FC = () => { 
     //component state management, handles variables that change over time
-    const { user, deleteAccount } = useAuth();
+    const { user, deleteAccount, logout } = useAuth();
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     const [userInfo, setUserInfo] = useState<any>(null);
@@ -107,7 +109,7 @@ const ProfilePage: React.FC = () => {
             
             const token = localStorage.getItem('token');
             
-            const response = await fetch(`http://localhost:5090${endpoint}`, {
+            const response = await fetch(`${API_URL}${endpoint}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -127,27 +129,15 @@ const ProfilePage: React.FC = () => {
                     dateOfBirth: data.dateOfBirth ? data.dateOfBirth.split('T')[0] : ''
                 });
             } else if (response.status === 404) {
-                //profile not found, try to create it
-                try {
-                    const createResponse = await fetch(`http://localhost:5090/api/Auth/create-profile`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json'
-                        }
-                    });
-                    
-                    if (createResponse.ok) {
-                        //retry fetching the profile
-                        await fetchUserProfile();
-                        return;
-                    } else {
-                        const createErrorText = await createResponse.text();
-                        setError(`Failed to create profile: ${createResponse.status} - ${createErrorText}`);
-                    }
-                } catch (createErr) {
-                    setError('Error creating profile');
-                }
+                // Profile not found: redirect to profile setup so the user can complete their profile
+                navigate('/profile-setup');
+                return;
+            } else if (response.status === 401) {
+                // Handle expired or invalid token: logout and redirect to login
+                setError('Your session has expired. Please log in again.');
+                logout(); // Clear user session
+                navigate('/login'); // Redirect to login page
+                return;
             } else {
                 const errorText = await response.text();
                 setError(`Failed to load profile information: ${response.status} - ${errorText}`);
@@ -207,21 +197,28 @@ const ProfilePage: React.FC = () => {
             }
             
             const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:5090${endpoint}`, {
+            const payload = user?.role === 'Employee' ? {
+                EmployeeId: userInfo?.employeeId,
+                FullName: formData.fullName,
+                Address: formData.address,
+                Department: formData.department
+            } : {
+                ...userInfo,
+                fullName: formData.fullName,
+                address: formData.address,
+                phonenumber: formData.phonenumber,
+                healthRelated_info: formData.healthRelated_info,
+                dateOfBirth: formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString() : userInfo.dateOfBirth
+            };
+
+            console.log('Profile update payload', payload);
+            const response = await fetch(`${API_URL}${endpoint}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    ...userInfo,
-                    fullName: formData.fullName,
-                    address: formData.address,
-                    department: formData.department,
-                    phonenumber: formData.phonenumber,
-                    healthRelated_info: formData.healthRelated_info,
-                    dateOfBirth: formData.dateOfBirth ? new Date(formData.dateOfBirth).toISOString() : userInfo.dateOfBirth
-                })
+                body: JSON.stringify(payload)
             });
             
             if (response.ok) {
@@ -229,7 +226,8 @@ const ProfilePage: React.FC = () => {
                 setIsEditing(false);
                 await fetchUserProfile();
             } else {
-                setError('Failed to update profile');
+                const errorText = await response.text();
+                setError(`Failed to update profile: ${response.status} - ${errorText}`);
             }
         } catch (err) {
             setError('Error updating profile');
@@ -266,20 +264,15 @@ const ProfilePage: React.FC = () => {
                 
                 if (endpoint) {
                     const token = localStorage.getItem('token');
-                    const response = await fetch(`http://localhost:5090${endpoint}`, {
+                    await fetch(`${API_URL}${endpoint}`, {
                         method: 'DELETE',
                         headers: {
                             'Authorization': `Bearer ${token}`,
                             'Content-Type': 'application/json'
                         }
                     });
-                    
-                    if (!response.ok) {
-                        //continue with account deletion even if patient/employee deletion fails
-                    }
                 }
             }
-            
             //then delete the user account
             await deleteAccount();
             
@@ -514,14 +507,13 @@ const ProfilePage: React.FC = () => {
                                 {isEditing ? (
                                     <div>
                                         <Button 
-                                            variant="success" 
                                             onClick={handleSave} 
-                                            className="me-2"
+                                            className="btn btn-teal me-2"
                                         >
                                             Save Changes
                                         </Button>
                                         <Button 
-                                            variant="secondary" 
+                                            className="btn btn-delete"
                                             onClick={handleCancel}
                                         >
                                             Cancel
@@ -530,13 +522,13 @@ const ProfilePage: React.FC = () => {
                                 ) : (
                                     <div>
                                         <Button 
-                                            className="me-2 profile-edit-btn"
+                                            className="me-2 btn btn-teal"
                                             onClick={() => setIsEditing(true)}
                                         >
                                             Edit Profile
                                         </Button>
                                         <Button 
-                                            className="btn appointment-grid-btn-delete"
+                                            className="btn btn-delete"
                                             onClick={() => setShowDeleteModal(true)}
                                         >
                                             Delete Account
@@ -565,7 +557,7 @@ const ProfilePage: React.FC = () => {
                                         Cancel
                                     </Button>
                                     <Button 
-                                        className="btn appointment-grid-btn-delete"
+                                        className="btn btn-delete"
                                         onClick={handleDeleteAccount}
                                         disabled={isDeleting}
                                     >

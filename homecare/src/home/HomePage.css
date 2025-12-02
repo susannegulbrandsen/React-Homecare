@@ -1,53 +1,56 @@
 /*styles for homepage*/
 
-.homepage-container {
+.homepage-container { /* Overall padding for homepage */
   padding-top: 2.5rem;
   padding-bottom: 2.75rem;
 }
 
-.homepage-title {
+.homepage-title { /* Main title on homepage */
   color: #111827;
   font-size: 2.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.04em; /* slight spacing for elegance */
 }
 
-.homepage-description {
+.homepage-description { /* Subtitle / description text */
   max-width: 60ch;
   margin: 0 auto 1.75rem auto;
-  color: #374151;
+  color: #374151; /* softer text color */
   font-size: 1.1rem;
-  line-height: 1.7;
-  padding: 0 1rem;
+  line-height: 1.7; /* increased line height for readability */
+  padding: 0 1rem; /* horizontal padding on small screens */
 }
 
-.homepage-main-section {
+.homepage-main-section { /* Main action section styling */
   padding-top: 1.5rem;
   padding-bottom: 2.5rem;
 }
 
+/* Section titles on homepage */
 .homepage-section-title {
   color: #111827;
   font-size: 1.7rem;
 }
 
+/* Container for action buttons */
 .homepage-action-button {
-  background-color: #177e8b;
-  border-color: #177e8b;
-  border-radius: 12px;
-  height: 130px;
+  min-height: 130px;
   max-width: 340px;
   min-width: 260px;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
-.homepage-action-button:hover {
-  background-color: transparent !important;
-  color: #177e8b !important;
+/* Note: Homepage buttons use .btn-teal from design-system.css for colors */
+
+/* Remove bottom margin on larger screens where buttons are side-by-side */
+@media (min-width: 768px) {
+  .homepage-action-button {
+    margin-bottom: 0;
+  }
 }
 
 .homepage-button-text {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.3rem; /* larger for welcome page buttons */
+  font-weight: 600; /* slightly reduced bold for home page buttons */
   text-align: center;
 }

@@ -1,7 +1,4 @@
-/* Crimson error text from MedicationCreatePage */
-.error-text {
-  color: crimson;
-}
+c/* Note: .error-text is now defined in design-system.css to avoid duplication */
 
 /* Title in MedicationListPage  */
 .page-title {
@@ -45,11 +42,6 @@
   font-size: 1.1rem;
 }
 
-/* Generic red error replacement  */
-.error-red {
-  color: red;
-}
-
 /* Table scroll wrapper */
 .table-scroll {
   width: 100%;
@@ -57,10 +49,6 @@
 }
 
 /* Table header background */
-.table-header {
-  background-color: #177e8b !important;
-  color: white !important;
-}
 
 /* Max width container for update page  */
 .update-container {

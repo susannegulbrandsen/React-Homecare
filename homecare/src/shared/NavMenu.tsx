@@ -62,13 +62,13 @@ const NavMenu: React.FC = () => {
             className="fw-bold d-flex align-items-center lifelink-navbar-brand"
           >
             <span className="lifelink-logo-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-                {/* Hus – litt løftet inni hjertet */}
+              <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+                {/* House – a little lifted inside heart */}
                 <path
                   d="M16 32 L32 16 L48 32 V48 H40 V36 H24 V48 H16 Z"
                   className="lifelink-logo-house"
                 />
-                {/* Bredt, tydelig hjerte rundt huset – litt lavere */}
+                {/* Broad, clear heart around the house – slightly lower */}
                 <path
                   d="
                     M32 8
@@ -97,8 +97,9 @@ const NavMenu: React.FC = () => {
                   variant="outline-secondary"
                   onClick={handleNotificationClick}
                   className="position-relative me-2 lifelink-bell-btn"
+                  aria-label={`Notifications${unreadCount > 0 ? `, ${unreadCount} unread` : ''}`}
                 >
-                  <i className="bi bi-bell lifelink-bell-icon"></i>
+                  <i className="bi bi-bell lifelink-bell-icon" aria-hidden="true"></i>
                   {unreadCount > 0 && (
                     <Badge
                       bg="danger"
@@ -239,6 +240,7 @@ const NavMenu: React.FC = () => {
                         variant="outline-secondary"
                         type="submit"
                         className="lifelink-search-button"
+                        aria-label="Search"
                       >
                         ⌕
                       </Button>
@@ -268,7 +270,7 @@ const NavMenu: React.FC = () => {
                     className="text-decoration-none d-none d-lg-block lifelink-welcome-link"
                   >
                     <span className="text-muted lifelink-welcome-text">
-                      Welcome, {user.username}
+                      Welcome,<br />{user.username}
                     </span>
                   </Link>
 
@@ -284,7 +286,7 @@ const NavMenu: React.FC = () => {
               ) : (
                 // Not logged in state
                 <>
-                  <Link to="/login" className="me-3">
+                  <Link to="/login">
                     <Button
                       variant="outline-primary"
                       className="lifelink-auth-btn"
@@ -295,7 +297,6 @@ const NavMenu: React.FC = () => {
                   <Link to="/register">
                     <Button
                       variant="outline-primary"
-                      size="lg"
                       className="lifelink-auth-btn"
                     >
                       Register
