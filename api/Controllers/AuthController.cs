@@ -50,7 +50,7 @@ namespace HomeCareApp.Controllers
             if (existingUserByEmail != null)
             {
                 _logger.LogWarning("[AuthController] Registration failed - email already in use: {Email}", registerDto.Email);
-                return BadRequest(new { message = "This email is already in use" });
+                return BadRequest("This email is already in use");
             }
 
             // Check if username is already in use
@@ -58,7 +58,7 @@ namespace HomeCareApp.Controllers
             if (existingUserByUsername != null)
             {
                 _logger.LogWarning("[AuthController] Registration failed - username already in use: {Username}", registerDto.Username);
-                return BadRequest(new { message = "This username is already in use" });
+                return BadRequest("This username is already in use");
             }
 
             var user = new AuthUser
@@ -157,7 +157,7 @@ namespace HomeCareApp.Controllers
                 if (duplicatePhone != null)
                 {
                     _logger.LogWarning("[AuthController] Profile creation failed - phone number already in use: {PhoneNumber}", profileDto.phonenumber);
-                    return BadRequest(new { message = "This phone number is already in use" });
+                    return BadRequest("This phone number is already in use");
                 }
             }
 
