@@ -9,58 +9,62 @@
 .notification-mark-all-button {
   font-size: 0.9rem;
 }
-
+/* Loading spinner color */
 .notification-loading-spinner {
   color: var(--teal-primary);
 }
 
+/* Individual notification card */
 .notification-card {
   margin-bottom: 1rem;
   cursor: pointer;
 }
-
+/* Different background for read vs unread */
 .notification-card-unread {
   background-color: #f8f9ff;
 }
-
+/* Background for read notifications */
 .notification-card-read {
   background-color: white;
 }
-
+/* Notification item title */
 .notification-item-title {
   color: var(--teal-primary);
   margin-bottom: 0.25rem;
 }
 
+/* Bold vs normal title */
 .notification-item-title-bold {
   font-weight: bold;
 }
-
+/* Normal weight title */
 .notification-item-title-normal {
   font-weight: normal;
 }
 
+/* New badge for unread notifications */
 .notification-new-badge {
   font-size: 0.7rem;
 }
 
+/* Notification message text */
 .notification-message-bold {
   font-weight: 500;
   font-size: 1.1rem;
   margin-bottom: 0;
 }
-
+/* Normal weight message text */
 .notification-message-normal {
   font-weight: normal;
   font-size: 1.1rem;
   margin-bottom: 0;
 }
-
+/* Notification type badge */
 .notification-type-badge {
   font-size: 0.8rem;
   margin-top: 0.5rem;
 }
-
+/* Action button within notification */
 .notification-action-button {
   font-size: 0.8rem;
 }
