@@ -120,6 +120,25 @@ h2.text-teal,
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
 }
+/* Normalize Bootstrap primary to LifeLink teal globally */
+.btn-primary {
+  background-color: var(--teal-primary);
+  border-color: var(--teal-primary);
+  color: #ffffff;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0f6f7c; /* darker teal on hover/focus */
+  border-color: #0f6f7c;
+  color: #ffffff;
+}
+.btn-primary:active,
+.btn-primary:active:focus,
+.btn-primary:focus:active {
+  background-color: var(--teal-primary);
+  border-color: var(--teal-primary);
+  color: #ffffff;
+}
 
 /* Hover and focus states for teal buttons + disabled styling */
 .btn-teal:hover,

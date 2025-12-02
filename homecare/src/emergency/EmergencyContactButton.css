@@ -72,3 +72,13 @@
   background-color: #0f6f7c; /* Darker teal on hover */
   border-color: #0f6f7c; /* Darker teal border on hover */
 }
+
+/* Keep teal on press; prevent blue flash */
+/* Prevent brief blue flash on actual click for Bootstrap primary variant */
+.btn.btn-primary.lifelink-emergency-call-btn:active,
+.btn.btn-primary.lifelink-emergency-call-btn:active:focus,
+.btn.btn-primary.lifelink-emergency-call-btn:focus:active {
+  background-color: var(--teal-primary);
+  border-color: var(--teal-primary);
+  color: #ffffff;
+}
