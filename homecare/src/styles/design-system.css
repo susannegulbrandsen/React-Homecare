@@ -1,10 +1,11 @@
-/* ===================================
+/*
+  Bootstrap primary is mapped to LifeLink teal.
+  Prefer using .btn-teal for buttons.
+
    LIFELINK DESIGN SYSTEM
    Centralized color and component styling
-   IMPORTANT: Use only external CSS - NO inline styles!
-   =================================== */
+   */
 
-/* ----- CSS VARIABLER ----- */
 :root {
   /* Primary Teal Colors - EXACT SAME COLOR EVERYWHERE */
   --teal-primary: #177e8b;
@@ -70,7 +71,7 @@
   --transition-slow: 300ms ease;
 }
 
-/* ----- REUSABLE UTILITY CLASSES ----- */
+/*  REUSABLE UTILITY CLASSES */
 
 /* Teal background */
 .bg-teal {

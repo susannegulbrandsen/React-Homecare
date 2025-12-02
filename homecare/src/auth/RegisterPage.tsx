@@ -16,7 +16,9 @@ const RegisterPage: React.FC = () => {
     const navigate = useNavigate();
 
     //Update form data state on input change
-        const handleChange = (e: React.ChangeEvent<any>) => {
+        const handleChange = (
+            e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+        ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
