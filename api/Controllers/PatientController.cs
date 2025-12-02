@@ -105,7 +105,7 @@ public class PatientController : ControllerBase
             {
                 _logger.LogWarning("[PatientController] Phone number already in use: {PhoneNumber} by patient {DuplicatePatientId}", 
                     dto.phonenumber, duplicatePhone.PatientId);
-                return BadRequest(new { message = "This phone number is already in use" });
+                return BadRequest("This phone number is already in use");
             }
         }
 
