@@ -12,6 +12,7 @@ JWT authentication
 Axios
 
 Backend: 
+Node.js 22.19.0
 .NET 8 Web Api
 Entity Framework Core 8
 Framework Core Tools 10.0.0
@@ -135,13 +136,9 @@ Notifications
 
 
 # KNOWN ISSUES TO FIX
-BUG:
 Further recommended security hardening and future improvements are described in the project documentation
 
 
 
 # CONTRIBUTORS
 Candidatenumber: 142, 169, 127 and 254 
-
-
-
