@@ -30,8 +30,7 @@ const AppointmentUpdatePage: React.FC = () => { // Component for updating an app
 
   // Handle appointment update
   const handleAppointmentUpdated = async (appointment: Appointment) => {
-    const data = await AppointmentService.updateAppointment(Number(appointmentId), appointment);
-    console.log('Appointment updated successfully:', data);
+    await AppointmentService.updateAppointment(Number(appointmentId), appointment);
     navigate('/appointments'); // Navigate back after successful creation
   }
 

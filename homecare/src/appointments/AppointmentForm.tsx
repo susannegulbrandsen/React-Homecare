@@ -101,8 +101,29 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
     event.preventDefault();
     setFormError(null);
     
-    // Prevent submission if date is missing or in the past (compared to now)
-    if (!date || new Date(date) < new Date()) {
+    // Prevent submission if date is missing
+    if (!date) {
+      setFormError('Appointment date or time is invalid');
+      return;
+    }
+    
+    const selectedDate = new Date(date);
+    const currentDate = new Date();
+    
+    // Check if date is valid
+    if (isNaN(selectedDate.getTime())) {
+      setFormError('Appointment date or time is invalid');
+      return;
+    }
+    
+    // Prevent dates before 2025
+    if (selectedDate.getFullYear() < 2025) {
+      setFormError('Appointment date or time is invalid');
+      return;
+    }
+    
+    // Prevent submission if date is in the past
+    if (selectedDate < currentDate) {
       setFormError('Appointment date or time is invalid');
       return;
     }
