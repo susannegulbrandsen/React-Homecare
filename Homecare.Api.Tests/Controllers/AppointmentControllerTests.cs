@@ -123,7 +123,7 @@ namespace Homecare.Api.Tests.Controllers
 
         // Negative: returns NotFound when no appointments exist
         [Fact]
-        public async Task GetAppointments_ReturnsNotFound_WhenNoAppointmentsExist()
+        public async Task GetAppointments_ReturnsOk_WithEmptyList_WhenNoAppointmentsExist()
         {
             // Arrange
             _appointmentRepoMock
@@ -134,8 +134,9 @@ namespace Homecare.Api.Tests.Controllers
             var result = await _controller.GetAppointments();
 
             // Assert
-            var notFoundResult = Assert.IsType<NotFoundObjectResult>(result.Result);
-            Assert.Equal("Appointment list not found", notFoundResult.Value);
+            var okResult = Assert.IsType<OkObjectResult>(result.Result);
+            var dtos = Assert.IsAssignableFrom<IEnumerable<AppointmentDto>>(okResult.Value);
+            Assert.Empty(dtos);
         }
 
         // ------------------- GET BY ID -------------------
