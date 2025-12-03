@@ -136,7 +136,7 @@ const AppointmentListPage: React.FC = () => {
   return (
     <div className="container-fluid">
       <div className="appointment-page-header text-center mb-3">
-        <h1 className="appointment-page-title fw-bold text-teal">My Appointments</h1>
+        <h1 className="appointment-page-title fw-bold text-teal">Appointments</h1>
         <p className="appointment-page-description mb-2">View and manage your healthcare appointments</p>
       </div>
 
