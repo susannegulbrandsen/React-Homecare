@@ -87,6 +87,18 @@ npm run dev
 
 frontend runs at:  http://localhost:5173/
 
+UNIT TESTING (Backend)
+
+The project includes a dedicated test project: /Homecare.Api.Tests
+The group implemented server-side unit tests for the AppointmentController using xUnit and Moq.
+The test suite includes both positive and negative scenarios for all CRUD operations.
+In total, 17 tests were created, covering validation rules, repository failures, correct HTTP responses, and authorization behavior through mocked user claims.
+These tests ensure stable and predictable API behavior across all meaningful scenarios.
+
+RUNNING THE UNIT TESTS
+cd Homecare.Api.Tests
+dotnet test
+
 FEATURES
 
 Patients:
@@ -105,7 +117,7 @@ Appointments
 
 Authentication and roles:
 - JWT-based login
-- Two roles: Patient andemployee
+- Two roles: Patient and employee
 - Role-based UI and API access based on the role claim in the JWT
 
 Security configuration (backend)
@@ -118,6 +130,7 @@ Security configuration (backend)
 - Separate development JWT configuration in appsettings.Development.json with a clear “dev only” dummy key plus issuer and audience, so the project runs locally without extra setup.
 
 - Strict JWT validation in Program.cs (issuer, audience, lifetime, signing key and claim handling) to ensure only valid tokens can access the API.
+
 
 Notifications
 - CRUD
