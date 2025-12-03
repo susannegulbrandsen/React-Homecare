@@ -22,13 +22,13 @@ public class AppointmentController : ControllerBase
         _logger = logger;
     }
 
-    //Get all appointments and returns a list of appointments//
+    //Get all appointments and returns a list of appointments
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppointmentDto>>> GetAppointments()
     {
-        //Find appointment list
+        //Retrieve all appointments: if the list is empty, return NotFound
         var appointments = await _appointmentRepository.GetAll();
-        if (appointments == null)
+        if (!appointments.Any())
         {
             _logger.LogError("[AppointmentController] Appointment list not found while executing _appointmentRepository.GetAll()");
             return NotFound("Appointment list not found");
@@ -41,7 +41,7 @@ public class AppointmentController : ControllerBase
         return Ok(appointmentDtos);
     }
 
-    //Get appointments by patient id and returns a list of appointments for that patient//
+    //Get appointments by patient id and return a list for that patient
     [HttpGet("patient/{patientId}")]
     [Authorize]
     public async Task<IActionResult> GetAppointmentsByPatientId(int patientId)
@@ -56,7 +56,7 @@ public class AppointmentController : ControllerBase
         return Ok(appointmentDtos);
     }
 
-    //Get single appointment by id//
+    //Get a single appointment by id
     [HttpGet("{id}")]
     public async Task<ActionResult<AppointmentDto>> GetAppointmentById(int id)
     {
@@ -72,7 +72,7 @@ public class AppointmentController : ControllerBase
         return Ok(appointmentDto);
     }
     
-    //Create a new appointment//
+    //Create a new appointment
     [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] AppointmentDto appointmentDto)
@@ -116,7 +116,7 @@ public class AppointmentController : ControllerBase
 
 
 
-    //Update an existing appointment by id//
+    //Update an existing appointment by id
     [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] AppointmentDto appointmentDto)
@@ -138,8 +138,8 @@ public class AppointmentController : ControllerBase
             return NotFound("Appointment not found");
         }
         
-        // Check if the person updating is the patient who owns this appointment
-        // We get the current user's ID from the JWT token claims
+        // Check if the user updating is the patient who owns this appointment
+        // The current user ID is retrieved from the JWT token claims
         var currentUserId = User.FindFirst("sub")?.Value ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
         bool isPatientUpdate = !string.IsNullOrEmpty(currentUserId) && existingAppointment.Patient?.UserId == currentUserId;
         
