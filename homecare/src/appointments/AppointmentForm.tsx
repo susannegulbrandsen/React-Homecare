@@ -187,7 +187,6 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
             required
             min={minDateTime}
           />
-          {formError && <div className="form-error">{formError}</div>}
       </Form.Group>
 
       {/* Optional free-text description of the appointment */}
@@ -241,6 +240,9 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({
           ))}
         </Form.Control>
       </Form.Group>
+
+    
+      {formError && <div className="form-error">{formError}</div>}
 
       {/* Submit and cancel buttons – wrapped with extra top spacing */}
       <div className="mt-4 d-flex">
